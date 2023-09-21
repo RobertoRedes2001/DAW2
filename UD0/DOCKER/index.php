@@ -1,10 +1,19 @@
 <html>
     <body>
             <?php
-                $nombre = "Hola";
-                $ini = $nombre[1];
-                //Muestra un "Hola" por pantalla
-                print ($ini." "."a todos");
+            include("./CLASES/persona.php");
+            include("./CLASES/estudiante.php");
+            include("./CLASES/figura.php");
+            include("./CLASES/circulo.php");
+
+            
+               /*  $roberto = new Estudiante("Roberto","22","DAW2");
+                $roberto->saludar();
+                echo "<h1>".$roberto->getCurso()."</h1>";
+                $roberto->setCurso("DAM2");
+                $roberto->estudiar(); */
+            $cir = new Circulo("Azul",50);
+            echo $cir->calcularArea();
             ?>
     </body>
 </html>
