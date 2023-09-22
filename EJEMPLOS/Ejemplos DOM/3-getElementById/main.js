@@ -1,0 +1,1 @@
+document.getElementById("parrafoUno").innerHTML = "Párrafo Seleccionado";

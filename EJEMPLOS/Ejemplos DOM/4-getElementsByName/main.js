@@ -1,0 +1,1 @@
+document.getElementsByName("contenido")[0].innerHTML = "Elemento cambiado";

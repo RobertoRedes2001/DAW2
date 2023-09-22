@@ -1,0 +1,1 @@
+document.getElementsByTagName("img")[0].src = "./src/logo.jpg";
