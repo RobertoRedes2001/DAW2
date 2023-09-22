@@ -1,0 +1,27 @@
+Proximidad
+
+La pagina cuenta con cierto grado de proximidad ya que la mayoria de elementos estan separados por espacios blancos que generan esta sensacion. Tras analizar a fondo el website, se puede apreciar en algunas de las zonas como esta tecnica se repite sobre todo en lugares con elementos encapsulados en cajas.
+
+Semejanza
+
+La pagina cuenta con elementos que poseen un diseño muy parecido, ya sea en varias de las fotos de exposicion que estan hechas de una manera para asemejarse las unas a las otras, o por como estan distribuidos los elementos coloridos alrededor de esta.
+
+Simetría
+
+Los elementos de la pagina estan distribuidos de una manera simetrica, ya que al revisarla, se puede apreciar como la composicion esta nivelada de manera que todos estos componentes con divs, fotos o textos cuentan con una misma estructura de distribucion entre ellos.
+
+Continuidad
+
+No se ha encontrado continuidad en la pagina.
+
+Cierre
+
+La página cuenta con una barra de navegación la cual hace de encabezado, y al final de la misma encontramos un bloque con información extra, el cual sirve de footer, que indica el final de la pagina dando cierre a esta.
+
+Figura-Fondo
+
+Los elementos interactuables en la pagina son perfectamente distinguibles del fondo, a pesar de que no tienen la mejor visibilidad con un fondo colorido.
+
+Simplicidad
+
+La pagina cuenta con muchos elementos faciles de asociar a su funcionalidad, además de que el diseño perse es bastante agradable y en cierta forma, minimalista. Esto hace que se sienta la simplicidad del diseño al navegar por la pagina.

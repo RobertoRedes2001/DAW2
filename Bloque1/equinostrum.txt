@@ -1,0 +1,27 @@
+Proximidad
+
+No se ha hallado proximidad en la pagina.
+
+Semejanza
+
+Los elementos siguen un patrón de diseño para ser reconocibles de forma sencilla. Esto ocasiona que la informacion este distribuida de manera parecida, creando así la sensacion semejanza.
+
+Simetria
+
+La composicion de los elementos en la pagina cuenta con cierta simetria, ya que al revisar los listados de productos, se comprueba que siguen una estructura igual, y se dividen en subgrupos de manera simetrica.
+
+Continuidad
+
+El cambio constante entre colores al navegar por la pagina incita a que el usuario siga navegando, conectando elementos de forma que en la web se pueda pueda intuir facilmente como navegar por esta, creando así una sensacion de continuidad.
+
+Cierre
+
+La página cuenta con una barra de navegación la cual hace de encabezado, y al final de la misma encontramos un bloque con información extra, el cual sirve de footer, que indica el final de la pagina dando cierre a esta.
+
+Figura-Fondo
+
+En la pagina los elementos destacados se pueden distinguir con facilidad contrastando con el fondo, cumpliendo de esta manera lo necesario para poder obtener el efecto de "figura-fondo", tal como los botones, que al interactuar con ellos, se tornan en un color más vivaz o las cajas de texto, que no se mezclan con el fondo, si no que son su propio componente.
+
+Simplicidad
+
+La pagina no cuenta con un diseño simple.
