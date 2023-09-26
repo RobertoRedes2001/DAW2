@@ -1,27 +1,21 @@
 let modal = document.getElementsByClassName("modal")[0];
 
 for (let i = 1; document.getElementsByTagName("img").length > i; i++) {
-  document
-    .getElementsByTagName("img")
-    [i].addEventListener("mouseenter", function (event) {
+  document.getElementsByTagName("img")[i].addEventListener("mouseenter", function (event) {
       if (event.type === "mouseenter") {
         this.style.opacity = 0.5;
       } else {
         this.style.opacity = 1;
       }
     });
-  document
-    .getElementsByTagName("img")
-    [i].addEventListener("mouseout", function (event) {
+  document.getElementsByTagName("img")[i].addEventListener("mouseout", function (event) {
       if (event.type === "mouseenter") {
         this.style.opacity = 0.5;
       } else {
         this.style.opacity = 1;
       }
     });
-  document
-    .getElementsByTagName("img")
-    [i].addEventListener("click", function () {
+  document.getElementsByTagName("img")[i].addEventListener("click", function () {
       modal.classList.toggle("show-modal");
       switch (i) {
         case 1:
@@ -52,8 +46,6 @@ for (let i = 1; document.getElementsByTagName("img").length > i; i++) {
   });
 }
 
-document
-  .getElementsByClassName("close-button")[0]
-  .addEventListener("click", function () {
+document.getElementsByClassName("close-button")[0].addEventListener("click", function () {
     modal.classList.toggle("show-modal");
   });

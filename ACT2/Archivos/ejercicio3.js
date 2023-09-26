@@ -7,6 +7,6 @@ let checkStatus = (event) => {
 }
 
 
-document.getElementsByClassName("header")[0].addEventListener("mouseout", checkStatus);
+document.getElementsByTagName("h1")[0].addEventListener("mouseout", checkStatus);
 
-document.getElementsByClassName("header")[0].addEventListener("mouseover", checkStatus);
+document.getElementsByTagName("h1")[0].addEventListener("mouseover", checkStatus);
