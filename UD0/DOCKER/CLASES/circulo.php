@@ -1,6 +1,6 @@
 <?php
 
-class Circulo extends Figura{
+class Circulo implements Forma{
     
     private $radio;
 
@@ -8,13 +8,12 @@ class Circulo extends Figura{
         return $this->radio;
     }
 
-    public function __construct($color, $radio){
-        parent::__construct($color);
+    public function __construct($radio){
         $this->radio=$radio;
     }
 
     public function calcularArea(){
-        echo"calculando";   
+        echo"calculando: ";   
         return pi() *pow($this->radio,2);
     }
 }
