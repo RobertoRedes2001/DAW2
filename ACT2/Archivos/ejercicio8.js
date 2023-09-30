@@ -1,10 +1,10 @@
 let imagenes = [
-    '/ACT2/Archivos/src/postres/Flan con huevo.jpg',
-    '/ACT2/Archivos/src/postres/Flan con nata.jpg',
-    '/ACT2/Archivos/src/postres/Tarta de manzana.jpg',
-    '/ACT2/Archivos/src/postres/Tarta de queso.jpg',
-    '/ACT2/Archivos/src/postres/Tarta de zanahoria.jpg',
-    '/ACT2/Archivos/src/postres/Tiramisu.jpg'
+    'src/postres/Flan con huevo.jpg',
+    'src/postres/Flan con nata.jpg',
+    'src/postres/Tarta de manzana.jpg',
+    'src/postres/Tarta de queso.jpg',
+    'src/postres/Tarta de zanahoria.jpg',
+    'src/postres/Tiramisu.jpg'
 ];
 
 let pos = 0;
