@@ -12,6 +12,8 @@
                 include("./ACTIVIDADES/ACT2/EmpleadoTrabajador.php");
                 include("./ACTIVIDADES/ACT2/Gerente.php");
                 include("./ACTIVIDADES/ACT2/Cuadrado.php");
+                include("./ACTIVIDADES/ACT2/ClaseBills.php");
+                include("./ACTIVIDADES/ACT2/Calculadora.php");
 
                 $cab = new CabeceraPagina("ACTIVIDADES","center","red","blue");
                 $cab->encabezado();
@@ -48,7 +50,8 @@
                     $encabezados,$primeraCelda,$segundaCelda
                 );
                 $tabla = new Tabla(3,3);
-                $tabla->crearTabla($celdas);
+                //$tabla->crearTabla($celdas);
+                $tabla->modificarTabla($celdas,2,1,'Menea','pink','yellow');
                 echo "<br>";
                 echo "<br>";
                 $per = new Persona("Roberto");
@@ -77,6 +80,22 @@
                 echo "<br>";
                 $per = new Persona("Carlos");
                 $per->saludar();
+                echo "<br>";
+                echo "<br>";
+                $bills = new Beerus();
+                echo "<br>";
+                unset($bills);
+                echo "<br>";
+                echo "<br>";
+                $calculadora = new Calculadora();
+                $calculadora->sumar(1,4);
+                echo "<br>";
+                $calculadora->restar(3,1);
+                echo "<br>";
+                $calculadora->multiplicar(5,2);
+                echo "<br>";
+                $calculadora->dividir(10,2);
+                
             ?>
     </body>
 </html>

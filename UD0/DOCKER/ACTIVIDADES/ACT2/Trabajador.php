@@ -5,6 +5,13 @@ abstract class Trabajador{
     private $nombre;
     private $sueldo;
 
+    public function getNombre(){
+        return $this->nombre;
+    }
+
+    public function getSueldo(){
+        return $this->sueldo;
+    }
 
     //Metodo constructor
     public function __construct($nombre, $sueldo){

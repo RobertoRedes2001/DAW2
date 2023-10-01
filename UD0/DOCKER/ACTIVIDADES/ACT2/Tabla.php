@@ -22,6 +22,10 @@ class Celda{
     public function crearCelda(){
         echo "<td bgcolor='$this->backgroundColor' style='color:$this->colorText'>{$this->text}</td>";
     }
+
+    public function modCelda($txt,$col,$back){
+        echo "<td bgcolor='$back' style='color:$col'>{$txt}</td>";
+    }
 }
 
 class Tabla{
@@ -48,6 +52,21 @@ class Tabla{
         echo "</Table>";
     }
 
+    public function modificarTabla($contenidos,$x,$y,$text,$color,$background){
+        echo "<Table border=1>";
+        for($i=0;$i<$this->columnas;$i++){
+            echo "<tr>";
+            for($j=0;$j<$this->filas;$j++){
+                if($i==$x&&$j==$y){
+                    $contenidos[$i][$j]->modCelda($text,$color,$background);
+                }else{
+                    $contenidos[$i][$j]->crearCelda();
+                }
+            }
+            echo "</tr>";
+        }
+        echo "</Table>";
+    }
 };
 
 ?>
