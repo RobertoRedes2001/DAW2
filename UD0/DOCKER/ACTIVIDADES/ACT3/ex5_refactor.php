@@ -46,31 +46,38 @@ class ElectronicDuck extends Duck
     }
 }
 
+class DuckManager
+{
+    public function quack(Duck $duck)
+    {
+        $duck->quack();
+    }
+
+    public function swim(Duck $duck)
+    {
+        $duck->swim();
+    }
+}
+
 class Pool
 {
-    function __construct()
+    private $duckManager;
+
+    public function __construct()
     {
-        $this->run();
+        $this->duckManager = new DuckManager();
     }
+
     public function run()
     {
         $donaldDuck = new Duck();
         $electricDuck = new ElectronicDuck();
-        $this->quack([$donaldDuck, $electricDuck]);
-        $this->swim([$donaldDuck, $electricDuck]);
-    }
+        
+        $this->duckManager->quack($donaldDuck);
+        $this->duckManager->swim($donaldDuck);
 
-    private function quack(array $ducks)
-    {
-        foreach ($ducks as $duck) {
-            $duck->quack();
-        }
-    }
-
-    private function swim(array $ducks)
-    {
-        foreach ($ducks as $duck) {
-            $duck->swim();
-        }
+        $electricDuck->turnOn();
+        $this->duckManager->quack($electricDuck);
+        $this->duckManager->swim($electricDuck);
     }
 }

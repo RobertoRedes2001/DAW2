@@ -2,8 +2,8 @@
 
 class Rectangle
 {
-    protected $width;
-    protected $height;
+    private $width;
+    private $height;
 
     public function getWidth()
     {
@@ -31,17 +31,12 @@ class Rectangle
     }
 }
 
-class Square extends Rectangle
+class Square 
 {
-    public function setWidth($width)
-    {
-        $this->width = $width;
-        $this->height = $width;
-    }
+    private $side;
 
-    public function setHeight($height)
+    public function getArea()
     {
-        $this->height = $height;
-        $this->width = $height;
+        return $this->side * 2;
     }
 }
