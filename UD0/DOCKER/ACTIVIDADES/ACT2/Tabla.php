@@ -15,14 +15,17 @@ class Celda{
     }
 
     //Metodo
+    //Crea una celda <TH> de la tabla
     public function crearEncabezado(){
         echo "<th bgcolor='$this->backgroundColor' style='color:$this->colorText'>{$this->text}</th>";
     }
 
+    //Crea una celda <TD> de la tabla
     public function crearCelda(){
         echo "<td bgcolor='$this->backgroundColor' style='color:$this->colorText'>{$this->text}</td>";
     }
 
+    //En base a unos parametros, crea una celda personalizada
     public function modCelda($txt,$col,$back){
         echo "<td bgcolor='$back' style='color:$col'>{$txt}</td>";
     }
@@ -40,6 +43,8 @@ class Tabla{
     }
 
     //Metodo
+    /*Crea una tabla con la informacion de un array de celdas tomando 
+    como referencia el numero de las columnas y filas*/
     public function crearTabla($contenidos){
         echo "<Table border=1>";
         for($i=0;$i<$this->columnas;$i++){
@@ -52,6 +57,9 @@ class Tabla{
         echo "</Table>";
     }
 
+    /*Crea una tabla con la informacion de un array de celdas,
+    pero modifica una celda en concreto con la informacion pasada
+    por parametro*/
     public function modificarTabla($contenidos,$x,$y,$text,$color,$background){
         echo "<Table border=1>";
         for($i=0;$i<$this->columnas;$i++){

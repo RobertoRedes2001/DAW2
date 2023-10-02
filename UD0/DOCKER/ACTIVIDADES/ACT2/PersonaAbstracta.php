@@ -1,5 +1,6 @@
 <?php
 
+//Version Abstracta de la clase persona 
 abstract class PersonaAbstracta{
     //Propiedades
     private $nombre;

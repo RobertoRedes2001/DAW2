@@ -1,6 +1,4 @@
 <?php
-    
-    //Calcula el factorial de un numero (x)
     function calcularFactorial($x){
         $factorial=1;
         for($i=$x;$i>0;$i--){
@@ -9,7 +7,6 @@
         return $factorial;
     }
 
-    //Genera 1 numero aleatorio (entre el 1 y el 10) al que calcularle el factorial
     $n1 = calcularFactorial(random_int(1,10));
     $n2 = calcularFactorial(random_int(1,10));
     $n3 = calcularFactorial(random_int(1,10));
@@ -26,7 +23,6 @@
         3 => $n3,
     );
 
-    //Selecciona el valor maximo/minimo del array
     $minVal=min($array);
     $maxVal=max($array);
 

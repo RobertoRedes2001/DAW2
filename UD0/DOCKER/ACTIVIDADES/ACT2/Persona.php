@@ -20,10 +20,12 @@ class Persona{
     //Metodo constructor
     public function __construct($nombre){
         $this->nombre=$nombre;
+        //Cada vez que se instancia un objeto la edad aumenta en 1
         self::$edad++;
     }
 
     //Metodo
+    //Devuelve la informacion proporcionada por constructor
     public function saludar(){
         echo "Hola, soy {$this->nombre} y tengo {$this->getEdad()} años.";
     }

@@ -11,6 +11,7 @@ class OtroEmpleado extends PersonaAbstracta{
     }
 
     //Metodo
+    //Devuelve la informacion proporcionada por constructor
     public function saludar()
     {
         echo "Nombre: {$this->getNombre()}"; 
@@ -20,6 +21,7 @@ class OtroEmpleado extends PersonaAbstracta{
         echo "Sueldo: $this->sueldo"; 
     }
 
+    //Devuelve el sueldo
     public function miSueldo(){
         echo "Sueldo: $this->sueldo";
     }

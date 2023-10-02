@@ -13,6 +13,7 @@ class Gerente extends Trabajador{
     }
 
     //Metodo
+    //Retorna el sueldo en base a las horas trabajadas + 10% adicional
     public function calcularSueldo()
     {
         $sueldo = $this->valorHoras*$this->horasTrabajadas;

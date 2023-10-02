@@ -20,6 +20,7 @@ abstract class Trabajador{
     }
 
     //Metodo
+    //Metodo abstracto que usara otra clase que herede de Trabajador
     public function calcularSueldo(){
         
     }

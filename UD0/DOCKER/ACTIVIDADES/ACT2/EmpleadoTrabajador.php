@@ -1,5 +1,6 @@
 <?php
 
+//Hereda de Trabajador
 class EmpleadoTrabajador extends Trabajador{
     //Propiedades
     private $horasTrabajadas;
@@ -13,6 +14,7 @@ class EmpleadoTrabajador extends Trabajador{
     }
 
     //Metodo
+    //Retorna el sueldo en base a las horas trabajadas
     public function calcularSueldo()
     {
         return $this->valorHoras*$this->horasTrabajadas;
