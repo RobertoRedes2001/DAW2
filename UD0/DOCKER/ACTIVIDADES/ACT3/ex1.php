@@ -54,4 +54,11 @@ class Employee
     }
 }
 
+// Crear un objeto Employee antes de la refactorización
+$leavesLeftPreviously = [10, 8, 12]; // Días de vacaciones acumulados en años anteriores
+$employee = new Employee(123, 5000, "John Manager", "Alice", 5, $leavesLeftPreviously);
+
+// Imprimir la representación HTML
+echo  $employee->toHtml();
+
 ?>

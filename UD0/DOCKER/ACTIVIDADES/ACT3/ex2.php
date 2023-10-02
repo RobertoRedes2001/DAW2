@@ -72,3 +72,5 @@ class CarManager
         return $bestCar;
     }
 }
+
+?>
