@@ -1,17 +1,7 @@
 <html>
     <body>
             <?php
-                include("./SOLID/solid_dip.php");
-                include("./SOLID/solid_isp.php");
-                include("./SOLID/solid_lsp.php");
-                include("./SOLID/solid_ocp.php");
-                include("./SOLID/solid_srp.php");
-                include("./SOLID/solid_dip_refactor.php");
-                include("./SOLID/solid_isp_refactor.php");
-                include("./SOLID/solid_lsp_refactor.php");
-                include("./SOLID/solid_ocp_refactor.php");
-                include("./SOLID/solid_srp_refactor.php");
-                include("./SOLID/solid_isp_refactor_adapter.php");
+             
             ?>
     </body>
 </html>
