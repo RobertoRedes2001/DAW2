@@ -1,59 +1,50 @@
 <?php
 
-interface Shape
+abstract class Shape
 {
-    public function calculateArea();
-    public function getType();
-    public function draw();
+    protected ShapeType $shapeType;
+
+    public function getType()
+    {
+        return $this->shapeType;
+    }
 }
 
-class Circle implements Shape
+abstract class ShapeType
+{
+    const CIRCLE = 0;
+    const SQUARE = 1;
+}
+
+class Circle extends Shape
 {
     private $radius;
 
-    public function __construct($radius)
+    public function Circle($radius)
     {
+        $this->shapeType = ShapeType::CIRCLE;
         $this->radius = $radius;
     }
 
-    public function calculateArea()
+    public function getRadius()
     {
-        return pi() * $this->radius * $this->radius;
-    }
-
-    public function getType()
-    {
-        return "Circle";
-    }
-
-    public function draw()
-    {
-        // Lógica para dibujar un círculo
+        return $this->radius;
     }
 }
 
-class Square implements Shape
+class Square extends Shape
 {
     private $side;
 
-    public function __construct($side)
+    function __construct($side)
     {
+        $this->shapeType = ShapeType::SQUARE;
         $this->side = $side;
     }
 
-    public function calculateArea()
+    public function getSide()
     {
-        return $this->side * $this->side;
-    }
-
-    public function getType()
-    {
-        return "Square";
-    }
-
-    public function draw()
-    {
-        // Lógica para dibujar un cuadrado
+        return $this->side;
     }
 }
 
@@ -63,8 +54,22 @@ class AreaCalculator
     {
         $area = 0;
         foreach ($shapes as $shape) {
-            $area += $shape->calculateArea();
+            if ($shape->getType() == ShapeType::SQUARE) {
+                $area += $this->calculateSquareArea($shape);
+            } else if ($shape->getType() == ShapeType::CIRCLE) {
+                $area += $this->calculateCircleArea($shape);
+            }
         }
-        echo "Total area = " . $area;
+        echo "total area = " . $area;
+    }
+
+    public function calculateSquareArea(Square $square)
+    {
+        return $square->getSide() * $square->getSide();
+    }
+
+    public function calculateCircleArea(Circle $circle)
+    {
+        return pi() * $circle->getRadius() * $circle->getRadius();
     }
 }

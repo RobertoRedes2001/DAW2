@@ -3,7 +3,9 @@
 interface Worker
 {
     public function work();
+}
 
+interface Eater {
     public function eat();
 }
 
@@ -43,7 +45,7 @@ class MessHall
 
 }
 
-class Human implements Worker
+class Human implements Worker, Eater
 {
     public function work()
     {
@@ -61,10 +63,5 @@ class Robot implements Worker
     public function work()
     {
         return "Robot works";
-    }
-
-    public function eat()
-    {
-        throw new Exception("Robots can't eat");
     }
 }

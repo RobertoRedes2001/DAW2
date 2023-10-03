@@ -1,8 +1,6 @@
 <?php
 class Lamp
 {
-    private int $color;
-
     public function turnOn()
     {
         echo "Lamp turned on";
@@ -11,16 +9,6 @@ class Lamp
     public function turnOff()
     {
         echo "Lamp turned off";
-    }
-
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-    public function setColor($color)
-    {
-        $this->color = $color;
     }
 }
 
