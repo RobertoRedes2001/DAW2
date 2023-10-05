@@ -6,13 +6,17 @@ interface Door
     public function unlock();
     public function open();
     public function close();
+}
+
+interface DoorCallbacks
+{
     public function timeOutCallback();
     public function proximityCallback();
 }
 
 class Sensor
 {
-    public function register(Door $door)
+    public function register(DoorCallbacks $door)
     {
         while (true) {
             if ($this->isPersonClose()) {
@@ -28,7 +32,7 @@ class Sensor
     }
 }
 
-class SensingDoor implements Door
+class SensingDoor implements Door,DoorCallbacks
 {
     private $locked;
     private $opened;
@@ -73,14 +77,14 @@ class SensingDoor implements Door
 
 class Timer
 {
-    public function register($timeOut, Door $door)
+    public function register($timeOut, DoorCallbacks $door)
     {
         sleep($timeOut);
         $door->timeOutCallback();
     }
 }
 
-class TimedDoor implements Door
+class TimedDoor implements Door,DoorCallbacks
 {
     const TIME_OUT = 10;
     private $locked;
