@@ -68,3 +68,46 @@ document.getElementsByTagName("form")[1].addEventListener('submit', function(eve
     }
 
 });
+
+document.getElementsByTagName("form")[2].addEventListener('submit', function(event) {
+    event.preventDefault();
+    let nickname = document.getElementById("nickname").value;
+    let pelicula = document.getElementById("film").value;
+    let director = document.getElementById("director").value;
+    let anyo = document.getElementById("year").value;
+    let calificacion = "";
+    let frequency = "";
+    switch(document.getElementById("category").value){
+        case "4":
+            calificacion = document.getElementById("category").innerHTML;
+            break;
+        case "5":
+            calificacion = document.getElementById("category").innerHTML;
+            break;
+        case "6":
+            calificacion = document.getElementById("category").innerHTML;
+            break;
+        case "7":
+            calificacion = document.getElementById("category").innerHTML;
+            break;
+        case "8":
+            calificacion = document.getElementById("category").innerHTML;
+            break;
+        case "9":
+            calificacion = document.getElementById("category").innerHTML;
+            break;
+        case "10":
+            calificacion = document.getElementById("category").innerHTML;
+            break;       
+    }
+    if(document.getElementsByTagName("input")[15].checked){
+        frequency = document.getElementsByTagName("input")[15].innerHTML;
+    }
+    if(document.getElementsByTagName("input")[16].checked){
+        frequency = document.getElementsByTagName("input")[16].innerHTML;
+    }
+    if(document.getElementsByTagName("input")[17].checked){
+        frequency = document.getElementsByTagName("input")[17].innerHTML;
+    }
+
+});

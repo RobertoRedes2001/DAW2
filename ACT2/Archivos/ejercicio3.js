@@ -1,8 +1,10 @@
 let checkStatus = (event) => {
     if (event.type === "mouseout") {
         document.getElementsByTagName("h1")[0].innerHTML = "Casa Pepe";
+        document.getElementsByTagName("title")[0].innerHTML = "Casa Pepe";
     } else {
         document.getElementsByTagName("h1")[0].innerHTML = "Bar Mamellas";
+        document.getElementsByTagName("title")[0].innerHTML = "Bar Mamellas";
     }
 }
 
