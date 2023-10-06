@@ -12,6 +12,41 @@ function comprobarNombre(cadena) {
     return false; // La cadena solo contiene letras
 }
 
+function getCalificacion(selectedIndex) {
+    
+    switch(document.getElementsByTagName("option")[selectedIndex].value){
+        case "4":
+            return document.getElementsByTagName("option")[selectedIndex].innerHTML;
+        case "5":
+            return document.getElementsByTagName("option")[selectedIndex].innerHTML;
+        case "6":
+            return document.getElementsByTagName("option")[selectedIndex].innerHTML;
+        case "7":
+            return document.getElementsByTagName("option")[selectedIndex].innerHTML;
+        case "8":
+            return document.getElementsByTagName("option")[selectedIndex].innerHTML;
+        case "9":
+            return document.getElementsByTagName("option")[selectedIndex].innerHTML;
+        case "10":
+            return document.getElementsByTagName("option")[selectedIndex].innerHTML;
+        default:
+            alert("Selecciona una calificacion");  
+            break;     
+    }
+}
+
+function getFrecuencia() {
+    if(document.getElementById("frequency-low").checked===true){
+        return document.getElementsByTagName("label")[0].innerHTML;
+    }
+    if(document.getElementById("frequency-normal").checked===true){
+        return document.getElementsByTagName("label")[1].innerHTML;
+    }
+    if(document.getElementById("frequency-high").checked===true){
+        return document.getElementsByTagName("label")[2].innerHTML;
+    }
+}
+
 function comprobarDNI(dni){
     let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
         let suma = 0;
@@ -50,9 +85,9 @@ document.getElementsByTagName("form")[1].addEventListener('submit', function(eve
     let nombre = document.getElementsByTagName("input")[4].value;
     let apellido1 = document.getElementsByTagName("input")[5].value;
     let apellido2 = document.getElementsByTagName("input")[6].value;
-    let regex = '/^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/';
+    let regex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
     
-    let email = document.getElementsByTagName("input")[7].value;
+    let email = document.getElementsByTagName("input")[8].value;
 
     if(comprobarNombre(nombre)){
         alert("El Nombre no puede contener numeros o caracteres especiales");
@@ -75,39 +110,16 @@ document.getElementsByTagName("form")[2].addEventListener('submit', function(eve
     let pelicula = document.getElementById("film").value;
     let director = document.getElementById("director").value;
     let anyo = document.getElementById("year").value;
-    let calificacion = "";
-    let frequency = "";
-    switch(document.getElementById("category").value){
-        case "4":
-            calificacion = document.getElementById("category").innerHTML;
-            break;
-        case "5":
-            calificacion = document.getElementById("category").innerHTML;
-            break;
-        case "6":
-            calificacion = document.getElementById("category").innerHTML;
-            break;
-        case "7":
-            calificacion = document.getElementById("category").innerHTML;
-            break;
-        case "8":
-            calificacion = document.getElementById("category").innerHTML;
-            break;
-        case "9":
-            calificacion = document.getElementById("category").innerHTML;
-            break;
-        case "10":
-            calificacion = document.getElementById("category").innerHTML;
-            break;       
+    let select = document.getElementById("category");
+    let selectedIndex = select.selectedIndex;
+    let calificacion = getCalificacion(selectedIndex);
+    let frequency = getFrecuencia();
+    let resnya = document.getElementById("message").value;
+    let str = "El usuario "+nickname+" ha dejado la siguiente review en la pelicula "+pelicula+" publicada en el año "+anyo+" y dirigida por"+director+": ";
+    str+=resnya+"\nCalificacion: "+calificacion+"\nFrecuencia con la que el usuario ve peliculas a la semana: "+frequency;
+    if(document.getElementById("human").checked===true){
+        document.getElementsByTagName("p")[2].innerHTML=str;
+    }else{
+        alert("Verificacion requerida");
     }
-    if(document.getElementsByTagName("input")[15].checked){
-        frequency = document.getElementsByTagName("input")[15].innerHTML;
-    }
-    if(document.getElementsByTagName("input")[16].checked){
-        frequency = document.getElementsByTagName("input")[16].innerHTML;
-    }
-    if(document.getElementsByTagName("input")[17].checked){
-        frequency = document.getElementsByTagName("input")[17].innerHTML;
-    }
-
 });
