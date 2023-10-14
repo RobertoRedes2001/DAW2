@@ -108,7 +108,7 @@ let serie2 = {
     nombre : "One Piece Live Action", 
     imagen : "https://www.mundodeportivo.com/alfabeta/hero/2023/08/netflix-live-action-one-piece-sinopsis-de-los-episodios.jpg",
     personajes : ["Luffy" , "Nami" , "Zoro"], 
-    casting : ["Iñaki Gody", "Emily Rud", "Mackenyu Maeda"],
+    casting : ["Iñaki Godoy", "Emily Rud", "Mackenyu Maeda"],
 }
 let serie3 = {
     nombre : "Como conoci a vuestra madre", 
