@@ -23,15 +23,9 @@ function anterior(){
         pos1--;
     }
     if(contenido==="series"){
-        document.getElementsByTagName("h1")[1].innerHTML = series[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = series[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = series[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = series[pos1].casting[pos2];
+        cargarSeries();
     }else{
-        document.getElementsByTagName("h1")[1].innerHTML = peliculas[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = peliculas[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = peliculas[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = peliculas[pos1].casting[pos2];
+        cargarPelis();
     }
 }
 
@@ -42,15 +36,9 @@ function siguiente(){
         pos1++;
     }
     if(contenido==="series"){
-        document.getElementsByTagName("h1")[1].innerHTML = series[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = series[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = series[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = series[pos1].casting[pos2];
+        cargarSeries();
     }else{
-        document.getElementsByTagName("h1")[1].innerHTML = peliculas[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = peliculas[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = peliculas[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = peliculas[pos1].casting[pos2];
+        cargarPelis();
     }
 }
 
@@ -61,15 +49,9 @@ function anteriorActor(){
         pos2--;
     }
     if(contenido==="series"){
-        document.getElementsByTagName("h1")[1].innerHTML = series[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = series[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = series[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = series[pos1].casting[pos2];
+        cargarSeries();
     }else{
-        document.getElementsByTagName("h1")[1].innerHTML = peliculas[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = peliculas[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = peliculas[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = peliculas[pos1].casting[pos2];
+        cargarPelis();
     }
 }
 
@@ -80,15 +62,9 @@ function siguienteActor(){
         pos2++;
     }
     if(contenido==="series"){
-        document.getElementsByTagName("h1")[1].innerHTML = series[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = series[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = series[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = series[pos1].casting[pos2];
+        cargarSeries();
     }else{
-        document.getElementsByTagName("h1")[1].innerHTML = peliculas[pos1].nombre;
-        document.getElementsByTagName("img")[0].src = peliculas[pos1].imagen;
-        document.getElementsByTagName("h2")[0].innerHTML = peliculas[pos1].personajes[pos2];
-        document.getElementsByTagName("h3")[0].innerHTML = peliculas[pos1].casting[pos2];
+        cargarPelis();
     }
 }
 
