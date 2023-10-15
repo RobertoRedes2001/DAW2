@@ -49,6 +49,10 @@ enviarButton.classList.add("send");
 
 // Agregar el formulario y el botón al documento
 formulario.appendChild(enviarButton);
+const cerrarButton = document.createElement("span");
+cerrarButton.classList.add("close-button");
+cerrarButton.innerHTML=('<span>×</span>');
+formulario.appendChild(cerrarButton);
 
 // Agregar un manejador de eventos para el envío del formulario
 formulario.addEventListener("submit", function (event) {
@@ -71,10 +75,8 @@ formulario.addEventListener("submit", function (event) {
     alert("El numero de telefono no esta bien escrito");
   } else {
     alert("Enviado");
-    document.getElementById("nombre").value = "";
-    document.getElementById("primerApellido").value = "";
-    document.getElementById("segundoApellido").value = "";
-    document.getElementById("telefono").value = "";
+    modal.classList.toggle("show-modal");
+    
   }
 });
 
@@ -102,8 +104,6 @@ window.addEventListener("click", function (event) {
   }
 });
 
-document
-  .getElementsByClassName("close-button")[0]
-  .addEventListener("click", function () {
+document.getElementsByClassName("close-button")[0].addEventListener("click", function () {
     modal.classList.toggle("show-modal");
   });
