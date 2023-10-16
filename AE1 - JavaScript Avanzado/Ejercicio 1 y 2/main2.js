@@ -11,24 +11,9 @@ formulario.id = "miFormulario";
 // Crear y configurar los campos de entrada (input)
 const campos = [
   { id: "nombre", type: "text", placeholder: "Nombre", required: true },
-  {
-    id: "primerApellido",
-    type: "text",
-    placeholder: "Primer Apellido",
-    required: true,
-  },
-  {
-    id: "segundoApellido",
-    type: "text",
-    placeholder: "Segundo Apellido",
-    required: true,
-  },
-  {
-    id: "telefono",
-    type: "tel",
-    placeholder: "Número de Teléfono",
-    required: true,
-  },
+  { id: "primerApellido", type: "text", placeholder: "Primer Apellido", required: true },
+  { id: "segundoApellido", type: "text", placeholder: "Segundo Apellido", required: true },
+  { id: "telefono", type: "tel", placeholder: "Número de Teléfono", required: true },
 ];
 
 campos.forEach((campo) => {
@@ -76,7 +61,10 @@ formulario.addEventListener("submit", function (event) {
   } else {
     alert("Enviado");
     modal.classList.toggle("show-modal");
-    
+    document.getElementById("nombre").value = '';
+    document.getElementById("primerApellido").value = '';;
+    document.getElementById("segundoApellido").value = '';;
+    document.getElementById("telefono").value = '';; 
   }
 });
 
