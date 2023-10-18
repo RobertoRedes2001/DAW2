@@ -15,7 +15,8 @@ const campos = [
   { id: "segundoApellido", type: "text", placeholder: "Segundo Apellido", required: true },
   { id: "telefono", type: "tel", placeholder: "Número de Teléfono", required: true },
 ];
-
+const divNom = document.createElement("div");
+const divNum = document.createElement("div");
 campos.forEach((campo) => {
   const input = document.createElement("input");
   input.type = campo.type;
@@ -23,7 +24,13 @@ campos.forEach((campo) => {
   input.placeholder = campo.placeholder;
   input.required = campo.required;
   input.classList.add("input");
-  formulario.appendChild(input);
+  if(campo.id==="nombre"||campo.id==="primerApellido"){
+    divNom.appendChild(input);
+  }else{
+    divNum.appendChild(input);
+  }
+  formulario.appendChild(divNom);
+  formulario.appendChild(divNum);
 });
 
 // Crear el botón de envío
