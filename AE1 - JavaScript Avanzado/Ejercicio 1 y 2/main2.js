@@ -11,26 +11,12 @@ formulario.id = "miFormulario";
 // Crear y configurar los campos de entrada (input)
 const campos = [
   { id: "nombre", type: "text", placeholder: "Nombre", required: true },
-  {
-    id: "primerApellido",
-    type: "text",
-    placeholder: "Primer Apellido",
-    required: true,
-  },
-  {
-    id: "segundoApellido",
-    type: "text",
-    placeholder: "Segundo Apellido",
-    required: true,
-  },
-  {
-    id: "telefono",
-    type: "tel",
-    placeholder: "Número de Teléfono",
-    required: true,
-  },
+  { id: "primerApellido", type: "text", placeholder: "Primer Apellido", required: true },
+  { id: "segundoApellido", type: "text", placeholder: "Segundo Apellido", required: true },
+  { id: "telefono", type: "tel", placeholder: "Número de Teléfono", required: true },
 ];
-
+const divNom = document.createElement("div");
+const divNum = document.createElement("div");
 campos.forEach((campo) => {
   const input = document.createElement("input");
   input.type = campo.type;
@@ -38,7 +24,13 @@ campos.forEach((campo) => {
   input.placeholder = campo.placeholder;
   input.required = campo.required;
   input.classList.add("input");
-  formulario.appendChild(input);
+  if(campo.id==="nombre"||campo.id==="primerApellido"){
+    divNom.appendChild(input);
+  }else{
+    divNum.appendChild(input);
+  }
+  formulario.appendChild(divNom);
+  formulario.appendChild(divNum);
 });
 
 // Crear el botón de envío
@@ -76,7 +68,10 @@ formulario.addEventListener("submit", function (event) {
   } else {
     alert("Enviado");
     modal.classList.toggle("show-modal");
-    
+    document.getElementById("nombre").value = '';
+    document.getElementById("primerApellido").value = '';;
+    document.getElementById("segundoApellido").value = '';;
+    document.getElementById("telefono").value = '';; 
   }
 });
 
