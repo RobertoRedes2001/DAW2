@@ -51,7 +51,7 @@ enviarButton.classList.add("send");
 formulario.appendChild(enviarButton);
 const cerrarButton = document.createElement("span");
 cerrarButton.classList.add("close-button");
-cerrarButton.innerHTML=('<span>×</span>');
+cerrarButton.innerHTML=('×');
 formulario.appendChild(cerrarButton);
 
 // Agregar un manejador de eventos para el envío del formulario
