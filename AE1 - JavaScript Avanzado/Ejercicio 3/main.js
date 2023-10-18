@@ -41,8 +41,11 @@ let alcohol = [
     "./src/tartas/5.jpg",
   ];
   
-  let postres = [{ nombre: "fruta", imagenes : fruta}, { nombre: "tartas", imagenes: tartas}];
-  
+let postres = [
+  { nombre: "fruta", imagenes: fruta },
+  { nombre: "tartas", imagenes: tartas },
+];
+
   let entrantes = [
     "./src/entrantes/1.jpg",
     "./src/entrantes/2.jpg",
