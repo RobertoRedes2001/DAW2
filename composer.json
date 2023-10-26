@@ -1,0 +1,9 @@
+{
+    "name": "roberto/dwservidor",
+    "autoload": {
+        "psr-4": {
+            "Roberto\\Dwservidor\\": "src/"
+        }
+    },
+    "require": {}
+}
