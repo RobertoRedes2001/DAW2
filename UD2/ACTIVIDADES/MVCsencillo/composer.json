@@ -1,0 +1,9 @@
+{
+    "name": "root/app",
+    "authors": [
+        {
+            "name": "roberto"
+        }
+    ],
+    "require": {}
+}

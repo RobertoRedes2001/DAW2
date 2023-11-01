@@ -6,12 +6,10 @@ services:
     ports: 
       - 80:80
     volumes:
-      - ./src:/var/www/html
+      - .:/var/www/html
   
-
-  mysql:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+  mariadb:
+    image: mariadb:latest
     ports:
       - 3306:3306
     environment: 
@@ -20,7 +18,7 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql
       - ./db:/docker-entrypoint-initdb.d       
 
   phpmyadmin:
@@ -28,9 +26,9 @@ services:
     ports:
       - 8080:80
     environment:
-      - PMA_HOST=mysql
+      - PMA_HOST=mariadb
     depends_on: 
-      - mysql 
+      - mariadb 
 
 volumes:
-  mysql_data:
+  mariadb_data:
