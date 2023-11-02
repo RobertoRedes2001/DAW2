@@ -15,13 +15,7 @@ class listModel{
             if ($result->num_rows > 0) {
                 $tareas = array(); // Inicializar un array vacío para almacenar las tareas
                 while ($row = $result->fetch_assoc()) {
-                    $tarea = array(
-                        "titulo" => $row["titulo"],
-                        "descripcion" => $row["descripcion"],
-                        "fecha_creacion" => $row["fecha_creacion"],
-                        "fecha_vencimiento" => $row["fecha_vencimiento"]
-                    );
-                    $tareas[] = $tarea; // Agregar la tarea al array de tareas
+                    $tareas[] = $row; // Agregar la tarea al array de tareas
                 }
                 return $tareas;
             } else {
@@ -50,13 +44,7 @@ class listModel{
                 if ($result->num_rows > 0) {
                     $tareas = array(); // Inicializar un array vacío para almacenar las tareas
                     while ($row = $result->fetch_assoc()) {
-                        $tarea = array(
-                            "titulo" => $row["titulo"],
-                            "descripcion" => $row["descripcion"],
-                            "fecha_creacion" => $row["fecha_creacion"],
-                            "fecha_vencimiento" => $row["fecha_vencimiento"]
-                        );
-                        $tareas[] = $tarea; // Agregar la tarea al array de tareas
+                        $tareas[] = $row; // Agregar la tarea al array de tareas
                     }
                     return $tareas;
                 } else {
