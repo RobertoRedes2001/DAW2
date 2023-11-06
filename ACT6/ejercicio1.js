@@ -39,7 +39,6 @@ function deleteAllUsers() {
 const formulario = document.getElementsByTagName("form")[0];
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
-    alert("Datos Guardados");
     saveUser();
 });
 
