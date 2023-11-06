@@ -1,7 +1,7 @@
 <?php
-class listView{
+class detailView{
 
-    function listTabla(array $tareas) {
+    function detailTabla(array $tareas) {
         //Generamos la tabla tomando de base el array que recibimos de la consulta
         echo '<table border="1">';
         echo '<tr>';
