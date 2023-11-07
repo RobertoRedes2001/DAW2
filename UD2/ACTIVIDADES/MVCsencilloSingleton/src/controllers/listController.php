@@ -12,6 +12,7 @@ public function __construct($model, $view) {
 
 public function getList() {
     $array = $this->model->getAll();
+    echo "no hola";
     $this->view->listTabla($array);
 }
     

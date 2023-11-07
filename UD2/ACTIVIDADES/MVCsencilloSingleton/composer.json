@@ -1,9 +1,9 @@
 {
     "name": "root/app",
-    "authors": [
-        {
-            "name": "roberto"
+    "autoload": {
+        "psr-4": {
+            "Root\\App\\": "src/"
         }
-    ],
+    },
     "require": {}
 }

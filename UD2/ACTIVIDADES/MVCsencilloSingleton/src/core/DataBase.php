@@ -18,7 +18,7 @@ class DataBase{
         $this->connection = new mysqli($host, $username, $password, $dbname);
 
         if ($this->connection->connect_error) {
-            die("Error de conexión: " . $this->connection->connect_error);
+            die("<br>Error de conexión: " . $this->connection->connect_error);
         }
     }
 

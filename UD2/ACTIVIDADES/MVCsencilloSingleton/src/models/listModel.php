@@ -1,6 +1,5 @@
 <?php
 class listModel{
-
     public function getAll(){  
 
         $model = DataBase::getInstance(); // Usar el Singleton para obtener la instancia
@@ -26,7 +25,6 @@ class listModel{
             //mensaje en caso de que haya error
             echo "Error en la consulta: " . $connection->error;
         }
-            //cerramos la conexion
             $connection->close();
         }
 }

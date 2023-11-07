@@ -1,13 +1,10 @@
 <?php
 
-
 class detailModel{
 
-        public function getOne(int $id) {  
-
+        public function getOne($id){  
             $model = DataBase::getInstance(); // Usar el Singleton para obtener la instancia
             $connection = $model->getConnection(); // Obtener la conexión
-
             //hacemos la consulta
             $sql = "SELECT * FROM tareas WHERE id='$id'";
             $result = $connection->query($sql);

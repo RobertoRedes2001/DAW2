@@ -10,8 +10,8 @@ public function __construct($model, $view) {
     $this->view = $view;   
 }
 
-public function getDetail($id) {
-    $array = $this->model->getOne($id);
+public function getDetail($number) {
+    $array = $this->model->getOne($number);
     $this->view->detailTabla($array);
 }
     
