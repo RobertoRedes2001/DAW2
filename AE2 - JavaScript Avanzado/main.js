@@ -1,23 +1,12 @@
 // Función para obtener los datos de la API
-const getData = async () => {
+const getData = async (cantidadCartas, inicio, paginaActual) => {
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const response = await fetch("https://rickandmortyapi.com/api/character/?page="+paginaActual);
     if (response.ok) {
       const jsonResponse = await response.json();
-      return jsonResponse.results.slice(0, 3); // Obtener solo los 3 primeros elementos
-    }
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
-};
-
-const getMoreData = async () => {
-  try {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      return jsonResponse.results.slice(0, 20); // Obtener solo los 3 primeros elementos
+      console.log(jsonResponse.results.length);
+      const resultados = jsonResponse.results.slice(inicio, inicio + cantidadCartas);
+      return resultados;
     }
   } catch (error) {
     console.log(error);
@@ -49,7 +38,7 @@ const crearFoto = (imageUrl) => {
   const photo = document.createElement("div");
   photo.className = "item-0";
   photo.style.background = "url('" + imageUrl + "')";
-  photo.style.backgroundSize = "cover";
+  photo.style.backgroundSize = "center";
   return photo;
 };
 
@@ -99,7 +88,6 @@ const createBotonera = (character) => {
   return botonera;
 };
 
-
 const renderData = (characters) => {
   const gridContainers = document.querySelectorAll(".grid-container");
   gridContainers.forEach((container) => {
@@ -111,16 +99,33 @@ const renderData = (characters) => {
   });
 };
 
+const renderMoreContainer = document.getElementById('render-more');
+
+const anteriorButton = document.createElement("button");
+anteriorButton.textContent = "Anterior";
+anteriorButton.id = "anterior";
+anteriorButton.style.display = "none";
+
+const siguienteButton = document.createElement("button");
+siguienteButton.textContent = "Siguiente";
+siguienteButton.id = "siguiente";
+siguienteButton.style.display = "none";
+
+renderMoreContainer.appendChild(anteriorButton);
+renderMoreContainer.appendChild(siguienteButton);
+
 // Función principal
+
+let cantidadCartas = 3;  // Puedes ajustar la cantidad de cartas
+let inicio = 0;  // Puedes ajustar la posición de inicio
+let paginaActual = 1;
+
 const main = async () => {
-  const characters = await getData();
+  const characters = await getData(cantidadCartas, inicio, paginaActual);
   renderData(characters);
 };
 
-const moreCharacters = async () => {
-  const characters = await getMoreData();
-  renderData(characters);
-};
+main();
 
 let modal = document.getElementsByClassName("modal")[0];
 window.addEventListener("click", function (event) {
@@ -133,8 +138,41 @@ document.getElementsByClassName("close-button")[0].addEventListener("click", fun
   modal.classList.toggle("show-modal");
 });
 
-main();
-
-document.getElementById('render-more').addEventListener("click",function(){
-  moreCharacters();
+document.getElementsByTagName("button")[0].addEventListener("click", async function(){
+  cantidadCartas = 20
+  if(paginaActual===1){
+    siguienteButton.style.display = "inline-block";
+  }else if(paginaActual===42){
+    anteriorButton.style.display = "inline-block";
+  }else{
+    siguienteButton.style.display = "inline-block";
+    anteriorButton.style.display = "inline-block";
+  }
+  const characters = await getData(cantidadCartas, inicio, paginaActual);
+  renderData(characters);
+  document.getElementsByTagName("button")[0].style.display = "none";
 })
+
+siguienteButton.addEventListener("click", async function () {
+  paginaActual++;
+  document.getElementById("number-page").innerText = paginaActual;
+  cantidadCartas = 3;
+  inicio = 0;
+  const characters = await getData(cantidadCartas, inicio, paginaActual);
+  renderData(characters);
+  document.getElementsByTagName("button")[0].style.display = "inline-block";
+  siguienteButton.style.display = "none";
+  anteriorButton.style.display = "none";
+});
+
+anteriorButton.addEventListener("click", async function () {
+    paginaActual--;
+    document.getElementById("number-page").innerText = paginaActual;
+    cantidadCartas = 3;
+    inicio = 0;
+    const characters = await getData(cantidadCartas, inicio, paginaActual);
+    renderData(characters);
+    document.getElementsByTagName("button")[0].style.display = "inline-block";
+    siguienteButton.style.display = "none";
+    anteriorButton.style.display = "none";
+});
