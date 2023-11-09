@@ -206,6 +206,7 @@ favoritosBoton.addEventListener("click", function () {
   const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
   if (favoritos.length > 0) {
     renderFavoritos();
+    document.getElementById("number-page").innerText = "Favoritos"
     document.getElementsByTagName("button")[0].style.display = "inline-block";
     document.getElementsByTagName("button")[0].innerText = "Volver";
     siguienteButton.style.display = "none";
