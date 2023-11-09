@@ -1,11 +1,16 @@
 // Función para obtener los datos de la API
 const getData = async (cantidadCartas, inicio, paginaActual) => {
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character/?page="+paginaActual);
+    const response = await fetch(
+      "https://rickandmortyapi.com/api/character/?page=" + paginaActual
+    );
     if (response.ok) {
       const jsonResponse = await response.json();
       console.log(jsonResponse.results.length);
-      const resultados = jsonResponse.results.slice(inicio, inicio + cantidadCartas);
+      const resultados = jsonResponse.results.slice(
+        inicio,
+        inicio + cantidadCartas
+      );
       return resultados;
     }
   } catch (error) {
@@ -13,6 +18,75 @@ const getData = async (cantidadCartas, inicio, paginaActual) => {
     return [];
   }
 };
+
+function saveCharacter(character) {
+  if (typeof Storage !== "undefined") {
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    const nuevoFavorito = {
+      name: character.name,
+      gender: character.gender,
+      species: character.species,
+      status: character.status,
+      image: character.image,
+    };
+    favoritos.push(nuevoFavorito);
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  }
+}
+
+function animateName(nameElement, fullName, index) {
+  if (cantidadCartas >= 4) {
+    if (index >= 3) {
+      let currentLength = 0;
+      const intervalId = setInterval(() => {
+        if (currentLength <= fullName.length) {
+          const randomChar =
+            currentLength === fullName.length ? "" : getRandomChar();
+          const partialName = fullName.substring(0, currentLength) + randomChar;
+          nameElement.textContent = partialName;
+          currentLength++;
+        } else {
+          clearInterval(intervalId);
+        }
+      }, 100);
+    }
+  } else {
+    let currentLength = 0;
+    const intervalId = setInterval(() => {
+      if (currentLength <= fullName.length) {
+        const randomChar =
+          currentLength === fullName.length ? "" : getRandomChar();
+        const partialName = fullName.substring(0, currentLength) + randomChar;
+        nameElement.textContent = partialName;
+        currentLength++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 100);
+  }
+}
+
+function animateNameFavorites(nameElement, fullName) {
+  let currentLength = 0;
+  const intervalId = setInterval(() => {
+    if (currentLength <= fullName.length) {
+      const randomChar =
+        currentLength === fullName.length ? "" : getRandomChar();
+      const partialName = fullName.substring(0, currentLength) + randomChar;
+      nameElement.textContent = partialName;
+      currentLength++;
+    } else {
+      clearInterval(intervalId);
+    }
+  }, 100);
+}
+
+function getRandomChar() {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const randomIndex = Math.floor(Math.random() * characters.length);
+  return characters[randomIndex];
+}
 
 const crearCarta = (character) => {
   //Crea el Div donde ira la "Card"
@@ -38,7 +112,7 @@ const crearFoto = (imageUrl) => {
   const photo = document.createElement("div");
   photo.className = "item-0";
   photo.style.background = "url('" + imageUrl + "')";
-  photo.style.backgroundSize = "center";
+  photo.style.backgroundRepeat = "no-repeat";
   return photo;
 };
 
@@ -56,15 +130,22 @@ const createInfoDiv = (character) => {
   const infoDiv = document.createElement("div");
   infoDiv.appendChild(createInfoItem(character.gender, "item-1"));
   infoDiv.appendChild(createInfoItem(character.species, "item-2"));
-  infoDiv.appendChild(createInfoItem(character.name, "item-3"));
+  infoDiv.appendChild(createInfoItem(character.name, "item-3", character));
   infoDiv.appendChild(createInfoItem(character.status, "item-4"));
   return infoDiv;
 };
 
-const createInfoItem = (text, className) => {
+const createInfoItem = (text, className, character) => {
   const item = document.createElement("h3");
   item.className = className;
   item.textContent = text;
+
+  if (className === "item-3") {
+    item.addEventListener("click", function () {
+      saveCharacter(character);
+    });
+  }
+
   return item;
 };
 
@@ -75,13 +156,15 @@ const createBotonera = (character) => {
   trigger.id = "trigger";
   trigger.textContent = "Ampliar";
 
-  trigger.addEventListener("click",function(){
+  trigger.addEventListener("click", function () {
     modal.classList.toggle("show-modal");
     const nombre = modal.getElementsByTagName("h1")[0];
     nombre.textContent = character.name;
-    modal.getElementsByTagName("div")[0].style.backgroundImage = "url('"+character.image+"')";
+    modal.getElementsByTagName("div")[0].style.backgroundImage =
+      "url('" + character.image + "')";
     modal.getElementsByTagName("div")[0].style.backgroundSize = "contain";
-  })
+    modal.getElementsByTagName("div")[0].style.backgroundRepeat = "no-repeat";
+  });
 
   botonera.appendChild(trigger);
 
@@ -92,14 +175,45 @@ const renderData = (characters) => {
   const gridContainers = document.querySelectorAll(".grid-container");
   gridContainers.forEach((container) => {
     container.innerHTML = "";
-    characters.forEach((character) => {
+    characters.forEach((character, index) => {
       const card = crearCarta(character);
       container.appendChild(card);
+      animateName(card.querySelector(".item-3"), character.name, index);
     });
   });
 };
 
-const renderMoreContainer = document.getElementById('render-more');
+const renderFavoritos = () => {
+  const gridContainers = document.querySelectorAll(".grid-container");
+  gridContainers.forEach((container) => {
+    container.innerHTML = "";
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+    // Renderiza los favoritos
+    favoritos.forEach((character) => {
+      const card = crearCarta(character);
+      container.appendChild(card);
+      animateNameFavorites(card.querySelector(".item-3"), character.name);
+    });
+  });
+};
+
+const renderMoreContainer = document.getElementById("render-more");
+const favoritosBoton = document.getElementsByTagName("h1")[0];
+
+// Añadir evento clic para mostrar los favoritos (puedes ajustar esto según tus necesidades)
+favoritosBoton.addEventListener("click", function () {
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  if (favoritos.length > 0) {
+    renderFavoritos();
+    document.getElementsByTagName("button")[0].style.display = "inline-block";
+    document.getElementsByTagName("button")[0].innerText = "Volver";
+    siguienteButton.style.display = "none";
+    anteriorButton.style.display = "none";
+  } else {
+    alert("No hay personajes en Favoritos");
+  }
+});
 
 const anteriorButton = document.createElement("button");
 anteriorButton.textContent = "Anterior";
@@ -116,8 +230,8 @@ renderMoreContainer.appendChild(siguienteButton);
 
 // Función principal
 
-let cantidadCartas = 3;  // Puedes ajustar la cantidad de cartas
-let inicio = 0;  // Puedes ajustar la posición de inicio
+let cantidadCartas = 3; // Puedes ajustar la cantidad de cartas
+let inicio = 0; // Puedes ajustar la posición de inicio
 let paginaActual = 1;
 
 const main = async () => {
@@ -126,6 +240,7 @@ const main = async () => {
 };
 
 main();
+localStorage.clear();
 
 let modal = document.getElementsByClassName("modal")[0];
 window.addEventListener("click", function (event) {
@@ -134,24 +249,39 @@ window.addEventListener("click", function (event) {
   }
 });
 
-document.getElementsByClassName("close-button")[0].addEventListener("click", function () {
-  modal.classList.toggle("show-modal");
-});
+document
+  .getElementsByClassName("close-button")[0]
+  .addEventListener("click", function () {
+    modal.classList.toggle("show-modal");
+  });
 
-document.getElementsByTagName("button")[0].addEventListener("click", async function(){
-  cantidadCartas = 20
-  if(paginaActual===1){
-    siguienteButton.style.display = "inline-block";
-  }else if(paginaActual===42){
-    anteriorButton.style.display = "inline-block";
-  }else{
-    siguienteButton.style.display = "inline-block";
-    anteriorButton.style.display = "inline-block";
-  }
-  const characters = await getData(cantidadCartas, inicio, paginaActual);
-  renderData(characters);
-  document.getElementsByTagName("button")[0].style.display = "none";
-})
+document
+  .getElementsByTagName("button")[0]
+  .addEventListener("click", async function () {
+    switch (document.getElementsByTagName("button")[0].innerText) {
+      case "MOSTRAR MÁS":
+        cantidadCartas = 20;
+        if (paginaActual === 1) {
+          siguienteButton.style.display = "inline-block";
+        } else if (paginaActual === 42) {
+          anteriorButton.style.display = "inline-block";
+        } else {
+          siguienteButton.style.display = "inline-block";
+          anteriorButton.style.display = "inline-block";
+        }
+        const characters = await getData(cantidadCartas, inicio, paginaActual);
+        renderData(characters);
+        document.getElementsByTagName("button")[0].style.display = "none";
+        break;
+      case "VOLVER":
+        paginaActual = 1;
+        cantidadCartas = 3;
+        document.getElementById("number-page").innerText = paginaActual;
+        document.getElementsByTagName("button")[0].innerText = "MOSTRAR MÁS";
+        main();
+        break;
+    }
+  });
 
 siguienteButton.addEventListener("click", async function () {
   paginaActual++;
@@ -166,13 +296,13 @@ siguienteButton.addEventListener("click", async function () {
 });
 
 anteriorButton.addEventListener("click", async function () {
-    paginaActual--;
-    document.getElementById("number-page").innerText = paginaActual;
-    cantidadCartas = 3;
-    inicio = 0;
-    const characters = await getData(cantidadCartas, inicio, paginaActual);
-    renderData(characters);
-    document.getElementsByTagName("button")[0].style.display = "inline-block";
-    siguienteButton.style.display = "none";
-    anteriorButton.style.display = "none";
+  paginaActual--;
+  document.getElementById("number-page").innerText = paginaActual;
+  cantidadCartas = 3;
+  inicio = 0;
+  const characters = await getData(cantidadCartas, inicio, paginaActual);
+  renderData(characters);
+  document.getElementsByTagName("button")[0].style.display = "inline-block";
+  siguienteButton.style.display = "none";
+  anteriorButton.style.display = "none";
 });
