@@ -80,7 +80,7 @@ const createBotonera = (character) => {
     const nombre = modal.getElementsByTagName("h1")[0];
     nombre.textContent = character.name;
     modal.getElementsByTagName("div")[0].style.backgroundImage = "url('"+character.image+"')";
-    modal.getElementsByTagName("div")[0].style.backgroundSize = "cover";
+    modal.getElementsByTagName("div")[0].style.backgroundSize = "contain";
   })
 
   botonera.appendChild(trigger);
