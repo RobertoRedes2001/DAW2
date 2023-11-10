@@ -37,48 +37,35 @@ function saveCharacter(character) {
 function animateName(nameElement, fullName, index) {
   if (cantidadCartas >= 4) {
     if (index >= 3) {
-      let currentLength = 0;
-      const intervalId = setInterval(() => {
-        if (currentLength <= fullName.length) {
-          const randomChar =
-            currentLength === fullName.length ? "" : getRandomChar();
-          const partialName = fullName.substring(0, currentLength) + randomChar;
-          nameElement.textContent = partialName;
-          currentLength++;
-        } else {
-          clearInterval(intervalId);
-        }
-      }, 100);
+      animateNameFavorites(nameElement, fullName);
     }
   } else {
-    let currentLength = 0;
-    const intervalId = setInterval(() => {
-      if (currentLength <= fullName.length) {
-        const randomChar =
-          currentLength === fullName.length ? "" : getRandomChar();
-        const partialName = fullName.substring(0, currentLength) + randomChar;
-        nameElement.textContent = partialName;
-        currentLength++;
-      } else {
-        clearInterval(intervalId);
-      }
-    }, 100);
+    animateNameFavorites(nameElement, fullName);
   }
 }
 
 function animateNameFavorites(nameElement, fullName) {
+  let iterationsLeft = 5;
   let currentLength = 0;
+  let currentIteration = 0;
+
   const intervalId = setInterval(() => {
-    if (currentLength <= fullName.length) {
+    if (currentIteration < iterationsLeft) {
       const randomChar =
-        currentLength === fullName.length ? "" : getRandomChar();
+        currentLength === fullName.length
+          ? "" // Última letra es un espacio en blanco
+          : getRandomChar();
       const partialName = fullName.substring(0, currentLength) + randomChar;
       nameElement.textContent = partialName;
+
+      currentIteration++;
+    } else if (currentLength < fullName.length) {
       currentLength++;
+      currentIteration = 0;
     } else {
       clearInterval(intervalId);
     }
-  }, 100);
+  }, 50);
 }
 
 function getRandomChar() {
@@ -111,8 +98,7 @@ const crearFoto = (imageUrl) => {
   //Crea el div donde va la foto y establece la foto como fondo del div
   const photo = document.createElement("div");
   photo.className = "item-0";
-  photo.style.background = "url('" + imageUrl + "')";
-  photo.style.backgroundRepeat = "no-repeat";
+  photo.style.backgroundImage = "url('" + imageUrl + "')";
   return photo;
 };
 
@@ -162,7 +148,8 @@ const createBotonera = (character) => {
     nombre.textContent = character.name;
     modal.getElementsByTagName("div")[0].style.backgroundImage =
       "url('" + character.image + "')";
-    modal.getElementsByTagName("div")[0].style.backgroundSize = "contain";
+    modal.getElementsByTagName("div")[0].style.backgroundSize = "cover";
+    modal.getElementsByTagName("div")[0].style.backgroundPosition = "center";
     modal.getElementsByTagName("div")[0].style.backgroundRepeat = "no-repeat";
   });
 
@@ -178,6 +165,13 @@ const renderData = (characters) => {
     characters.forEach((character, index) => {
       const card = crearCarta(character);
       container.appendChild(card);
+
+      // Agrega la clase fade-in a las fotos de las tres primeras cartas
+      if (cantidadCartas === 3 && index < 3 && paginaActual!=1) {
+        const thumbnail = card.querySelector(".thumbnail");
+        thumbnail.classList.add("fade-in");
+      }
+
       animateName(card.querySelector(".item-3"), character.name, index);
     });
   });
@@ -197,6 +191,25 @@ const renderFavoritos = () => {
     });
   });
 };
+
+
+const style = document.createElement("style");
+style.innerHTML = `
+  .fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s ease-in-out forwards;
+  }
+
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+document.head.appendChild(style);
 
 const renderMoreContainer = document.getElementById("render-more");
 const favoritosBoton = document.getElementsByTagName("h1")[0];
