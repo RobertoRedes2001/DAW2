@@ -1,5 +1,6 @@
 <?php
-$host = "172.27.0.3";  // Puede ser "localhost" si se ejecuta desde el mismo contenedor
+
+$host = "172.30.0.3";  // Puede ser "localhost" si se ejecuta desde el mismo contenedor
 $username = "root";
 $password = "root";
 $dbname = "evaluable";
@@ -28,6 +29,7 @@ $result = $conn->query($sql);
     <h1>Informacion de Registros</h1>
 
     <?php
+    
     // Mostrar resultados en una tabla
     if ($result->num_rows > 0) {
         echo "<table border='1'>";
@@ -44,6 +46,7 @@ $result = $conn->query($sql);
 
     // Cerrar la conexión
     $conn->close();
+    
     ?>
 
 </body>
