@@ -1,0 +1,32 @@
+/* Todos los elementos de la página */
+body, h1, h2, p, a, em, span {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Todos los párrafos de la página */
+p {
+    color: #555;
+}
+
+/* Todos los párrafos contenidos en #uno */
+#uno p {
+    color: #369;
+}
+
+/* Todos los enlaces de la página */
+a {
+    color: #C30;
+}
+
+/* Los elementos <em> contenidos en #uno */
+#uno em {
+    color: #0000BB;
+    background-color: #FFFFCC;
+}
+
+/* Todos los elementos <em> con la clase "especial" en toda la página */
+em.especial {
+    color: #FFFF00;
+    background: #000000;
+}
