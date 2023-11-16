@@ -1,0 +1,12 @@
+{
+    "name": "roberto/app",
+    "require": {
+        "twig/twig": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Roberto\\App\\": "src/",
+            "Roberto\\App\\model\\": "src/model"
+        }
+    }
+}
