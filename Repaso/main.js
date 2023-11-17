@@ -1,3 +1,4 @@
+//Autor: Gepeto | Revisionado: Roberto
 function handleKeyDown(event) {
     const letra = event.key;
 
@@ -21,6 +22,7 @@ function handleKeyDown(event) {
     }
 }
 
+//Autor: Roberto
 function saveWord(word) {
     if (typeof(Storage) !== "undefined") {
         let palabrasGuardadas = JSON.parse(localStorage.getItem("palabras")) || [];
@@ -29,6 +31,7 @@ function saveWord(word) {
     }
 }
 
+//Autor: Roberto
 const getData = async (word) => {
   try {
     const response = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word);
@@ -42,6 +45,7 @@ const getData = async (word) => {
   }
 };
 
+//Autor: Roberto
 function loadDefinitions(){
   definitionsArray.forEach(function(def) {
     const nuevaColumna = document.createElement('tr');
@@ -51,10 +55,9 @@ function loadDefinitions(){
     nuevaColumna.appendChild(nuevaCelda);
     document.getElementsByTagName('table')[1].appendChild(nuevaColumna);
 });
-
-
 }
 
+//Autor: Gepeto | Revisionado: Roberto
 function reverseWords(words){
   let reverseds = [];
   words.forEach(function(word) {
@@ -64,6 +67,7 @@ function reverseWords(words){
   return reverseds;
 }
 
+//Autor: Gepeto
 function loadWordToTable(word) {
   const tableRow = document.getElementsByTagName("tr")[0];
 
@@ -80,6 +84,7 @@ function loadWordToTable(word) {
   });
 }
 
+//Autor: Gepeto
 function handleCellClick(cell, index) {
   if (firstCellIndex === null) {
     firstCellIndex = index;
@@ -94,6 +99,7 @@ function handleCellClick(cell, index) {
   }
 }
 
+//Autor: Roberto | Revisionado: Gepeto
 function handleGame(){
   if(gameStart){
     let previousWord = Array.from(document.getElementsByClassName('activity')).map(cell => cell.textContent).join('');;
@@ -102,9 +108,9 @@ function handleGame(){
       document.getElementsByTagName('body')[0].innerHTML = '';
       let gameOver = document.createElement('h1');
       let finalScore = document.createElement('h2');
-      gameOver.style.textAlign = 'center';
-      finalScore.style.textAlign = 'center';
-      finalScore.style.marginTop = '10px'; 
+      gameOver.style.textAlign = 'center'; //Esto lo hizo chat porque no
+      finalScore.style.textAlign = 'center';//me estaba funcionando el
+      finalScore.style.marginTop = '10px'; //display: flex
       gameOver.innerText = 'Game Over';
       finalScore.innerText = score+"/"+savedWords.length;
       document.getElementsByTagName('body')[0].appendChild(gameOver);
@@ -136,23 +142,24 @@ let score = 0;
 let gameStart = false;
 let currentLevel = 0;
 
+//Autor: Gepeto | Revisionado: Roberto
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => {
-      if (button.value === "del") {
+      if (button.value === "del") { //Yo implemente desde aqui
           if (currentIndex > 0) {
               currentIndex--;
               cells[currentIndex].textContent = '';
           }
-      } else if(button.value === "submit"){
-        event.preventDefault(); // Evitar el envío del formulario
-        let word = Array.from(cells).map(cell => cell.textContent).join(''); 
+      } else if(button.value === "submit"){ 
+        event.preventDefault(); 
+        let word = Array.from(cells).map(cell => cell.textContent).join('');  //Chat me dijo como hacer esto
         saveWord(word);
         getData(word);
         const arrayOfWords = JSON.parse(localStorage.getItem("palabras")) || [];
         savedWords = arrayOfWords;
         currentIndex = 0;
-        Array.from(cells).map(cell => cell.textContent='');
-      } else {
+        Array.from(cells).map(cell => cell.textContent=''); //hasta aquí
+      } else { //esto lo hizo Chat
           const todasOcupadas = Array.from(cells).every((cell) => cell.textContent !== '');
           if (todasOcupadas) {
               const nuevaCelda = document.createElement('td');
@@ -167,7 +174,7 @@ buttons.forEach((button) => {
   });
 });
 
-window.addEventListener('keydown', handleKeyDown);
+window.addEventListener('keydown', handleKeyDown); //esto lo puso Chat
 
 if (typeof(Storage) !== "undefined") {
   localStorage.setItem("palabras", JSON.stringify([]));
@@ -179,6 +186,7 @@ document.getElementsByTagName("h1")[0].addEventListener("click",function(){
 
 let firstCellIndex = null;
 
+//Esto tambien lo hizo Chat
 Array.from(cells).forEach((cell, index) => {
     cell.addEventListener("click", () => {
         if (firstCellIndex === null) {
