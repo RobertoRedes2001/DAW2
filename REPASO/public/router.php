@@ -9,6 +9,9 @@ use Roberto\App\Core\Request;
 use Roberto\App\Core\RouteCollection;
 use Roberto\App\Core\Dispatcher;
 
+// Crear instancias necesarias
+$request = new Request();
 $routeCollection = new RouteCollection();
-$currentRequest = new Request();
-$dispatcher = new Dispatcher($routeCollection->getRoutes(), $currentRequest);
+
+// Despachar la solicitud
+$dispatcher = new Dispatcher($routeCollection, $request);
