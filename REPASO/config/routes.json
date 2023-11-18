@@ -1,0 +1,6 @@
+{
+    "/list": {
+        "controller": "dataController",
+        "action": "getList"
+    }
+}
