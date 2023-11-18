@@ -3,10 +3,10 @@
     "autoload": {
         "psr-4": {
             "Roberto\\App\\": "src/",
-            "Roberto\\App\\Core": "src/core", 
-            "Roberto\\App\\Controller": "src/controller",
-            "Roberto\\App\\Model": "src/model",
-            "Roberto\\App\\View": "src/view"    
+            "Roberto\\App\\Core\\": "src/core", 
+            "Roberto\\App\\Controller\\": "src/controller",
+            "Roberto\\App\\Model\\": "src/model",
+            "Roberto\\App\\View\\": "src/view"    
         }
     },
     "require": {}

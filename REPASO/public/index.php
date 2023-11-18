@@ -1,25 +1,11 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+    #http://localhost/public/router.php?route=list
+    #http://localhost/public/router.php?route=detail&number=1
 
-require_once '../vendor/autoload.php';
-
-use Roberto\App\Model\dataModel;
-use Roberto\App\Controller\dataController;
-use Roberto\App\Core\ddbb; 
-use Roberto\App\View\dataView; 
-
-$db = new ddbb();
-$model = new dataModel();
-$controller = new dataController();
-$view = new dataView();
-
-$db->saludo();
-echo "<br>";
-$model->saludo();
-echo "<br>";
-$controller->saludo();
-echo "<br>";
-$view->saludo();
-
+    # La función header() se utiliza para enviar una respuesta HTTP y, en este caso, 
+    # una cabecera de "Location" que redirige a otra página.
+    # La variable $_SERVER['QUERY_STRING'] contiene la cadena de consulta original de la URL actual, 
+    #incluyendo los parámetros y sus valores. 
+    header("Location: router.php".'/'.$_SERVER['QUERY_STRING']);
+    exit;
 ?>
