@@ -14,4 +14,4 @@ $request = new Request();
 $routeCollection = new RouteCollection();
 
 // Despachar la solicitud
-$dispatcher = new Dispatcher($routeCollection, $request);
+$dispatcher = new Dispatcher($routeCollection->getRoutes(), $request);
