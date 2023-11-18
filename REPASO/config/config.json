@@ -1,0 +1,6 @@
+{
+    "host": "172.20.0.3",
+    "username": "root",
+    "password": "root",
+    "dbname": "todolist"
+}
