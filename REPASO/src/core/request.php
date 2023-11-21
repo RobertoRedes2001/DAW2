@@ -11,8 +11,8 @@ class Request
     {
         $rawRoute = $_SERVER["REQUEST_URI"];
         $rawRouteElements = explode("/", $rawRoute);
-        $this->route = "/" . $rawRouteElements[2]; // Cambiado a 2 según la estructura de tus URLs
-        $this->params = array_slice($rawRouteElements, 3); // Cambiado a 3 según la estructura de tus URLs
+        $this->route = "/" . $rawRouteElements[3]; // Cambiado a 2 según la estructura de tus URLs
+        $this->params = array_slice($rawRouteElements, 4); // Cambiado a 3 según la estructura de tus URLs
     }
 
     /**

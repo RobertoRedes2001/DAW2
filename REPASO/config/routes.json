@@ -1,6 +1,6 @@
 {
     "/list": {
-        "controller": "dataController",
+        "controller": "listController",
         "action": "getList"
     }
 }

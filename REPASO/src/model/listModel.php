@@ -4,7 +4,7 @@ namespace Roberto\App\Model;
 require_once '../vendor/autoload.php';
 use Roberto\App\Core\ddbb; 
 
-class dataModel{
+class listModel{
     public function getAll() {  
         $model = ddbb::getInstance(); // Usar el Singleton para obtener la instancia
         $connection = $model->getConnection(); // Obtener la conexión

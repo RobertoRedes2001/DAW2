@@ -1,8 +1,8 @@
 <?php
 
 namespace Roberto\App\Core;
-use Roberto\App\Model\dataModel;
-use Roberto\App\View\dataView;
+use Roberto\App\Model\listModel;
+use Roberto\App\View\listView;
 
 class Dispatcher{
     private $routeList;
@@ -18,12 +18,11 @@ class Dispatcher{
     private function dispatch()
     {
         $requestedRoute = $this->currentRequest->getRoute();
-        print_r($requestedRoute);
-
-        if (isset($this->routeList['/list'])) {
-            $controllerClass = "Roberto\\App\\Controller\\" . $this->routeList['/list']["controller"];
-            $controller = new $controllerClass(new dataModel(), new dataView());
-            $action = $this->routeList['/list']["action"];
+       
+        if (isset($this->routeList[$requestedRoute])) {
+            $controllerClass = "Roberto\\App\\Controller\\" . $this->routeList[$requestedRoute]["controller"];
+            $controller = new $controllerClass(new listModel(), new listView());
+            $action = $this->routeList[$requestedRoute]["action"];
             $params = $this->currentRequest->getParams();
             $controller->$action(...$params);
         } else {

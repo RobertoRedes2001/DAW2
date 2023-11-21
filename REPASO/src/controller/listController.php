@@ -2,7 +2,7 @@
 
 namespace Roberto\App\Controller;
 
-class dataController{
+class listController{
     # Declara dos propiedades privadas llamadas "model" y "view" que almacenan objetos pasados como argumentos al constructor.
     private $model;
     private $view;

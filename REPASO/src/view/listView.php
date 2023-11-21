@@ -2,7 +2,7 @@
 
 namespace Roberto\App\View;
 
-class dataView{
+class listView{
     function viewTable(array $tareas) {
         //Generamos la tabla tomando de base el array que recibimos de la consulta
         echo '<table border="1">';
