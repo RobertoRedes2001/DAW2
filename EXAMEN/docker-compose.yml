@@ -25,17 +25,21 @@ services:
       - ./web:/var/www/html
     networks:
       - default
+    depends_on:
+      - database  # Añadido para asegurar que el servicio database esté disponible antes de iniciar web
   adminphp:
     build:
       context: ./php
       dockerfile: dockerfile
-    links:
-      - database
     ports:
       - 8000:80
     environment:
       MYSQL_DATABASE: "romaav"
       MYSQL_PASSWORD: "root"
       MYSQL_ROOT_PASSWORD: "root"
+    networks:
+      - default
+    depends_on:
+      - database  # Añadido para asegurar que el servicio database esté disponible antes de iniciar adminphp
 networks:
   default:

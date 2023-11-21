@@ -1,6 +1,6 @@
 <?php
-
-$host = "172.28.0.3";  // Puede ser "localhost" si se ejecuta desde el mismo contenedor
+sleep(20);
+$host = "database";
 $username = "root";
 $password = "root";
 $dbname = "romaav";
