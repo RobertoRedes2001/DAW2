@@ -36,4 +36,14 @@ Borrar imagenes y contenedores
 - docker rm [contenedor]
 - docker rmi [imagen]
 
-  
+Abre la terminal de un contenedor que se ejecuta en segundo plano o un contenedor que se ha creado sin terminal
+-docker exec -it mi_[contenedor] /bin/bash
+
+Copia un archivo en local y lo deja en la ruta especificada del contenedor
+docker cp [archivo_local] [contenedor]:[ruta_en_el_contenedor]
+
+Para un contenedor
+docker kill [contenedor]
+
+Creamos un contenedor mysql introducciondo la contraseña del usuario root ejecutandolo en segundo plano y creando un volumen de mysql llamado db
+docker run --name [nombre del contenedor a crear] -e MYSQL_ROOT_PASSWORD=[contraseña root] -d -v db:/var/lib/mysql mysql

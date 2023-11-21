@@ -1,0 +1,19 @@
+# Establece la imagen base a usar
+FROM ubuntu:latest
+
+# Actualiza los repositorios e instala la utilidad 'tar'
+RUN apt-get update \
+    && apt-get install -y tar \
+    && rm -rf /var/lib/apt/lists/*
+
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /archivos_tar/
+
+# Copia todos los archivos .tar desde el contexto de construcción al directorio /archivos_tar/ en el contenedor
+COPY *.tar /archivos_tar/
+
+# Descomprime cada archivo .tar en el directorio /archivos_tar/
+RUN for file in /archivos_tar/*.tar; do tar -xvf "$file"; done
+
+# Expone el puerto 80 para que sea accesible desde fuera del contenedor (nota: EXPOSE no publica el puerto, solo documenta)
+EXPOSE 80
