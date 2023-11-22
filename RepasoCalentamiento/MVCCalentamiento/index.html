@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calentamiento</title>
+</head>
+<body>
+    <form name="formulario1" method="post" action="">
+        <label>MIS SITIOS</label>
+        <select name="destinos" onchange="location.href=formulario1.destinos.value;">
+            <option value="http://localhost/public/router.php/hello">Hola</option>
+            <option value="http://localhost/public/router.php/bye">Adios</option>
+            <option value="http://localhost/public/router.php/saying">Refranes</option>
+            <option value="http://localhost/public/router.php/list">Lista de tareas</option>
+        </select>
+    </form>
+</body>
+</html>

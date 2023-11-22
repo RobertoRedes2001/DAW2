@@ -1,0 +1,21 @@
+{
+    "name": "twig/app",
+    "description": "Una a cerca de twig",
+    "require": {
+        "twig/twig": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Twig\\App\\": "src/",
+            "Twig\\App\\Core\\": "src/core",
+            "Twig\\App\\Model\\": "src/model",
+            "Twig\\App\\View\\": "src/view",
+            "Twig\\App\\Controller\\": "src/controller"
+        }
+    },
+    "authors": [
+        {
+            "name": "Roberto"
+        }
+    ]
+}

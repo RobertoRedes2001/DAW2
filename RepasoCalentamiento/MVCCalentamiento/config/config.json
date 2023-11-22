@@ -1,0 +1,6 @@
+{
+    "host": "mariadb",
+    "username": "root",
+    "password": "root",
+    "dbname": "todolist"
+}
