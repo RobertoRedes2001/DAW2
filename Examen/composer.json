@@ -1,0 +1,20 @@
+{
+    "name": "examen/app",
+    "description": "examen de jorge",
+    "autoload": {
+        "psr-4": {
+            "Examen\\App\\": "src/",
+            "Examen\\App\\Controller\\": "src/controller",
+            "Examen\\App\\Model\\": "src/model",
+            "Examen\\App\\View\\": "src/view",
+            "Examen\\App\\Core\\": "src/core",
+            "Examen\\App\\Core\\Interaces\\": "src/core/interfaces"
+        }
+    },
+    "authors": [
+        {
+            "name": "roberto"
+        }
+    ],
+    "require": {}
+}
