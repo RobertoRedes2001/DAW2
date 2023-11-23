@@ -5,16 +5,17 @@ namespace Examen\App\Model;
 require_once '../vendor/autoload.php'; // Incluyes el archivo de autoloader de Composer
 
 use Examen\App\Core\DataBase; // Importas la clase DataBase del namespace especificado
+use Examen\App\Core\Interfaces\IDataBase;  // Importas la Interfaz IDataBase del namespace especificado
 
-class EmployeesModel
+class EmployeesModel implements IDataBase
 {
-    public function getAll()
+    public function findAll($tabla)
     {
         $model = DataBase::getInstance(); // Obtienes una instancia de la clase DataBase mediante un método estático
         $connection = $model->getConnection(); // Obtienes la conexión a la base de datos
 
         // Consulta SQL para obtener todos los registros de la tabla EMP
-        $sql = "SELECT * FROM EMP";
+        $sql = "SELECT * FROM ".$tabla;
         
         try {
             $stmt = $connection->query($sql); // Ejecutas la consulta SQL
@@ -40,13 +41,13 @@ class EmployeesModel
         }
     }
 
-    public function getOne($id)
+    public function find($tabla, $clave, $id)
     {
         $model = DataBase::getInstance(); // Obtienes una instancia de la clase DataBase mediante un método estático
         $connection = $model->getConnection(); // Obtienes la conexión a la base de datos
 
         // Consulta SQL para obtener un registro específico de la tabla EMP
-        $sql = "SELECT * FROM EMP WHERE EMP_NO='$id'";
+        $sql = "SELECT * FROM ".$tabla." WHERE ".$clave."='$id'";
         
         try {
             $stmt = $connection->query($sql); // Ejecutas la consulta SQL
