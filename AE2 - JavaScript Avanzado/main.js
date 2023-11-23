@@ -263,9 +263,7 @@ window.addEventListener("click", function (event) {
   }
 });
 
-document
-  .getElementsByClassName("close-button")[0]
-  .addEventListener("click", function () {
+document.getElementsByClassName("close-button")[0].addEventListener("click", function () {
     modal.classList.toggle("show-modal");
   });
 
