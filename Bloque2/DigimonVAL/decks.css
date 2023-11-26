@@ -79,8 +79,21 @@ article {
 }
 
 #searchForm input[type="submit"] {
-    border: 2px solid #000;
-    background-color: #62B6CB;
+    border: 2px solid #ffffff;
+    background-color: #00ccff;
+    color: #BEE9E8;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#searchForm input[type="submit"]:hover {
+    border: 2px solid #ffffff;
+    background-color: #1b4965;
     color: #BEE9E8;
     padding: 5px 10px;
     text-align: center;

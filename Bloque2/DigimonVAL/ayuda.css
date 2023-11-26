@@ -23,7 +23,7 @@
 }
 
 article {
-    max-width: 600px; /* Ancho máximo del artículo */
+    max-width: 405px; /* Ancho máximo del artículo */
     margin: 0 auto; /* Centra el artículo dentro de la sección */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
     background-color: #f4f4f4;
