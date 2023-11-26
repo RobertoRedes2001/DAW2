@@ -3,10 +3,16 @@ body {
     font-family: 'Roboto', sans-serif;
     color: white;
     margin: 0;
+    padding: 0;
     text-align: center; /* Centro de los elementos de la página */
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-image: url(background.png);
+    background-size: cover; /* La imagen de fondo se ajusta para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-attachment: fixed; 
 }
 
 nav {
@@ -38,9 +44,33 @@ article {
     height: 100%; 
 }
 
-#navigation a {
+.nav a:visited {
+    text-decoration: none;
+    color: #62B6CB;
+}
+
+.nav a:hover {
+    text-decoration: none;
+    color: #BEE9E8;
+}
+
+.nav a:active {
+    text-decoration: none;
+    color: #00fffb;
+}
+
+.nav a {
     text-decoration: none;
     color: white;
+}
+
+#navigation button a {
+    text-decoration: none;
+    color: white;
+}
+
+#navigation button:hover a {
+    color: black;
 }
 
 img {
@@ -50,9 +80,22 @@ img {
 }
 
 #navigation button {
-    border: 2px solid #000;
+    border: 2px solid white;
     background-color: #62B6CB;
-    color: #BEE9E8;
+    color: white;
+    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Puedes ajustar el tamaño de la fuente según sea necesario */
+    cursor: pointer;
+    border-radius: 5px; /* Agrega esquinas redondeadas si lo deseas */
+}
+
+#navigation button:hover {
+    border: 2px solid black;
+    background-color: #21b8de;
+    color: black;
     padding: 10px 20px; /* Ajusta el relleno según sea necesario */
     text-align: center;
     text-decoration: none;
