@@ -25,6 +25,18 @@ article {
     padding: 20px; /* Añade relleno si es necesario */
 }
 
+.decks{
+    max-height: calc(100vh - 330px); 
+    overflow-y: auto;
+    padding: 20px; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.decks::-webkit-scrollbar {
+    display: none; 
+}
+
 .filtros-btn-group {
     display: flex;
     flex-direction: column;
