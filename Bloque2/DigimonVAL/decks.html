@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DigimonVAL</title>
+    <link rel="shortcut icon" href="digimonVAL_1.PNG" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="decks.css">
+    <script src="idioma.js"></script>
+  </head>
+  <body>
+    <nav id="navigation">
+      <ul>
+        <li><a href="index.html"><img src="digimonVAL_1.PNG" width="75" height="75"/></a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li>Decks</li>
+        <li><a href="sobres.html">Comprar Sobres</a></li>
+        <li><a href="ayuda.html">¿Quienes somos?</a></li>
+        <li>
+          <img id="idioma"
+            src="https://m.media-amazon.com/images/I/21ebY7rg4aL._AC_UY218_.jpg"
+            width="75"
+            height="50"
+            onclick="cambiarImagen()"
+          />
+        <li><button><a href="login.html">Inciar Sesion</a></button></li>
+      </ul>
+    </nav>
+    <section id="contenido">
+      <aside id="busqueda">
+        <form id="searchForm" action="tu_script_de_procesamiento.php" method="post">
+            <p>Búsqueda</p>
+            <input type="text" id="busqueda" name="busqueda" placeholder="Escribe tu búsqueda aquí" required>
+            <input type="submit" value="Enviar">
+            <br><br>
+    
+            <p>Filtros</p>
+            <div class="filtros-btn-group">
+                <input type="checkbox" id="filtro1" name="filtro[]" value="filtro1">
+                <label class="filtros" for="filtro1">Filtro 1</label>
+    
+                <input type="checkbox" id="filtro2" name="filtro[]" value="filtro2">
+                <label class="filtros" for="filtro2">Filtro 2</label>
+    
+                <input type="checkbox" id="filtro3" name="filtro[]" value="filtro3">
+                <label class="filtros" for="filtro3">Filtro 3</label>
+    
+                <input type="checkbox" id="filtro4" name="filtro[]" value="filtro4">
+                <label class="filtros" for="filtro4">Filtro 4</label>
+            </div>
+            <br><br>
+        </form>
+      </aside>    
+      <article>
+        <table align="center">
+          <tr>
+            <td><img src="placeholder.png" width="100" height="200"></td>
+            <td><img src="placeholder.png" width="100" height="200"></td>
+            <td><img src="placeholder.png" width="100" height="200"></td>
+          </tr>
+          <tr>
+            <td>Nombre producto</td>
+            <td>Nombre producto</td>
+            <td>Nombre producto</td>
+          </tr>
+          <tr>
+            <td>Precio</td>
+            <td>Precio</td>
+            <td>Precio</td>
+          </tr>
+        </table>
+      </article>
+    </section>
+    <footer>
+      <p>C. de Domènec Gómez, 35, bajo, 46025 Valencia</p>
+      <img src="icon.png" width="25" height="25" />
+      <p>+34 666-11-59-35</p>
+      <p>contacto@digimonval.es</p>
+    </footer>
+  </body>
+</html>

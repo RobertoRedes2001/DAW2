@@ -1,0 +1,30 @@
+#contenido {
+    text-align: center;
+    padding: 20px;
+}
+
+#contenido h1 {
+    color: #1b4965;
+    font-size: 28px;
+}
+
+#contenido img {
+    width: 100%; /* Ajusta el ancho según tus necesidades */
+    height: auto;
+    border-radius: 10px; /* Agrega bordes redondeados */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+#contenido p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333; /* Color del texto principal */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+article {
+    max-width: 600px; /* Ancho máximo del artículo */
+    margin: 0 auto; /* Centra el artículo dentro de la sección */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    background-color: #f4f4f4;
+}

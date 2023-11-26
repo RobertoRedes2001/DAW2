@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DigimonVAL</title>
+    <link rel="shortcut icon" href="digimonVAL_1.PNG"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="idioma.js"></script>
+  </head>
+  <body>
+    <nav id="navigation">
+      <ul>
+        <li><a href="index.html"><img src="digimonVAL_1.PNG" width="75" height="75" /></a></li>
+        <li>
+          <img id="idioma"
+            src="https://m.media-amazon.com/images/I/21ebY7rg4aL._AC_UY218_.jpg"
+            width="75"
+            height="50"
+            onclick="cambiarImagen()"
+          />
+        </li>
+      </ul>
+    </nav>
+    <section>
+      <article id="login">
+        <h1>Iniciar Sesión</h1>
+        <form action="tu_script_de_procesamiento.php" method="post">
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+            <br><br>
+        
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+            <br><br>
+        
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+        <h3><a href="register.html">No tengo cuenta</a></h3>
+      </article>
+    </section>
+    <footer>
+      <p>C. de Domènec Gómez, 35, bajo, 46025 Valencia</p>
+      <img src="icon.png" width="25" height="25" />
+      <p>+34 666-11-59-35</p>
+      <p>contacto@digimonval.es</p>
+    </footer>
+  </body>
+</html>

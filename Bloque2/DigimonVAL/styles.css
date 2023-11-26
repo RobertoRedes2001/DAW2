@@ -1,0 +1,72 @@
+body {
+    background-color: #BEE9E8;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin: 0;
+    text-align: center; /* Centro de los elementos de la página */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+nav {
+    background-color: #1b4965;
+}
+article {
+    margin-top:20px;
+}
+
+#contenido {
+    height:100%
+}
+
+#navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#navigation li {
+    display: flex; /* Añadido para centrar verticalmente */
+    align-items: center; /* Añadido para centrar verticalmente */
+    font-size: 2em;
+    padding: auto;
+    display: block;
+    height: 100%; 
+}
+
+#navigation a {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    /* Estilos para las imágenes */
+    max-width: 100%; /* Hace que las imágenes no sobrepasen su contenedor */
+    height: auto; /* Mantiene la proporción al cambiar el ancho */
+}
+
+#navigation button {
+    border: 2px solid #000;
+    background-color: #62B6CB;
+    color: #BEE9E8;
+    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Puedes ajustar el tamaño de la fuente según sea necesario */
+    cursor: pointer;
+    border-radius: 5px; /* Agrega esquinas redondeadas si lo deseas */
+}
+
+footer {
+    background-color: #1b4965;
+    color: white; /* Asegúrate de que el color del texto sea visible en el fondo oscuro */
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* Mantiene el pie de página pegado al final del contenedor */
+}
+
