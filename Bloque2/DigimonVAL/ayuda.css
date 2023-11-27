@@ -20,7 +20,10 @@
     line-height: 1.5;
     color: #333; /* Color del texto principal */
     margin-top: 20px; /* Espaciado superior */
+    text-indent: 1em; /* Sangría de la primera línea */
+    text-align: justify; /* Texto justificado */
 }
+
 
 article {
     max-width: 405px; /* Ancho máximo del artículo */
