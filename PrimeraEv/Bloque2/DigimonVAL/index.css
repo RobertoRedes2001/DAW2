@@ -18,30 +18,21 @@
     opacity: 1;
 }
 
-#novedades img:hover + h2 {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(169, 169, 169);
-    padding: 10px;
-    cursor: pointer;
-    color: white;
+#novedades:hover img + h2 {
+    opacity: 1;
 }
 
-#novedades h2:hover {
-    display: block;
+#novedades h2 {
     position: absolute;
-    top: 50%;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: left;
+    width: 775px;
+    transform: translateX(-50%);
     background-color: rgba(169, 169, 169, 0.5);
     padding: 10px;
     cursor: pointer;
     color: white;
-}
-
-#novedades h2 {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
