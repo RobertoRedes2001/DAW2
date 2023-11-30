@@ -3,10 +3,16 @@
 <table>
     {% for row in resultados %}
     <tr>
+        <th>Titulo</th>
+        <th>Fecha Creacion</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    <tr>
         <td>{{row.getTitulo}}</td>
         <td>{{row.getFechaCreacion | date("d/m/Y")}}</td>
-        <td>[X]</td>
-        <td>[U]</td>
+        <td><a href='http://localhost/ud4/actividades/ejercicio1/public/index.php/delete/'+{{getId}}>[X]</a></td>
+        <td><a href='http://localhost/ud4/actividades/ejercicio1/public/index.php/update/'+{{getId}}>[U]</a></td>
     </tr>
     {% endfor %}
 </table>
