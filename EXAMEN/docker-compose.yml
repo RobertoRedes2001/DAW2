@@ -34,8 +34,8 @@ services:
     ports:
       - 8000:80
     environment:
-      MYSQL_DATABASE: "romaav"
-      MYSQL_PASSWORD: "root"
+      PMA_PORT: 3306
+      PMA_HOST: "database"
       MYSQL_ROOT_PASSWORD: "root"
     networks:
       - default
