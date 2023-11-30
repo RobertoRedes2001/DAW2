@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Tasks;
+use App\Core\EntityManager;
 use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityRepository;

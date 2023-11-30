@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\SessionManager;
+
 abstract class AbstractController
 {
     private $twig;
