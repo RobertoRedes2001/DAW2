@@ -1,0 +1,9 @@
+
+  app-menu{
+    flex:1;
+    float: left;
+  }
+
+  app-article{
+    flex:2;
+  }

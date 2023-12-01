@@ -1,0 +1,11 @@
+h2, li {
+    font-family: Arial, sans-serif;
+}
+  
+ul {
+    list-style: none; /* Oculta los puntos de la lista */
+}
+
+main{
+    background-color: aliceblue;
+}
