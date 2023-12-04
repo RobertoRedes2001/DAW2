@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<h1>Lista de Tareas</h1>
+<a href='http://localhost/ud4/actividades/ejercicio2/public/index.php/add'>[I]</a>
+<table>
+    {% for task in resultados %}
+        <tr>
+            <td>{{ task.getTitulo }}</td>
+            <td>{{ task.getFechaCreacion | date("d/m/Y") }}</td>
+            <td><a href='http://localhost/ud4/actividades/ejercicio2/public/index.php/delete/{{ task.getId }}'>[X]</a></td>
+            <td><a href='http://localhost/ud4/actividades/ejercicio2/public/index.php/update/{{ task.getId }}'>[U]</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+<!-- Mostrar enlaces de paginación -->
+<div>
+    {% for page in 1..totalPages %}
+        <a href='http://localhost/ud4/actividades/ejercicio2/public/index.php/lista/{{ page }}'>{{ page }}</a>
+    {% endfor %}
+</div>
+
+{% endblock content %}
