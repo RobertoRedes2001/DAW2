@@ -33,7 +33,7 @@ class ListController extends AbstractController
         $tasks = $tasksRepository->findBy([], null, $tasksPerPage, $offset);
 
         // Renderizar la plantilla con los resultados y la paginación
-        $this->render("index.html", [
+        $this->render("list.html.twig", [
             "resultados" => $tasks,
             "currentPage" => $page,
             "totalPages" => $totalPages
