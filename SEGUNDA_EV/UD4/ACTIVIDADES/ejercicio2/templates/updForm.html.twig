@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ancient Blog Theme</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+</head>
+<body>
+    <h1>Actualización de Tarea</h1>
+<form id="updateForm" action="http://localhost/ud4/actividades/ejercicio2/public/index.php/updating/{{ task.getId }}" method="post">
+    <label for="titulo">Título: </label>
+    <input type="text" name="titulo" id="titulo" value="{{ task.getTitulo }}">
+    <br>
+    <br>
+    <label for="descripcion">Descripción: </label>
+    <input type="text" name="descripcion" id="descripcion" value="{{ task.getDescripcion }}">
+    <br>
+    <br>
+    <input type="submit" value="Actualizar">
+    <!-- Cambié el botón de "Borrar" por un enlace para evitar la ejecución inmediata -->
+    <input type="submit" value="Borrar" onclick="changeActionAndSubmit()">
+</form>
+
+<!-- Agregué el script JavaScript al final -->
+<script>
+    function changeActionAndSubmit() {
+        // Cambiar la acción del formulario
+        document.getElementById("updateForm").action = "http://localhost/ud4/actividades/ejercicio2/public/index.php/delete/{{ task.getId }}";
+        // Enviar el formulario
+        document.getElementById("updateForm").submit();
+    }
+</script>
+
+</body>
+</html>

@@ -1,19 +1,30 @@
 {
+    "/":{
+        "controller": "CRUDController",
+        "action": "listado" 
+    },
     "/lista": {
-        "controller": "ListController",
+        "controller": "CRUDController",
         "action": "listado"
     },
     "/add":{
-        "controller": "AddController",
+        "controller": "CRUDController",
         "action": "add"
     },
+    "/adding":{
+        "controller": "CRUDController",
+        "action": "adding"
+    },
     "/delete":{
-        "controller": "DelController",
+        "controller": "CRUDController",
         "action": "del"
     },
     "/update":{
-        "controller": "UpdateController",
+        "controller": "CRUDController",
         "action": "update"
+    },
+    "/updating":{
+        "controller": "CRUDController",
+        "action": "updating"
     }
-
 }

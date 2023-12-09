@@ -12,11 +12,8 @@ class AddController extends AbstractController
     // Método para agregar una nueva tarea
     public function add()
     {
-        // Obtener la instancia del EntityManager
-        $em = (new EntityManager())->get();
-        $classMetadata = $em->getClassMetadata(Tasks::class);
-        $tasks = new TasksRepository($em,$classMetadata);
-        $tasks->insert();
+        // Renderizo el formulario
+        $this->render("addForm.html", [null]);
     }
 
 }
