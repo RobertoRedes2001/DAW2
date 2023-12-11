@@ -49,8 +49,6 @@ class TasksRepository extends EntityRepository
         header("Location: http://localhost/ud4/actividades/ejercicio2/public/index.php/lista");
         exit();
     }
-    
-    
 
     public function delete($id): void {
           // Obtener la instancia del EntityManager

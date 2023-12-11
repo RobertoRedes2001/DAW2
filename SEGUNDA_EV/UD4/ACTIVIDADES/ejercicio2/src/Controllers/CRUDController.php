@@ -52,11 +52,13 @@ class CRUDController extends AbstractController
       $totalPages = ceil($totalTasks / $tasksPerPage);
       // Obtener las tareas paginadas
       $tasks = $tasksRepository->findBy([], null, $tasksPerPage, $offset);
+      $nombre = $_ENV["CompanyName"]; 
       // Renderizar la plantilla con los resultados y la paginación
       $this->render("list.html.twig", [
           "resultados" => $tasks,
           "currentPage" => $page,
-          "totalPages" => $totalPages
+          "totalPages" => $totalPages,
+          "miNombre" => $nombre
       ]); 
     }
 
