@@ -1,1 +1,10 @@
-<p>menu works!</p>
+<section>
+    <h2 (click)="toggleList()">TODAS SUS FORMAS!!!</h2>
+    <ul [ngClass]="toggle ? 'listOn' : 'listOff'">
+        <li><a href="https://gbf.wiki/Proto_Bahamut">Proto Bahamut</a></li>
+        <li><a href="https://gbf.wiki/Bahamut_Unchained">Proto Bahamut (Unchained)</a></li>
+        <li><a href="https://gbf.wiki/Bahamut">Bahamut</a></li>
+        <li><a href="https://gbf.wiki/Ultimate_Bahamut_(Raid)">Ultimate Bahamut</a></li>
+        <li><a href="https://gbf.wiki/Super_Ultimate_Bahamut_(Raid)">Super Ultimate Bahamut</a></li>
+    </ul>
+</section>
