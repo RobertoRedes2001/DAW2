@@ -1,0 +1,4 @@
+<header (dblclick)="onClick()" (mouseover)="isOn=!isOn" (mouseout)="isOn=!isOn"
+[ngClass]="isOn ? 'headerOn' : 'headerOff'">
+    <h1>{{rotulo}}</h1>
+</header>

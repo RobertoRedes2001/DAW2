@@ -1,0 +1,30 @@
+.headerOn{
+    background-image: url("https://gbf.wiki/images/thumb/0/05/Super_Ultimate_Bahamut_Impossible_twitter.jpg/600px-Super_Ultimate_Bahamut_Impossible_twitter.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 600px;
+    height: 200px;
+    margin-left:auto;
+    margin-right: auto;
+    opacity: 0.2;
+}
+
+.headerOff{
+    background-image: url("https://gbf.wiki/images/thumb/0/05/Super_Ultimate_Bahamut_Impossible_twitter.jpg/600px-Super_Ultimate_Bahamut_Impossible_twitter.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 600px;
+    height: 200px;
+    margin-left:auto;
+    margin-right: auto;
+    opacity: 1;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+}
+
