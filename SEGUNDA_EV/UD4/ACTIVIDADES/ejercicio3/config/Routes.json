@@ -3,11 +3,15 @@
         "controller": "CRUDController",
         "action": "baseTemplate" 
     },
-    "/lista": {
+    "/clients": {
         "controller": "CRUDController",
         "action": "listado"
     },
-    "/add":{
+    "/detail":{
+        "controller": "CRUDController",
+        "action": "detalle"
+    },
+    "/insert":{
         "controller": "CRUDController",
         "action": "add"
     },

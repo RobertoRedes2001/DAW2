@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block content %}
+		<h1>Clients list!</h1>
+        <table border='1'>
+    {% for client in resultados %}
+        <tr>
+            <td><a href='http://localhost/ud4/actividades/ejercicio3/public/index.php/detail/{{ client.getClienteCod }}'>{{ client.getNombre }}</a></td>
+            <td>{{ client.getCiudad }}</td>
+            <td><a href='http://localhost/ud4/actividades/ejercicio3/public/index.php/delete/{{ client.getClienteCod }}'>[X]</a></td>
+            <td><a href='http://localhost/ud4/actividades/ejercicio3/public/index.php/update/{{ client.getClienteCod }}'>[U]</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+<!-- Mostrar enlaces de paginación -->
+<div>
+    {% for page in 1..totalPages %}
+        <a href='http://localhost/ud4/actividades/ejercicio3/public/index.php/lista/{{ page }}'>{{ page }}</a>
+    {% endfor %}
+</div>
+{% endblock content %}
+	

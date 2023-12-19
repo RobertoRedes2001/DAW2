@@ -1,19 +1,19 @@
 <?php
 namespace App\Entity;
-use App\Repository\CompanyRepository;
+use App\Repository\ClientsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CompanyRepository::class)
- * @ORM\Table(name="cliente") 
+ * @ORM\Entity(repositoryClass=ClientsRepository::class)
+ * @ORM\Table(name="CLIENTE") 
  */
-class Company
+class Clients
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
-    private $clienteCod;
+    private $cliente_cod;
 
     /**
      * @ORM\Column(type="string", length=45)
@@ -38,12 +38,12 @@ class Company
     /**
      * @ORM\Column(type="string", length=9)
      */
-    private $codPostal;
+    private $cod_postal;
 
     /**
      * @ORM\Column(type="string", length=9)
      */
-    private $telfono;
+    private $telefono;
 
     /**
      * @ORM\Column(type="integer")
@@ -51,16 +51,26 @@ class Company
     private $area;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $repr_cod;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $observaciones;
+
+    /**
      * @ORM\Column(type="decimal", precision=9, scale=2, nullable=true)
      */
-    private $limiteCred;
+    private $limite_credito;
 
     /**
      * Get the value of clienteCod
      */ 
     public function getClienteCod()
     {
-        return $this->clienteCod;
+        return $this->cliente_cod;
     }
 
     /**
@@ -70,7 +80,7 @@ class Company
      */ 
     public function setClienteCod($clienteCod)
     {
-        $this->clienteCod = $clienteCod;
+        $this->cliente_cod = $clienteCod;
 
         return $this;
     }
@@ -160,7 +170,7 @@ class Company
      */ 
     public function getCodPostal()
     {
-        return $this->codPostal;
+        return $this->cod_postal;
     }
 
     /**
@@ -170,7 +180,7 @@ class Company
      */ 
     public function setCodPostal($codPostal)
     {
-        $this->codPostal = $codPostal;
+        $this->cod_postal = $codPostal;
 
         return $this;
     }
@@ -178,9 +188,9 @@ class Company
     /**
      * Get the value of telfono
      */ 
-    public function getTelfono()
+    public function getTelefono()
     {
-        return $this->telfono;
+        return $this->telefono;
     }
 
     /**
@@ -188,9 +198,9 @@ class Company
      *
      * @return  self
      */ 
-    public function setTelfono($telfono)
+    public function setTelefono($telefono)
     {
-        $this->telfono = $telfono;
+        $this->telefono = $telefono;
 
         return $this;
     }
@@ -220,7 +230,7 @@ class Company
      */ 
     public function getLimiteCred()
     {
-        return $this->limiteCred;
+        return $this->limite_credito;
     }
 
     /**
@@ -230,7 +240,47 @@ class Company
      */ 
     public function setLimiteCred($limiteCred)
     {
-        $this->limiteCred = $limiteCred;
+        $this->limite_credito = $limiteCred;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of observaciones
+     */ 
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
+
+    /**
+     * Set the value of observaciones
+     *
+     * @return  self
+     */ 
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of repr_code
+     */ 
+    public function getReprCode()
+    {
+        return $this->repr_cod;
+    }
+
+    /**
+     * Set the value of repr_code
+     *
+     * @return  self
+     */ 
+    public function setReprCode($repr_code)
+    {
+        $this->repr_cod = $repr_code;
 
         return $this;
     }

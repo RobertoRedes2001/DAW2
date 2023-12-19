@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Core\AbstractController;
-use App\Entity\Company;
-use App\Repository\CompanyRepository;
+use App\Entity\Clients;
+use App\Repository\ClientsRepository;
 use App\Core\EntityManager;
 
 class CRUDController extends AbstractController
@@ -15,11 +15,24 @@ class CRUDController extends AbstractController
         $this->render("index.html", [null]);
     }
 
+    // Método para actualizar una tarea y redirigir de vuelta a la lista
+    public function detalle($id)
+    {
+        $em = (new EntityManager())->get();
+        // Obtener el repositorio de Tasks
+        $ClientsRepository = $em->getRepository(Clients::class);
+        // Buscar la tarea por su ID
+        $client = $ClientsRepository->find($id);
+        $this->render("detailClientForm.html.twig", [
+            "client" => $client,
+        ]);
+    }
+
     // Método para agregar una nueva tarea
     public function add()
     {
         // Renderizo el formulario
-        $this->render("form.html", [null]);
+        $this->render("clientsForm.html.twig", [null]);
     }
 
     // Método para agregar una nueva tarea II
@@ -27,8 +40,8 @@ class CRUDController extends AbstractController
     {
         // Obtener la instancia del EntityManager
         $em = (new EntityManager())->get();
-        $classMetadata = $em->getClassMetadata(Company::class);
-        $clients = new CompanyRepository($em,$classMetadata);
+        $classMetadata = $em->getClassMetadata(Clients::class);
+        $clients = new ClientsRepository($em,$classMetadata);
         $clients->insert();
     }
 
@@ -36,8 +49,8 @@ class CRUDController extends AbstractController
     public function del($id)
     {
         $em = (new EntityManager())->get();
-        $classMetadata = $em->getClassMetadata(Company::class);
-        $clients = new CompanyRepository($em,$classMetadata);
+        $classMetadata = $em->getClassMetadata(Clients::class);
+        $clients = new ClientsRepository($em,$classMetadata);
         $clients->delete($id);
     }
 
@@ -47,17 +60,17 @@ class CRUDController extends AbstractController
       // Obtener la instancia del EntityManager
       $em = (new EntityManager())->get();
       // Obtener el repositorio de Tasks
-      $companyRepository = $em->getRepository(Company::class);
+      $ClientsRepository = $em->getRepository(Clients::class);
       // Número de tareas por página
-      $clientsPerPage = 5;
+      $clientsPerPage = 10;
       // Calcular el desplazamiento
       $offset = ($page - 1) * $clientsPerPage;
       // Contar el total de tareas
-      $totalClients = count($companyRepository->findAll());
+      $totalClients = count($ClientsRepository->findAll());
       // Calcular el total de páginas
       $totalPages = ceil($totalClients / $clientsPerPage);
       // Obtener las tareas paginadas
-      $client = $companyRepository->findBy([], null, $clientsPerPage, $offset);
+      $client = $ClientsRepository->findBy([], null, $clientsPerPage, $offset);
       // Renderizar la plantilla con los resultados y la paginación
       $this->render("clientsList.html.twig", [
           "resultados" => $client,
@@ -71,11 +84,11 @@ class CRUDController extends AbstractController
     {
         $em = (new EntityManager())->get();
         // Obtener el repositorio de Tasks
-        $companyRepository = $em->getRepository(Company::class);
+        $ClientsRepository = $em->getRepository(Clients::class);
         // Buscar la tarea por su ID
-        $client = $companyRepository->find($id);
-        $this->render("updForm.html.twig", [
-            "task" => $client,
+        $client = $ClientsRepository->find($id);
+        $this->render("updateClientForm.html.twig", [
+            "client" => $client,
         ]);
     }
 
@@ -83,9 +96,9 @@ class CRUDController extends AbstractController
     public function updating($id)
     {
         $em = (new EntityManager())->get();
-        $classMetadata = $em->getClassMetadata(Company::class);
-        $tasks = new CompanyRepository($em,$classMetadata);
-        $tasks->update($id);
+        $classMetadata = $em->getClassMetadata(Clients::class);
+        $clients = new ClientsRepository($em,$classMetadata);
+        $clients->update($id);
     }
 
 }
