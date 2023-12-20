@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block content %}
+		<h1>Employees list!</h1>
+        <table border='1'>
+        <tr>
+            <th>APELLIDOS</th>
+            <th>OFICIO</th>
+            <th>SALARIO</th>
+            <th>Nº DEPT</th>
+        </tr>
+    {% for emp in resultados %}
+        <tr>
+            <td>{{ emp.getApellidos }}</td>
+            <td>{{ emp.getOficio }}</td>
+            <td>{{ emp.getSalario }}</td>
+            <td>{{ emp.getDept_no }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<!-- Mostrar enlaces de paginación -->
+<div>
+    {% for page in 1..totalPages %}
+        <a href='http://localhost/ud4/actividades/ejercicio3/public/index.php/employees/{{ page }}'>{{ page }}</a>
+    {% endfor %}
+</div>
+{% endblock content %}
+	

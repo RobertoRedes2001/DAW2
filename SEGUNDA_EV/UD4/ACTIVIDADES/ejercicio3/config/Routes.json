@@ -5,11 +5,15 @@
     },
     "/clients": {
         "controller": "CRUDController",
-        "action": "listado"
+        "action": "listadoCliente"
+    },
+    "/employees": {
+        "controller": "CRUDController",
+        "action": "listadoEmp"
     },
     "/detail":{
         "controller": "CRUDController",
-        "action": "detalle"
+        "action": "detalleCliente"
     },
     "/insert":{
         "controller": "CRUDController",

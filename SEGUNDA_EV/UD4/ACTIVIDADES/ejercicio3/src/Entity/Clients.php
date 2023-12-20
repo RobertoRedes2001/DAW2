@@ -65,6 +65,12 @@ class Clients
      */
     private $limite_credito;
 
+        /**
+     * @ORM\ManyToOne(targetEntity="Employees")
+     * @ORM\JoinColumn(name="repr_cod", referencedColumnName="emp_no")
+     */
+    private $representante;
+
     /**
      * Get the value of clienteCod
      */ 
@@ -281,6 +287,26 @@ class Clients
     public function setReprCode($repr_code)
     {
         $this->repr_cod = $repr_code;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of representante
+     */ 
+    public function getRepresentante()
+    {
+        return $this->representante;
+    }
+
+    /**
+     * Set the value of representante
+     *
+     * @return  self
+     */ 
+    public function setRepresentante($representante)
+    {
+        $this->representante = $representante;
 
         return $this;
     }

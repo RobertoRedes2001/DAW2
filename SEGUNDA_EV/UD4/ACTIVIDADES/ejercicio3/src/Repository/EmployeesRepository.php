@@ -9,10 +9,10 @@ use Doctrine\ORM\EntityRepository;
 class EmployeesRepository extends EntityRepository
 {
     public function insert(): void {
-        // Crear una nueva instancia de Tasks
+        // Crear una nueva instancia de Employees
         $empleado = new Employees;
 
-        // Configurar los campos de la tarea
+        // Configurar los campos del empleado
         $empleado
             ->setEmp_no("")
             ->setApellidos("")
@@ -23,7 +23,7 @@ class EmployeesRepository extends EntityRepository
             ->setComision("")
             ->setDept_no("");
 
-        // Obtener el EntityManager y persistir la tarea
+        // Obtener el EntityManager y persistir el empleado
         $this->getEntityManager()->persist($empleado);
 
         // Guardar los cambios en la base de datos
@@ -37,11 +37,11 @@ class EmployeesRepository extends EntityRepository
     public function update($id): void {
         // Obtener la instancia del EntityManager
         $em = (new EntityManager())->get();
-        // Obtener el repositorio de Tasks
+        // Obtener el repositorio de Employees
         $employeesRepository = $em->getRepository(Employees::class);
         // Buscar la tarea por su ID
         $empleado = $employeesRepository->find($id);
-        // Actualizar los campos de la tarea
+        // Actualizar los campos de la empleado
         $empleado->setApellidos("");
         $empleado->setOficio("");
         $empleado->setJefe("");
@@ -62,15 +62,15 @@ class EmployeesRepository extends EntityRepository
           // Obtener la instancia del EntityManager
           $em = (new EntityManager())->get();
 
-          // Obtener el repositorio de Tasks
+          // Obtener el repositorio de Employees
           $employeesRepository = $em->getRepository(Employees::class);
   
-          // Buscar la tarea por su ID
-          $client = $employeesRepository->find($id);
+          // Buscar la empleado por su ID
+          $emp = $employeesRepository->find($id);
   
-          // Si la tarea existe, eliminarla y persistir los cambios
-          if ($client) {
-              $em->remove($client);
+          // Si el empleado existe, eliminarla y persistir los cambios
+          if ($emp) {
+              $em->remove($emp);
               $em->flush();
           }
   
