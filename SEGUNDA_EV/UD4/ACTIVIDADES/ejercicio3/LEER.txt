@@ -1,0 +1,6 @@
+- El enrutamiento es absoluto porque el enrutamiento relativo en el action y algunas pestañas me da error (me gustaria repasar esto en clase, o alguna tutoria cuando se pueda), la ruta de carpetas que debes tener es:
+"UD4/ACTIVIDADES/ejercicio3/.."
+
+- La base de datos que uso es la proporcionada, pero esta toqueteada para quitarle las constraints a las tablas linkadas a Cliente y Emp ya que no se usan en el ejercicio y dan error (no se si tenia que no tocar nada y buscar una forma, yo lo he hecho así)
+
+Si el enrutamiento para testear el ejercicio es el pedido y la base de datos es la que dejé en la carpeta, todo deberia ir bien! (deberia) 
