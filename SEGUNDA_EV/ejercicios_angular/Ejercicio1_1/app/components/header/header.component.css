@@ -1,0 +1,17 @@
+header{
+    background-color:  #8494ac ;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+   
+
+}
+
+h1{
+    color: #2e3845 ;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+    padding-right: 10px;
+    
+}

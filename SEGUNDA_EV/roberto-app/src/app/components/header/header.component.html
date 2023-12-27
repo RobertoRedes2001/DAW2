@@ -1,0 +1,26 @@
+    <!-- Header -->
+    <!-- Fotos para header
+    https://phantom-marca.unidadeditorial.es/f26736e71a6bfb79e3a2b0c631a1bf4e/resize/828/f/jpg/assets/multimedia/imagenes/2023/05/30/16854588843943.jpg
+    https://s1.eestatic.com/2018/11/21/ciencia/nutricion/nutricion-frutas-higiene_354976032_106782952_1706x960.jpg
+    -->
+    <header>
+        <nav class="header">
+            <ul>
+                <li (click)="clickFruits()"><a href="#HijadeFruta">Frutas</a></li>
+                <li (click)="clickVegetables()"><a href="#Verdurillas">Verduras</a></li>
+            </ul>
+        </nav>
+        @if(this.toggle){
+            <div class="banner" style="background: url(https://phantom-marca.unidadeditorial.es/f26736e71a6bfb79e3a2b0c631a1bf4e/resize/828/f/jpg/assets/multimedia/imagenes/2023/05/30/16854588843943.jpg
+            ) center center no-repeat;   background-size: cover;">
+                <h2>Tu verdulería de confianza</h2>
+                <h1>VERDURILLAS</h1>
+            </div> 
+        }@else{
+            <div class="banner">
+                <h2>Tu frutería de confianza</h2>
+                <h1>FRUTILLAS</h1>
+            </div>
+        }
+        
+    </header>
