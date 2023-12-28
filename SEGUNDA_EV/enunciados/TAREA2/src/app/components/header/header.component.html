@@ -1,0 +1,20 @@
+<header>
+    <nav class="header">
+        <ul>
+            <li><a href="#" (click)="onClick(1)">Frutas</a></li>
+            <li><a href="#" (click)="onClick(2)">Verduras</a></li>
+        </ul>
+    </nav>
+
+      
+    <div class="banner" [ngStyle]="{'backgroundImage': photo }">
+        @if (kind === 'fruits') {
+            <h2>Tu frutería de confianza</h2>
+            <h1>FRUTAS</h1>
+          } @else {
+            <h2>Tu verdulería de confianza</h2>
+            <h1>VERDURAS</h1>
+          }
+
+    </div>
+</header>

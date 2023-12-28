@@ -1,0 +1,27 @@
+<!-- Main -->
+<main class="content">
+    <section>
+        @for (title of titles; track title; let i = $index) {
+        <div class="grid">
+            @for (item of title; track item; let j = $index) {
+            <div class="card">
+                <div [ngStyle]="{'backgroundImage': item.photo }" class="photo">
+                    <div (click)="onTitle(i, j)" class="title">{{ item.title }}</div>
+                </div>
+            </div>
+            }
+        </div>
+        }
+
+    </section>
+
+    <div [ngClass]="modal ? 'modal' : 'modal show-modal'">
+        <div class="modal-content" [ngStyle]="{'backgroundImage': photoModal }">
+            <span (click)="onCloseModal()" class="close-button">×</span>
+            <h1>{{ photoTitle }}</h1>
+        </div>
+    </div>
+</main>
+
+
+  
