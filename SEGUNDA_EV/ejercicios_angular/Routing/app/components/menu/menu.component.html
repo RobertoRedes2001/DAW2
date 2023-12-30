@@ -1,0 +1,9 @@
+<aside>
+    <h2 (click)="onClick()">{{title}}</h2>
+    <nav [ngClass]="case">
+        <ul>
+            <li><a routerLink="/hemisferic" routerLinkActive="active" class="menulink">{{links[0]}}</a></li>
+            <li><a routerLink="/museu" routerLinkActive="active" class="menulink">{{links[1]}}</a></li>
+        </ul>
+    </nav>
+</aside>

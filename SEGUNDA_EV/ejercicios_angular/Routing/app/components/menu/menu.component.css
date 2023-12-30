@@ -1,0 +1,15 @@
+aside {
+    width: 250px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.oculto{
+    visibility: hidden;
+}

@@ -1,0 +1,12 @@
+article {
+    width:525px;
+    height: 550px;
+}
+
+h1 {
+    height: 400px;
+    background: url("https://cd1.taquilla.com/data/images/t/60/museo-de-las-ciencias-principe-felipe-de-valencia.jpg") no-repeat;
+    line-height: 150px;
+    text-align: center;
+    color: #fff;
+}

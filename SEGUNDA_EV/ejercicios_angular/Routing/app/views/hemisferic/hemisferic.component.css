@@ -1,0 +1,12 @@
+article {
+    width:525px;
+    height: 550px;
+}
+
+h1 {
+    height: 400px;
+    background: url("https://www.lovevalencia.com/wp-content/uploads/2010/10/ciudad.jpg") no-repeat;
+    line-height: 150px;
+    text-align: center;
+    color: #fff;
+}
