@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
@@ -10,96 +10,58 @@ import { NgClass, NgStyle } from '@angular/common';
 })
 export class HomeComponent {
     //Imagenes de los tipos de memoria
-    @ViewChild('memory1', { static: true }) memory1!: ElementRef;
-    @ViewChild('memory2', { static: true }) memory2!: ElementRef;
-    @ViewChild('memory3', { static: true }) memory3!: ElementRef;
-    @ViewChild('memory4', { static: true }) memory4!: ElementRef;
-    @ViewChild('memory5', { static: true }) memory5!: ElementRef;
-    @ViewChild('memory6', { static: true }) memory6!: ElementRef;
-    //Imagenes de informacion adicional sobre los tipos de memoria
-    @ViewChild('shortterm', { static: true }) shortterm!: ElementRef;
-    @ViewChild('longterm', { static: true }) longterm!: ElementRef;
-    @ViewChild('declarative', { static: true }) declarative!: ElementRef;
-    @ViewChild('procedural', { static: true }) procedural!: ElementRef;
-    @ViewChild('sensory', { static: true }) sensory!: ElementRef;
-    @ViewChild('verbal', { static: true }) verbal!: ElementRef;
-    //Caption del nombre de la memoria
-    @ViewChild('memoriaCaption1', { static: true }) memoriaCaption1!: ElementRef;
-    @ViewChild('memoriaCaption2', { static: true }) memoriaCaption2!: ElementRef;
+    public memoryImages: string[] = [
+      "https://cdn.vox-cdn.com/thumbor/qvJ_PVw2Ppnemy8hxFU2U3RojK0=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/23165626/memory2final.jpg",
+      "https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/1369847707_4085_memory-1.jpg?itok=aZRKeJXR",
+      "https://donboscoeduca.files.wordpress.com/2019/04/conocimientos-previos.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8a2YKUyrUrEEkYxECnP4zI3LXpfEhhEZhg&usqp=CAU",
+      "https://easyscienceforkids.com/wp-content/uploads/2018/04/Memory-facts-18-4-1-758x635.jpg",
+      "https://insidememory721788887.files.wordpress.com/2018/10/memory.jpg"
+    ];
+
+    public captions : string[] = [
+      'Memoria a corto plazo',
+      'Memoria a largo plazo',
+      'Memoria declarativa',
+      'Memoria procedimental',
+      'Memoria sensorial',
+      'Memoria verbal'
+    ];
+
+    public memoryTypes: string[] = [
+      'https://conductscience.com/maze/wp-content/uploads/2019/10/Diseases-and-conditions-that-affect-short-term-memory.png',
+      'https://conductscience.com/maze/wp-content/uploads/2019/12/Diseases-and-conditions-that-affect-long-term-memory.png',
+      'https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fnrn2850/MediaObjects/41583_2010_Article_BFnrn2850_Fig1_HTML.jpg',
+      'https://static.wixstatic.com/media/a7b893_49ac93653aea4e3da7f46b5de20e8ede~mv2.png/v1/fill/w_640,h_640,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/a7b893_49ac93653aea4e3da7f46b5de20e8ede~mv2.png',
+      'https://i.pinimg.com/736x/66/18/74/661874b7751be9d8421e955e2af4213a.jpg',
+      'https://www.wikihow.com/images/thumb/7/75/Improve-Verbal-Memory-Step-5-Version-2.jpg/v4-460px-Improve-Verbal-Memory-Step-5-Version-2.jpg'
+    ];
+
     //Variables para controlar los divs y los textos
     public changeImg: boolean = false;
     public changeMem: boolean = false;
+    public selectedIndex : number = -1;
+    public selectedFirst : boolean = false; 
     public memoryText: number = 1;
     public memoryType : number = 0;
 
-    changeImage(memory: HTMLImageElement, id: number) {
-      this.memoryType = id;
-      // Restablecer la visibilidad de todos los elementos
-      const memorys = [
-        this.memory1,
-        this.memory2,
-        this.memory3,
-        this.memory4,
-        this.memory5,
-        this.memory6,
-      ];
-      memorys.forEach((memoryActual: ElementRef) => {
-        memoryActual.nativeElement.style.display = 'none';
-      });
-      // Mostrar el elemento correspondiente
-      memory.style.display = 'block';
-      const captions = [
-        '',
-        ' a corto plazo',
-        ' a largo plazo',
-        ' declarativa',
-        ' procedimental',
-        ' sensorial',
-        ' verbal'
-      ];
-  
-      this.memoriaCaption1.nativeElement.textContent += captions[id];
-    
+    selectImg(index:number){
+      this.selectedFirst = true;
+      this.selectedIndex = index;
       this.changeImg = true;
       this.memoryText = 2;
     }
-  
-    changeMemory(id: number) {
-      // Restablecer la visibilidad de todos los elementos
-      const types = [
-        this.shortterm,
-        this.longterm,
-        this.declarative,
-        this.procedural,
-        this.sensory,
-        this.verbal,
-      ];
-    
-      types.forEach((typeyActual: ElementRef, index: number) => {
-        typeyActual.nativeElement.style.display = index + 1 === id ? 'block' : 'none';
-      });
-    
+
+    selectType(){
       this.changeMem = true;
       this.memoryText = 3;
-      this.memoriaCaption2.nativeElement.textContent = this.memoriaCaption1.nativeElement.textContent;
     }
-    
+
     returnMain(){
+      this.selectedFirst = false;
       this.changeImg = false;
       this.changeMem = false;
       this.memoryText = 1;
-      this.memoryType = 0;
-      const memorys = [
-        this.memory1,
-        this.memory2,
-        this.memory3,
-        this.memory4,
-        this.memory5,
-        this.memory6,
-      ];
-      memorys.forEach((memoryActual: ElementRef) => {
-        memoryActual.nativeElement.style.display = 'inline-block';
-      });
-      this.memoriaCaption1.nativeElement.textContent = "Memoria"
     }
+  
 }

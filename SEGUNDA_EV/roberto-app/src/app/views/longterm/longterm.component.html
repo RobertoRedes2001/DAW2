@@ -3,29 +3,19 @@
     <div class="first photo">
         <div>
             <div class="image-container">
-                <img #img1 src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/1369847707_4085_memory-1.jpg?itok=aZRKeJXR">
+                <img src="{{longTermImgs[cont]}}">
             </div>
-            <div class="image-container">
-              <img #img2 [ngStyle]="{ display:'none' }" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8a2YKUyrUrEEkYxECnP4zI3LXpfEhhEZhg&usqp=CAU">
-          </div>
-          <div class="image-container">
-            <img #img3 [ngStyle]="{ display:'none' }" src="https://easyscienceforkids.com/wp-content/uploads/2018/04/Memory-facts-18-4-1-758x635.jpg">
-          </div>
         </div>
         <span class="caption">Memoria a largo plazo</span>
     </div>
     <div >
         <div>
             <span class="quote">¿Qué es la memoria a largo plazo?</span>
-            <p #txt1>
-                <span class="first-letter">L</span>
-                La memoria a largo plazo se puede definir como el mecanismo cerebral que nos permite codificar y retener una cantidad prácticamente ilimitada de información durante un periodo largo de tiempo. Los recuerdos que almacenamos en la memoria a largo plazo pueden durar desde unos segundos hasta varios años.
-            </p>
-            <p #txt2 [ngStyle]="{ display:'none' }">
-              La memoria a largo plazo resulta un elemento clave para realizar nuestras tareas cotidianas sin errores y de forma autónoma. Este tipo de memoria hace referencia a la capacidad del cerebro para almacenar hechos, conocimientos o destrezas y recuperar más tarde esos recuerdos. La memoria a largo plazo es una capacidad muy amplia y compleja que implica una gran cantidad de estructuras cerebrales. Por esto mismo, es muy sensible al daño cerebral. Afortunadamente, la práctica y el entrenamiento cognitivo puede mejorar esta importante función cognitiva.
-            </p>
-            <p #txt3 [ngStyle]="{ display:'none' }">
-              Un programa en entrenamiento cerebral permite activar y fortalecer nuestra memoria y otras importantes capacidades cognitivas. Los juegos mentales estimulan determinados patrones de activación neuronal. La activación repetida de estos patrones cognitivos puede ayudar a fortalecer las conexiones neuronales implicadas en la memoria y establecer nuevas sinapsis capaces de reorganizar y/o recuperar funciones cognitivas más débiles o dañadas.
+            <p>
+              @if(cont===0){
+                <span class='first-letter'>L</span> 
+              }
+              {{longTermTexts[cont]}}
             </p>
         </div>
         

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgStyle, NgClass } from '@angular/common';
 
 @Component({
@@ -10,93 +10,60 @@ import { NgStyle, NgClass } from '@angular/common';
 })
 export class ShorttermComponent {
 
-    public position : number = 1;
-    @ViewChild('textOne', { static: true }) textOne!: ElementRef;
-    @ViewChild('textTwo', { static: true }) textTwo!: ElementRef;
-    @ViewChild('textThree', { static: true }) textThree!: ElementRef;
-    @ViewChild('boxOne', { static: true }) boxOne!: ElementRef;
-    @ViewChild('boxTwo', { static: true }) boxTwo!: ElementRef;
-    @ViewChild('boxThree', { static: true }) boxThree!: ElementRef;
-    @ViewChild('boxFour', { static: true }) boxFour!: ElementRef;
-    @ViewChild('boxFive', { static: true }) boxFive!: ElementRef;
-    @ViewChild('boxSix', { static: true }) boxSix!: ElementRef;
-    @ViewChild('boxSeven', { static: true }) boxSeven!: ElementRef;
-    @ViewChild('boxEight', { static: true }) boxEight!: ElementRef;
-    @ViewChild('boxNine', { static: true }) boxNine!: ElementRef;
+  public movedImg : boolean = false;
+  public index : number = -1;
+  public textIndex : number = 0;
+  public firstTime : boolean = true;
+ 
+  public firstImages : string[] = ["https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/1369847707_4085_memory-1.jpg?itok=aZRKeJXR", 
+  "https://www.olympiabenefits.com/hubfs/Vega/Blog%20Pages/Psychology/What%20is%20memory.png", 
+  "https://mindworks.org/app/uploads/2023/06/Does-Meditation-Improve-memory.jpg"];
+
+  public secondImages : string[] = ["https://media.npr.org/assets/img/2023/08/07/gettyimages-1440469647-db0c65c135844b757df227afebfa240fd400630c.jpg",
+  "https://images.ctfassets.net/cnu0m8re1exe/uTkqQAbjpnnpceaY9UzLE/2d49aaee28ca31631c33a02ff89b437c/brainresearch.jpg?fm=jpg&fl=progressive&w=660&h=433&fit=fill",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTERe-RZMXEfeALxm-QfjABDm_b2ggQEBJdng&usqp=CAU"];
+    
+  public thirdImages : string[] = [
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8a2YKUyrUrEEkYxECnP4zI3LXpfEhhEZhg&usqp=CAU",  
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ95HvxEmQ-GQBMSL48P-DpN445HLKgqG2EmJu57Fr8Ix4rw0mkf01iMh3Hew2gS3I9JI&usqp=CAU",
+  "https://images.theconversation.com/files/171522/original/file-20170530-23699-itx0un.jpg?ixlib=rb-1.1.0&rect=0%2C181%2C2987%2C2163&q=45&auto=format&w=926&fit=clip"];
   
-    nextImg() {
-      switch (this.position) {
-        case 1:
-          this.textOne.nativeElement.style.display = 'block';
-          
-          break;
-        case 2:
-          this.textTwo.nativeElement.style.display = 'none';
-          this.boxFour.nativeElement.style.left = '25%'
-          this.boxFive.nativeElement.style.left = '50%'
-          this.boxSix.nativeElement.style.left = '75%'
-          break;
-        case 3:
-          this.textTwo.nativeElement.style.display = 'block';
-          this.boxFour.nativeElement.style.left = '0%'
-          this.boxFive.nativeElement.style.left = '0%'
-          this.boxSix.nativeElement.style.left = '0%'
-          break;
-        case 4:
-          this.textThree.nativeElement.style.display = 'none';
+  public memoryTexts : string[] = [
+    "Memoria a corto plazo",
+    "La memoria a corto plazo es la capacidad para almacenar, mantener y recuperar cierta cantidad de información durante un corto periodo de tiempo.",
+    "Cuando la información pasa a estar disponible por un tiempo indefinido, es cuando hablamos de memoria a largo plazo"];
 
-          break;
-        case 5:
-          this.textThree.nativeElement.style.display = 'block';
-
-          break;
-        case 6:
-          this.textOne.nativeElement.style.display = 'none';
-
-          break;
+  nextStep(){
+    this.movedImg =! this.movedImg;
+    this.firstTime = false;
+    if(this.movedImg){
+      if(this.index === 2){
+        this.index = 0;
+      }else{
+        this.index++;
+      }
+      if(this.textIndex === 2){
+        this.textIndex = 0;
+      }else{
+        this.textIndex++;
       }
     }
+  }
 
-    lastImg() {
-      switch (this.position) {
-        case 1:
-          this.textOne.nativeElement.style.display = 'block';
-          this.textTwo.nativeElement.style.display = 'none';
-          this.textThree.nativeElement.style.display = 'none';
-          break;
-        case 2:
-          this.textOne.nativeElement.style.display = 'none';
-          this.textTwo.nativeElement.style.display = 'none';
-          this.textThree.nativeElement.style.display = 'none';
-          break;
-        case 3:
-          this.textOne.nativeElement.style.display = 'none';
-          this.textTwo.nativeElement.style.display = 'block';
-          this.textThree.nativeElement.style.display = 'none';
-          break;
-        case 4:
-          this.textOne.nativeElement.style.display = 'none';
-          this.textTwo.nativeElement.style.display = 'none';
-          this.textThree.nativeElement.style.display = 'none';
-          break;
-        case 5:
-          this.textOne.nativeElement.style.display = 'none';
-          this.textTwo.nativeElement.style.display = 'none';
-          this.textThree.nativeElement.style.display = 'block';
-          break;
-        case 6:
-          this.textOne.nativeElement.style.display = 'none';
-          this.textTwo.nativeElement.style.display = 'none';
-          this.textThree.nativeElement.style.display = 'none';
-          break;
+  previousStep(){
+    this.movedImg =! this.movedImg;
+    if(this.movedImg){
+      if(this.index === 0){
+        this.index = 2;
+      }else{
+        this.index--;
+      }
+      if(this.textIndex === 0){
+        this.textIndex = 2;
+      }else{
+        this.textIndex--;
       }
     }
+  }
   
-    nextPosition(){
-      this.position < 6 ? this.position++ : this.position = 1;
-    }
-
-    lastPosition(){
-      this.position <= 1 ? this.position = 6 : this.position--;
-    }
 }
