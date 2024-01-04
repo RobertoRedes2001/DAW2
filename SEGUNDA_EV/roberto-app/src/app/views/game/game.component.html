@@ -1,33 +1,88 @@
-<div class="container">
+<div class="container" [ngStyle]="{display : gameEnded ? 'none' : ''}">
     <div class="div">
-      <h1>Let's play!</h1>
+      <h1 (click)="shuffleOne()">Let's play!</h1>
       <table style="margin-left:auto;margin-right:auto;">
-        <tr>
-          <td class="activity"></td>
-          <td class="activity"></td>
-          <td class="activity"></td>
-          <td class="activity"></td>
-        </tr>
-        <tr>
-          <td class="activity"></td>
-          <td class="activity"></td>
-          <td class="activity"></td>
-          <td class="activity"></td>
-        </tr>
-        <tr>
-          <td class="activity"></td>
-          <td class="activity"></td>
-          <td class="activity"></td>
-          <td class="activity"></td>
-        </tr>
-        <tr>
-            <td class="activity"></td>
-            <td class="activity"></td>
-            <td class="activity"></td>
-            <td class="activity"></td>
-          </tr>
+        @switch(difLvl){
+          @case(1){
+            <tr>
+              <td class="activity" 
+              (click)="onChange ? changeColor(firstLevelColors[0],0) : choseColor(firstLevelColors[0],0)"
+              [ngStyle]="{'background-color': gameOnGoing ? firstLevelColors[0] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(firstLevelColors[1],1) : choseColor(firstLevelColors[1],1)"
+              [ngStyle]="{'background-color': gameOnGoing ? firstLevelColors[1] : ''}"></td>
+            </tr>
+            <tr>
+              <td class="activity" 
+              (click)="onChange ? changeColor(firstLevelColors[2],2) : choseColor(firstLevelColors[2],2)"
+              [ngStyle]="{'background-color': gameOnGoing ? firstLevelColors[2] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(firstLevelColors[3],3) : choseColor(firstLevelColors[3],3)"
+              [ngStyle]="{'background-color': gameOnGoing ? firstLevelColors[3] : ''}"></td>
+            </tr>            
+          }@case(2){
+            <tr>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[0],0) : choseColor(secondLevelColors[0],0)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[0] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[1],1) : choseColor(secondLevelColors[1],1)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[1] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[2],2) : choseColor(secondLevelColors[2],2)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[2] : ''}"></td>
+            </tr>
+            <tr>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[3],3) : choseColor(secondLevelColors[3],3)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[3] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[4],4) : choseColor(secondLevelColors[4],4"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[4] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[5],5) : choseColor(secondLevelColors[5],5)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[5] : ''}"></td>
+            </tr>
+            <tr>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[6],6) : choseColor(secondLevelColors[6],6)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[6] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[7],7) : choseColor(secondLevelColors[7],7)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[7] : ''}"></td>
+              <td class="activity" 
+              (click)="onChange ? changeColor(secondLevelColors[8],8) : choseColor(secondLevelColors[8],8)"
+              [ngStyle]="{'background-color': gameOnGoing ? secondLevelColors[8] : ''}"></td>
+            </tr>
+          }@case(3){
+            <tr>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+            </tr>
+            <tr>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+            </tr>
+            <tr>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+            </tr>
+            <tr>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+              <td class="activity"></td>
+            </tr>
+          }
+        }
       </table>
-      <h1>Check!</h1>
+      <h1 (click)="onCheck()" [ngStyle]="{display : gameOnGoing ? '' : 'none'}">Check!</h1>
     </div>
-      <h1>Game over!</h1>
   </div>
+  <h1 (click)="resetGame()" [ngStyle]="{display : gameEnded ? '' : 'none'}">{{victory ? 'You win!': 'Game over!'}}</h1>
