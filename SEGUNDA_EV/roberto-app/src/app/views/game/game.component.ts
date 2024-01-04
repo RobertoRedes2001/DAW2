@@ -40,7 +40,7 @@ export class GameComponent {
 
     const firstInterval = setInterval(() => {
       this.firstLevelColors.sort(() => Math.random() - 0.5);
-    }, 500);
+    }, 100);
   
     setTimeout(() => {
       clearInterval(firstInterval);
@@ -50,18 +50,18 @@ export class GameComponent {
       setTimeout(() => {
         const secondInterval = setInterval(() => {
           this.firstLevelColors.sort(() => Math.random() - 0.5);
-        }, 500);
+        }, 100);
         setTimeout(() => {
           clearInterval(secondInterval);
         }, 3000);
-      }, 3000);
+      }, 2000);
     }, 3000);
   }
 
   shuffleTwo() {
     const firstInterval = setInterval(() => {
       this.secondLevelColors.sort(() => Math.random() - 0.5);
-    }, 500);
+    }, 100);
   
     setTimeout(() => {
       clearInterval(firstInterval);
@@ -71,18 +71,18 @@ export class GameComponent {
       setTimeout(() => {
         const secondInterval = setInterval(() => {
           this.secondLevelColors.sort(() => Math.random() - 0.5);
-        }, 500);
+        }, 100);
         setTimeout(() => {
           clearInterval(secondInterval);
         }, 3000);
-      }, 3000);
+      }, 2000);
     }, 3000);
   }
 
   shuffleThree() {
     const firstInterval = setInterval(() => {
       this.thirdLevelColors.sort(() => Math.random() - 0.5);
-    }, 500);
+    }, 100);
   
     setTimeout(() => {
       clearInterval(firstInterval);
@@ -92,11 +92,11 @@ export class GameComponent {
       setTimeout(() => {
         const secondInterval = setInterval(() => {
           this.thirdLevelColors.sort(() => Math.random() - 0.5);
-        }, 500);
+        }, 100);
         setTimeout(() => {
           clearInterval(secondInterval);
         }, 3000);
-      }, 3000);
+      }, 2000);
     }, 3000);
   }
   
@@ -106,24 +106,15 @@ export class GameComponent {
     this.onChange = true;
   }
 
-  changeColor(newColor:string, index:number){
-    if(this.difLvl===1){
-      this.firstLevelColors[index] = this.currentColor;
-      this.firstLevelColors[this.currentIndex] = newColor;
-      this.onChange = false;
-    }
-    if(this.difLvl===2){
-      this.secondLevelColors[index] = this.currentColor;
-      this.secondLevelColors[this.currentIndex] = newColor;
-      this.onChange = false;
-    }
-    if(this.difLvl===3){
-      this.thirdLevelColors[index] = this.currentColor;
-      this.thirdLevelColors[this.currentIndex] = newColor;
+  changeColor(newColor: string, index: number) {
+    const levelColors = [this.firstLevelColors, this.secondLevelColors, this.thirdLevelColors];
+    if (this.difLvl >= 1 && this.difLvl <= levelColors.length) {
+      levelColors[this.difLvl - 1][index] = this.currentColor;
+      levelColors[this.difLvl - 1][this.currentIndex] = newColor;
       this.onChange = false;
     }
   }
-
+  
   onCheck(){
     switch(this.difLvl){
       case 1:
