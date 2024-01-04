@@ -20,7 +20,7 @@
           <img src="{{memoryTypes[selectedIndex]}}" (click)="returnMain()" [ngStyle]="{ 'display': 'block' }"/>
         </div>
         @if(selectedFirst){
-          <span class="caption">{{captions[selectedIndex+1]}}</span>
+          <span class="caption">{{captions[selectedIndex]}}</span>
         }@else{
           <span class="caption">Memoria</span>
         }

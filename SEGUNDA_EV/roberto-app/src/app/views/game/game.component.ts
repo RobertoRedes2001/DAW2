@@ -125,44 +125,46 @@ export class GameComponent {
   }
 
   onCheck(){
-    if(this.difLvl===1){
-      if (this.attempts > 1) {
-        if (JSON.stringify(this.answers) === JSON.stringify(this.firstLevelColors)) {
-          this.nextLevel();
-          this.shuffleTwo();
+    switch(this.difLvl){
+      case 1:
+        if (this.attempts > 1) {
+          if (JSON.stringify(this.answers) === JSON.stringify(this.firstLevelColors)) {
+            this.nextLevel();
+            this.shuffleTwo();
+          } else {
+            this.attempts--;
+            alert("Intentos restantes: "+this.attempts);
+          }
         } else {
-          this.attempts--;
-          alert("Intentos restantes: "+this.attempts);
+          this.gameEnded = true;
         }
-      } else {
-        this.gameEnded = true;
-      }      
+      break;
+      case 2:
+        if(this.attempts > 1){
+          if (JSON.stringify(this.answers) === JSON.stringify(this.secondLevelColors)) {
+            this.nextLevel();
+            this.shuffleThree();
+          } else {
+            this.attempts--;
+            alert("Intentos restantes: "+this.attempts);
+          }
+        }else{
+          this.gameOnGoing = false;
+        }
+      break;
+      case 3:
+        if(this.attempts > 1){
+          if (JSON.stringify(this.answers) === JSON.stringify(this.thirdLevelColors)) {
+            this.nextLevel();
+          } else {
+            this.attempts--;
+            alert("Intentos restantes: "+this.attempts);
+          }
+        }else{
+          this.gameOnGoing = false;
+        }
+      break;
     }
-    /*if(this.difLvl===2){
-      if(this.attempts > 1){
-        if (JSON.stringify(this.answers) === JSON.stringify(this.secondLevelColors)) {
-          this.nextLevel();
-        } else {
-          this.attempts--;
-          alert("Intentos restantes: "+this.attempts);
-        }
-      }else{
-        this.gameOnGoing = false;
-      }
-    }
-
-    if(this.difLvl===3){
-      if(this.attempts > 1){
-        if (JSON.stringify(this.answers) === JSON.stringify(this.thirdLevelColors)) {
-          this.nextLevel();
-        } else {
-          this.attempts--;
-          alert("Intentos restantes: "+this.attempts);
-        }
-      }else{
-        this.gameOnGoing = false;
-      }
-    }*/
   }
 
   nextLevel(){
