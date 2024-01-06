@@ -11,8 +11,7 @@ import { NgStyle, NgClass } from '@angular/common';
 export class ShorttermComponent {
 
   public movedImg : boolean = false;
-  public index : number = -1;
-  public textIndex : number = 0;
+  public index : number = 0;
   public firstTime : boolean = true;
  
   public firstImages : string[] = ["https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/1369847707_4085_memory-1.jpg?itok=aZRKeJXR", 
@@ -37,32 +36,15 @@ export class ShorttermComponent {
     this.movedImg =! this.movedImg;
     this.firstTime = false;
     if(this.movedImg){
-      if(this.index === 2){
-        this.index = 0;
-      }else{
-        this.index++;
-      }
-      if(this.textIndex === 2){
-        this.textIndex = 0;
-      }else{
-        this.textIndex++;
-      }
+      this.index === 2 ? this.index = 0 : this.index++;
     }
   }
 
   previousStep(){
     this.movedImg =! this.movedImg;
+    this.firstTime = false;
     if(this.movedImg){
-      if(this.index === 0){
-        this.index = 2;
-      }else{
-        this.index--;
-      }
-      if(this.textIndex === 0){
-        this.textIndex = 2;
-      }else{
-        this.textIndex--;
-      }
+      this.index === 0 ? this.index = 2 : this.index--;
     }
   }
   
