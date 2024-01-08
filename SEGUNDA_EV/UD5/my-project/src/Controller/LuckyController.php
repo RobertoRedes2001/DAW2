@@ -4,8 +4,9 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class LuckyController
+class LuckyController extends AbstractController
 {
     /*El componente route forma la url del programa, 
     por lo que acceder a la funcion se vuelve más simple*/
@@ -14,9 +15,13 @@ class LuckyController
     {
         $number = random_int(0, 100);
 
-        return new Response(
+        return $this->render('lucky/number.html.twig', [
+            'number' => $number,
+        ]);
+        
+        /*return new Response(
             '<html><body>Lucky number: '.$number.'</body></html>'
-        );
+        );*/
     }
 
     #[Route('/lucky/frase')]
