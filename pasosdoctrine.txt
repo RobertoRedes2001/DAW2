@@ -9,3 +9,5 @@ IMPORTANTE: HACER TODO ESTO EN EL DIRECTORIO /my-proyect
 - Crear migracion: php bin/console make:migration
 - Migrar los datos a la base de datos: php bin/console doctrine:migrations:migrate
 - Crear Controller: php bin/console make:controller ___Controller (sustituir ___ por nombre de tu tabla)
+- Instalar Form en symfony: docker run --rm --interactive --tty --volume .:/app composer require symfony/form
+- Crear un formulario: php bin/console make:form
