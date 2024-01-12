@@ -1,16 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
-import { LongtermComponent } from './views/longterm/longterm.component';
-import { ShorttermComponent } from './views/shortterm/shortterm.component';
-import { GameComponent } from './views/game/game.component';
+import { ViewOneComponent } from './views/view-one/view-one.component';
+import { ViewTwoComponent } from './views/view-two/view-two.component';
+import { ViewThreeComponent } from './views/view-three/view-three.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: '', redirectTo: 'longterm', pathMatch: 'full' },
-    { path: 'longterm', component: LongtermComponent },
-    { path: '', redirectTo: 'shortterm', pathMatch: 'full' },
-    { path: 'shortterm', component: ShorttermComponent },
-    { path: '', redirectTo: 'game', pathMatch: 'full' },
-    { path: 'game', component: GameComponent },
+    { path: 'viewOne', component: ViewOneComponent },
+    { path: 'viewTwo', component: ViewTwoComponent },
+    { path: 'viewThree', component: ViewThreeComponent },
+    { path: '', redirectTo: 'viewOne', pathMatch: 'full'}
 ];
