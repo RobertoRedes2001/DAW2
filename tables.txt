@@ -1,0 +1,23 @@
+EMP tabla
+EMP_NO - smallint - NOT NULL
+APELLIDOS - varchar(10) - NOT NULL
+OFICIO - varchar(10) - NULL
+JEFE - smallint -  NULL
+FECHA_ALTA - date  NULL
+SALARIO - int -  NULL
+COMISION - int -  NULL
+DEPT_NO - tinyint - NOT NULL
+
+
+CLIENTE tabla
+CLIENTE_COD - int - NOT NULL
+NOMBRE - varchar(45) - NOT NULL
+DIREC - varchar(40) - NOT NULL
+CIUDAD - varchar(30) - NOT NULL
+ESTADO - varchar(2)  - NULL
+COD_POSTAL - varchar(9) - NOT NULL
+AREA - smallint - NULL
+TELEFONO - varchar(9) - NULL
+REPR_COD - smallint - NULL
+LIMITE_CREDITO - decimal(9,2) - NULL
+OBSERVACIONES - text - NULL
