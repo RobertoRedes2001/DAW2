@@ -11,3 +11,5 @@ IMPORTANTE: HACER TODO ESTO EN EL DIRECTORIO /my-proyect
 - Crear Controller: php bin/console make:controller ___Controller (sustituir ___ por nombre de tu tabla)
 - Instalar Form en symfony: docker run --rm --interactive --tty --volume .:/app composer require symfony/form
 - Crear un formulario: php bin/console make:form
+- Crear una relacion entre dos tablas: php bin/console make:entity,
+entidad debe tener mismo nombre que otra tabla.
