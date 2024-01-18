@@ -2,125 +2,113 @@
 
 namespace App\Entity;
 
-use App\Repository\EMPRepository;
+use App\Repository\EmpRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: EMPRepository::class)]
-class EMP
+#[ORM\Entity(repositoryClass: EmpRepository::class)]
+class Emp
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $EMP_NO = null;
+    #[ORM\Column(name: "emp_no")]
+    private ?int $id = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $APELLIDOS = null;
+    private ?string $apellidos = null;
 
     #[ORM\Column(length: 10, nullable: true)]
-    private ?string $OFICIO = null;
+    private ?string $oficio = null;
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $JEFE = null;
+    private ?int $jefe = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $FECHA_ALTA = null;
+    private ?\DateTimeInterface $fecha_alta = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $SALARIO = null;
+    private ?int $salario = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $COMISION = null;
+    private ?int $comision = null;
 
-    #[ORM\Column]
-    private ?int $DEPT_NO = null;
-
-    public function getEMP_NO(): ?int
+    public function getId(): ?int
     {
-        return $this->EMP_NO;
+        return $this->id;
     }
 
-    public function getAPELLIDOS(): ?string
+    public function getApellidos(): ?string
     {
-        return $this->APELLIDOS;
+        return $this->apellidos;
     }
 
-    public function setAPELLIDOS(string $APELLIDOS): static
+    public function setApellidos(string $apellidos): static
     {
-        $this->APELLIDOS = $APELLIDOS;
+        $this->apellidos = $apellidos;
 
         return $this;
     }
 
-    public function getOFICIO(): ?string
+    public function getOficio(): ?string
     {
-        return $this->OFICIO;
+        return $this->oficio;
     }
 
-    public function setOFICIO(?string $OFICIO): static
+    public function setOficio(?string $oficio): static
     {
-        $this->OFICIO = $OFICIO;
+        $this->oficio = $oficio;
 
         return $this;
     }
 
-    public function getJEFE(): ?int
+    public function getJefe(): ?int
     {
-        return $this->JEFE;
+        return $this->jefe;
     }
 
-    public function setJEFE(?int $JEFE): static
+    public function setJefe(?int $jefe): static
     {
-        $this->JEFE = $JEFE;
+        $this->jefe = $jefe;
 
         return $this;
     }
 
-    public function getFECHAALTA(): ?\DateTimeInterface
+    public function getFechaAlta(): ?\DateTimeInterface
     {
-        return $this->FECHA_ALTA;
+        return $this->fecha_alta;
     }
 
-    public function setFECHAALTA(?\DateTimeInterface $FECHA_ALTA): static
+    public function setFechaAlta(?\DateTimeInterface $fecha_alta): static
     {
-        $this->FECHA_ALTA = $FECHA_ALTA;
+        $this->fecha_alta = $fecha_alta;
 
         return $this;
     }
 
-    public function getSALARIO(): ?int
+    public function getSalario(): ?int
     {
-        return $this->SALARIO;
+        return $this->salario;
     }
 
-    public function setSALARIO(?int $SALARIO): static
+    public function setSalario(?int $salario): static
     {
-        $this->SALARIO = $SALARIO;
+        $this->salario = $salario;
 
         return $this;
     }
 
-    public function getCOMISION(): ?int
+    public function getComision(): ?int
     {
-        return $this->COMISION;
+        return $this->comision;
     }
 
-    public function setCOMISION(?int $COMISION): static
+    public function setComision(?int $comision): static
     {
-        $this->COMISION = $COMISION;
+        $this->comision = $comision;
 
         return $this;
     }
-
-    public function getDEPTNO(): ?int
-    {
-        return $this->DEPT_NO;
-    }
-
-    public function setDEPTNO(int $DEPT_NO): static
-    {
-        $this->DEPT_NO = $DEPT_NO;
-
-        return $this;
-    }
+  
 }

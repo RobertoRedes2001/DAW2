@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\EMP;
+use App\Entity\Emp;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<EMP>
+ * @extends ServiceEntityRepository<Emp>
  *
- * @method EMP|null find($id, $lockMode = null, $lockVersion = null)
- * @method EMP|null findOneBy(array $criteria, array $orderBy = null)
- * @method EMP[]    findAll()
- * @method EMP[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Emp|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Emp|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Emp[]    findAll()
+ * @method Emp[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class EMPRepository extends ServiceEntityRepository
+class EmpRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, EMP::class);
+        parent::__construct($registry, Emp::class);
     }
 
 //    /**
-//     * @return EMP[] Returns an array of EMP objects
+//     * @return Emp[] Returns an array of Emp objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class EMPRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?EMP
+//    public function findOneBySomeField($value): ?Emp
 //    {
 //        return $this->createQueryBuilder('e')
 //            ->andWhere('e.exampleField = :val')

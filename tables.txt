@@ -6,8 +6,7 @@ JEFE - smallint -  NULL
 FECHA_ALTA - date  NULL
 SALARIO - int -  NULL
 COMISION - int -  NULL
-DEPT_NO - tinyint - NOT NULL
-
+DEPT_NO (FK_dept) - tinyint - NOT NULL
 
 CLIENTE tabla
 CLIENTE_COD - int - NOT NULL
@@ -18,6 +17,14 @@ ESTADO - varchar(2)  - NULL
 COD_POSTAL - varchar(9) - NOT NULL
 AREA - smallint - NULL
 TELEFONO - varchar(9) - NULL
-REPR_COD - smallint - NULL
+REPR_COD (FK_emp) - smallint - NULL
 LIMITE_CREDITO - decimal(9,2) - NULL
 OBSERVACIONES - text - NULL
+
+DEPT tabla (
+DEPT_NO - int - NOT NULL,
+DNOMBRE - varchar(14) - NOT NULL
+LOC- varchar(14) - NULL
+COLOR - varchar(20) - NULL
+
+#[ORM\Column(name: "nombre del id")]

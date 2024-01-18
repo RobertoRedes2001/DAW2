@@ -2,51 +2,53 @@
 
 namespace App\Entity;
 
-use App\Repository\DEPTRepository;
+use App\Repository\DeptRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: DEPTRepository::class)]
-class DEPT
+#[ORM\Entity(repositoryClass: DeptRepository::class)]
+class Dept
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $DEPT_NO = null;
+    #[ORM\Column(name: "dept_no")]
+    private ?int $id = null;
 
     #[ORM\Column(length: 14)]
-    private ?string $DNOMBRE = null;
+    private ?string $dnombre = null;
 
     #[ORM\Column(length: 14, nullable: true)]
-    private ?string $LOC = null;
+    private ?string $loc = null;
 
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $color = null;
 
-    public function getDEPT_NO(): ?int
+    public function getId(): ?int
     {
-        return $this->DEPT_NO;
+        return $this->id;
     }
 
-    public function getDNOMBRE(): ?string
+    public function getDnombre(): ?string
     {
-        return $this->DNOMBRE;
+        return $this->dnombre;
     }
 
-    public function setDNOMBRE(string $DNOMBRE): static
+    public function setDnombre(string $dnombre): static
     {
-        $this->DNOMBRE = $DNOMBRE;
+        $this->dnombre = $dnombre;
 
         return $this;
     }
 
-    public function getLOC(): ?string
+    public function getLoc(): ?string
     {
-        return $this->LOC;
+        return $this->loc;
     }
 
-    public function setLOC(?string $LOC): static
+    public function setLoc(?string $loc): static
     {
-        $this->LOC = $LOC;
+        $this->loc = $loc;
 
         return $this;
     }
@@ -62,4 +64,5 @@ class DEPT
 
         return $this;
     }
+
 }
