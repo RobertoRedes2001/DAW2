@@ -11,145 +11,145 @@ class Cliente
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(name: "cliente_cod")]
+    #[ORM\Column(name: "CLIENTE_COD")]
     private ?int $id = null;
 
     #[ORM\Column(length: 45)]
-    private ?string $nombre = null;
+    private ?string $NOMBRE = null;
 
     #[ORM\Column(length: 40)]
-    private ?string $direc = null;
+    private ?string $DIREC = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $ciudad = null;
-
-    #[ORM\Column(length: 2, nullable: true)]
-    private ?string $estado = null;
+    private ?string $CIUDAD = null;
 
     #[ORM\Column(length: 9)]
-    private ?string $cod_postal = null;
+    private ?string $COD_POSTAL = null;
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $area = null;
+    private ?int $AREA = null;
 
     #[ORM\Column(length: 9, nullable: true)]
-    private ?string $telefono = null;
+    private ?string $TELEFONO = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 9, scale: 2, nullable: true)]
-    private ?string $limite_credito = null;
+    private ?string $LIMITE_CREDITO = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $observaciones = null;
+    private ?string $OBSERVACIONES = null;
+
+    #[ORM\ManyToOne(inversedBy: 'CLIENTE_COD')]
+    private ?emp $REPR_COD = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNombre(): ?string
+    public function getNOMBRE(): ?string
     {
-        return $this->nombre;
+        return $this->NOMBRE;
     }
 
-    public function setNombre(string $nombre): static
+    public function setNOMBRE(string $NOMBRE): static
     {
-        $this->nombre = $nombre;
+        $this->NOMBRE = $NOMBRE;
 
         return $this;
     }
 
-    public function getDirec(): ?string
+    public function getDIREC(): ?string
     {
-        return $this->direc;
+        return $this->DIREC;
     }
 
-    public function setDirec(string $direc): static
+    public function setDIREC(string $DIREC): static
     {
-        $this->direc = $direc;
+        $this->DIREC = $DIREC;
 
         return $this;
     }
 
-    public function getCiudad(): ?string
+    public function getCIUDAD(): ?string
     {
-        return $this->ciudad;
+        return $this->CIUDAD;
     }
 
-    public function setCiudad(string $ciudad): static
+    public function setCIUDAD(string $CIUDAD): static
     {
-        $this->ciudad = $ciudad;
+        $this->CIUDAD = $CIUDAD;
 
         return $this;
     }
 
-    public function getEstado(): ?string
+    public function getCODPOSTAL(): ?string
     {
-        return $this->estado;
+        return $this->COD_POSTAL;
     }
 
-    public function setEstado(?string $estado): static
+    public function setCODPOSTAL(string $COD_POSTAL): static
     {
-        $this->estado = $estado;
+        $this->COD_POSTAL = $COD_POSTAL;
 
         return $this;
     }
 
-    public function getCodPostal(): ?string
+    public function getAREA(): ?int
     {
-        return $this->cod_postal;
+        return $this->AREA;
     }
 
-    public function setCodPostal(string $cod_postal): static
+    public function setAREA(?int $AREA): static
     {
-        $this->cod_postal = $cod_postal;
+        $this->AREA = $AREA;
 
         return $this;
     }
 
-    public function getArea(): ?int
+    public function getTELEFONO(): ?string
     {
-        return $this->area;
+        return $this->TELEFONO;
     }
 
-    public function setArea(?int $area): static
+    public function setTELEFONO(?string $TELEFONO): static
     {
-        $this->area = $area;
+        $this->TELEFONO = $TELEFONO;
 
         return $this;
     }
 
-    public function getTelefono(): ?string
+    public function getLIMITECREDITO(): ?string
     {
-        return $this->telefono;
+        return $this->LIMITE_CREDITO;
     }
 
-    public function setTelefono(?string $telefono): static
+    public function setLIMITECREDITO(?string $LIMITE_CREDITO): static
     {
-        $this->telefono = $telefono;
+        $this->LIMITE_CREDITO = $LIMITE_CREDITO;
 
         return $this;
     }
 
-    public function getLimiteCredito(): ?string
+    public function getOBSERVACIONES(): ?string
     {
-        return $this->limite_credito;
+        return $this->OBSERVACIONES;
     }
 
-    public function setLimiteCredito(?string $limite_credito): static
+    public function setOBSERVACIONES(?string $OBSERVACIONES): static
     {
-        $this->limite_credito = $limite_credito;
+        $this->OBSERVACIONES = $OBSERVACIONES;
 
         return $this;
     }
 
-    public function getObservaciones(): ?string
+    public function getREPRCOD(): ?emp
     {
-        return $this->observaciones;
+        return $this->REPR_COD;
     }
 
-    public function setObservaciones(?string $observaciones): static
+    public function setREPRCOD(?emp $REPR_COD): static
     {
-        $this->observaciones = $observaciones;
+        $this->REPR_COD = $REPR_COD;
 
         return $this;
     }

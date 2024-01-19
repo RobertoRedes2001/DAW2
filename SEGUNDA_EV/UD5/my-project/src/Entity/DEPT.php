@@ -12,57 +12,94 @@ class Dept
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(name: "dept_no")]
+    #[ORM\Column(name: "DEPT_NO")]
     private ?int $id = null;
 
     #[ORM\Column(length: 14)]
-    private ?string $dnombre = null;
+    private ?string $DNOMBRE = null;
 
     #[ORM\Column(length: 14, nullable: true)]
-    private ?string $loc = null;
+    private ?string $LOC = null;
 
     #[ORM\Column(length: 20, nullable: true)]
-    private ?string $color = null;
+    private ?string $COLOR = null;
+
+    #[ORM\OneToMany(mappedBy: 'DEPT_NO', targetEntity: Emp::class, orphanRemoval: true)]
+    private Collection $EMP_NO;
+
+    public function __construct()
+    {
+        $this->EMP_NO = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDnombre(): ?string
+    public function getDNOMBRE(): ?string
     {
-        return $this->dnombre;
+        return $this->DNOMBRE;
     }
 
-    public function setDnombre(string $dnombre): static
+    public function setDNOMBRE(string $DNOMBRE): static
     {
-        $this->dnombre = $dnombre;
+        $this->DNOMBRE = $DNOMBRE;
 
         return $this;
     }
 
-    public function getLoc(): ?string
+    public function getLOC(): ?string
     {
-        return $this->loc;
+        return $this->LOC;
     }
 
-    public function setLoc(?string $loc): static
+    public function setLOC(?string $LOC): static
     {
-        $this->loc = $loc;
+        $this->LOC = $LOC;
 
         return $this;
     }
 
-    public function getColor(): ?string
+    public function getCOLOR(): ?string
     {
-        return $this->color;
+        return $this->COLOR;
     }
 
-    public function setColor(?string $color): static
+    public function setCOLOR(?string $COLOR): static
     {
-        $this->color = $color;
+        $this->COLOR = $COLOR;
 
         return $this;
     }
 
+    /**
+     * @return Collection<int, Emp>
+     */
+    public function getEMPNO(): Collection
+    {
+        return $this->EMP_NO;
+    }
+
+    public function addEMPNO(Emp $eMPNO): static
+    {
+        if (!$this->EMP_NO->contains($eMPNO)) {
+            $this->EMP_NO->add($eMPNO);
+            $eMPNO->setDEPTNO($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEMPNO(Emp $eMPNO): static
+    {
+        if ($this->EMP_NO->removeElement($eMPNO)) {
+            // set the owning side to null (unless already changed)
+            if ($eMPNO->getDEPTNO() === $this) {
+                $eMPNO->setDEPTNO(null);
+            }
+        }
+
+        return $this;
+    }
 }
