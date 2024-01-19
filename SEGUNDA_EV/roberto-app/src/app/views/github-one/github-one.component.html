@@ -1,1 +1,16 @@
-<p>github-one works!</p>
+<div class="github">
+    <div class="menu">
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a (click)="clicked =! clicked">Ver perfiles</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content" [ngStyle]="{'display' : clicked ? 'block' : 'none'}">
+        @for(profile of gitProfiles; track profile; let i = $index){
+            <img style="width: 60%;" src={{profile.avatar_url}}>
+            <h1>{{profile.login}}</h1>
+        }
+    </div>
+</div>

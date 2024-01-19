@@ -1,4 +1,10 @@
 export interface GitHub {
+    total_count:        number;
+    incomplete_results: boolean;
+    items:              GitHubItem[];
+}
+
+export interface GitHubItem {
     login:               string;
     id:                  number;
     node_id:             string;
