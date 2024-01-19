@@ -18,7 +18,6 @@ export class GithubTwoComponent {
   public toggleModal : string = 'modal';
 
   public gitGud():void{
-    alert("Hello")
     this.service.getResponse("angular").subscribe((response)=>{
       this.gitProfiles = response.items;
     })
@@ -31,7 +30,7 @@ export class GithubTwoComponent {
   }
 
   public onCloseModal(){
-    this.toggleModal='modal';
+    this.toggleModal= 'modal';
   }
 
   ngOnInit() : void{
