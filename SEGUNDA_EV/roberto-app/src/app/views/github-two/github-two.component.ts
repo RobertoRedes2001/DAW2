@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { GithubService } from '../../services/github.service';
 import { GitHubItem } from '../../interfaces/github.interfaces';
 import { NgStyle, NgClass } from '@angular/common';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-github-two',
   standalone: true,
-  imports: [NgStyle, NgClass],
+  imports: [NgStyle, NgClass, ModalComponent],
   templateUrl: './github-two.component.html',
   styleUrl: './github-two.component.css'
 })
@@ -15,7 +16,7 @@ export class GithubTwoComponent {
   public gitProfiles : GitHubItem[] = [];
   public name : string = ''
   public avatar : string = '';
-  public toggleModal : string = 'modal';
+  public modal : string = 'modal'
 
   public gitGud():void{
     this.service.getResponse("angular").subscribe((response)=>{
@@ -26,11 +27,11 @@ export class GithubTwoComponent {
   public saveProfile(profileName : string, profileAvatar : string){
     this.name = profileName;
     this.avatar = profileAvatar;
-    this.toggleModal = 'show-modal';
+    this.modal = 'modal show-modal';
   }
 
-  public onCloseModal(){
-    this.toggleModal= 'modal';
+  onCloseModal(close:string){
+    
   }
 
   ngOnInit() : void{

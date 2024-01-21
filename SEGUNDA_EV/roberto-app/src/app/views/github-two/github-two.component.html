@@ -16,12 +16,9 @@
     </div>
 </div>
 
-<div class='{{toggleModal}}'>
-    <div class="modal-content">
-        <span (click)="onCloseModal()" class="close-button">×</span>
-        <h1 [ngStyle]="{ 'background-image': 'url(' + avatar + ')' }">{{name}}</h1>
-    </div>
-</div>
+<app-modal [avatar]="avatar" [name]="name" [showModal]="modal"></app-modal>
+
+
 
 
 
