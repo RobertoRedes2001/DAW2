@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Memigo } from '../interfaces/memes.interfaces';
+import { Memes } from '../interfaces/memes.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { Memigo } from '../interfaces/memes.interfaces';
 export class MemesService {
 
   constructor(public http : HttpClient) { }
-  public getResponse():Observable<Memigo>{
-    return this.http.get<Memigo>('https://api.imgflip.com/get_memes')
+  public getResponse():Observable<Memes>{
+    return this.http.get<Memes>('https://api.imgflip.com/get_memes')
   }
 }

@@ -11,9 +11,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ModalComponent {
   @Input() name : string = ''
   @Input() avatar : string = '';
-  @Input() showModal : string = '';
+  @Input() modal : string = '';
 
+  @Output() closeModal = new EventEmitter<string>(); 
+  
   public onCloseModal() : void{
-    this.showModal = 'modal';
+    this.closeModal.emit('modal');
   }
 }

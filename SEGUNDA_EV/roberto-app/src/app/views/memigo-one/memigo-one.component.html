@@ -1,1 +1,13 @@
-<p>memigo-one works!</p>
+<div class="memigo">
+    <section>
+        <div class="grid">
+            @for(meme of memesApproveds; track meme; let i = $index){
+                <div class="card">
+                    <div class="photo" [ngStyle]="{'background-image': 'url(' + meme.url + ')'}">
+                        <div class="title">{{meme.name}}</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</div>

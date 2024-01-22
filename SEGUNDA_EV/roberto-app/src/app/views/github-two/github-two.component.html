@@ -1,13 +1,4 @@
 <div class="github">
-    <div class="menu">
-        <h2>Menu</h2>
-        <nav>
-            <ul>
-                <li><a>Ver perfiles</a></li>
-            </ul>
-        </nav>
-    </div>
-   
     <div class="content" [ngStyle]="{'display' : 'block'}">
         @for(profile of gitProfiles; track profile; let i = $index){
             <img style="width: 60%;" src={{profile.avatar_url}} (click)="saveProfile(profile.login,profile.avatar_url)">
@@ -16,7 +7,7 @@
     </div>
 </div>
 
-<app-modal [avatar]="avatar" [name]="name" [showModal]="modal"></app-modal>
+<app-modal (closeModal)="onCloseModal($event)" [avatar]="avatar" [name]="name" [modal]="modal"></app-modal>
 
 
 

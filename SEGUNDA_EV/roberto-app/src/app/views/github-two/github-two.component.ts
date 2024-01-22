@@ -31,7 +31,7 @@ export class GithubTwoComponent {
   }
 
   onCloseModal(close:string){
-    
+    this.modal = close;
   }
 
   ngOnInit() : void{

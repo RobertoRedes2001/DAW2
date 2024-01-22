@@ -1,1 +1,12 @@
-<p>memigo-two works!</p>
+<div class="memigo">
+    <section>
+        <div class="grid">
+            <div class="card">
+                <div class="photo" [ngStyle]="{'background-image': 'url(' + memesApproveds[index].url + ')'}">
+                    <div class="title">{{memesApproveds[index].name}}</div>
+                </div>
+            </div>
+        </div>
+        <button (click)="lastMeme()">Anterior</button><button (click)="nextMeme()">Siguiente</button>
+    </section>
+</div>

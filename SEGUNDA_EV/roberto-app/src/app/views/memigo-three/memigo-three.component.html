@@ -1,1 +1,14 @@
-<p>memigo-three works!</p>
+<div class="memigo">
+    <section>
+        <div class="grid">
+            <div class="card" (click)="saveMeme(memesApproveds[index].name,memesApproveds[index].url)">
+                <div class="photo" [ngStyle]="{'background-image': 'url(' + memesApproveds[index].url + ')'}">
+                    <div class="title">{{memesApproveds[index].name}}</div>
+                </div>
+            </div>
+        </div>
+        <button (click)="lastMeme()">Anterior</button><button (click)="nextMeme()">Siguiente</button>
+    </section>
+</div>
+
+<app-modal (closeModal)="onCloseModal($event)" [avatar]="avatar" [name]="name" [modal]="modal"></app-modal>
