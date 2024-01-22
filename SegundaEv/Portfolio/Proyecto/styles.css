@@ -1,0 +1,7 @@
+#flexSwitchCheckDefault:checked + .form-check-label::before {
+    content: attr(data-en);
+}
+
+#flexSwitchCheckDefault + .form-check-label::before {
+    content: attr(data-es);
+}
