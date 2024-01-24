@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\EmpRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,154 +11,115 @@ class Emp
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(name: "EMP_NO")]
+    #[ORM\Column(name: "emp_no")]
     private ?int $id = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $APELLIDOS = null;
+    private ?string $apellidos = null;
 
     #[ORM\Column(length: 10, nullable: true)]
-    private ?string $OFICIO = null;
+    private ?string $oficio = null;
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $JEFE = null;
+    private ?int $jefe = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $FECHA_ALTA = null;
+    private ?\DateTimeInterface $fecha_alta = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $SALARIO = null;
+    private ?int $salario = null;
 
-    #[ORM\Column]
-    private ?int $COMISION = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $comision = null;
 
-    #[ORM\ManyToOne(inversedBy: 'EMP_NO')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?dept $DEPT_NO = null;
-
-    #[ORM\OneToMany(mappedBy: 'REPR_COD', targetEntity: Cliente::class)]
-    private Collection $CLIENTE_COD;
-
-    public function __construct()
-    {
-        $this->CLIENTE_COD = new ArrayCollection();
-    }
+    #[ORM\Column(type: Types::SMALLINT)]
+    private ?int $dept_no = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getAPELLIDOS(): ?string
+    public function getApellidos(): ?string
     {
-        return $this->APELLIDOS;
+        return $this->apellidos;
     }
 
-    public function setAPELLIDOS(string $APELLIDOS): static
+    public function setApellidos(string $apellidos): static
     {
-        $this->APELLIDOS = $APELLIDOS;
+        $this->apellidos = $apellidos;
 
         return $this;
     }
 
-    public function getOFICIO(): ?string
+    public function getOficio(): ?string
     {
-        return $this->OFICIO;
+        return $this->oficio;
     }
 
-    public function setOFICIO(?string $OFICIO): static
+    public function setOficio(?string $oficio): static
     {
-        $this->OFICIO = $OFICIO;
+        $this->oficio = $oficio;
 
         return $this;
     }
 
-    public function getJEFE(): ?int
+    public function getJefe(): ?int
     {
-        return $this->JEFE;
+        return $this->jefe;
     }
 
-    public function setJEFE(?int $JEFE): static
+    public function setJefe(?int $jefe): static
     {
-        $this->JEFE = $JEFE;
+        $this->jefe = $jefe;
 
         return $this;
     }
 
-    public function getFECHAALTA(): ?\DateTimeInterface
+    public function getFechaAlta(): ?\DateTimeInterface
     {
-        return $this->FECHA_ALTA;
+        return $this->fecha_alta;
     }
 
-    public function setFECHAALTA(?\DateTimeInterface $FECHA_ALTA): static
+    public function setFechaAlta(?\DateTimeInterface $fecha_alta): static
     {
-        $this->FECHA_ALTA = $FECHA_ALTA;
+        $this->fecha_alta = $fecha_alta;
 
         return $this;
     }
 
-    public function getSALARIO(): ?int
+    public function getSalario(): ?int
     {
-        return $this->SALARIO;
+        return $this->salario;
     }
 
-    public function setSALARIO(?int $SALARIO): static
+    public function setSalario(?int $salario): static
     {
-        $this->SALARIO = $SALARIO;
+        $this->salario = $salario;
 
         return $this;
     }
 
-    public function getCOMISION(): ?int
+    public function getComision(): ?int
     {
-        return $this->COMISION;
+        return $this->comision;
     }
 
-    public function setCOMISION(int $COMISION): static
+    public function setComision(?int $comision): static
     {
-        $this->COMISION = $COMISION;
+        $this->comision = $comision;
 
         return $this;
     }
 
-    public function getDEPTNO(): ?dept
+    public function getDeptNo(): ?int
     {
-        return $this->DEPT_NO;
+        return $this->dept_no;
     }
 
-    public function setDEPTNO(?dept $DEPT_NO): static
+    public function setDeptNo(int $dept_no): static
     {
-        $this->DEPT_NO = $DEPT_NO;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Cliente>
-     */
-    public function getCLIENTECOD(): Collection
-    {
-        return $this->CLIENTE_COD;
-    }
-
-    public function addCLIENTECOD(Cliente $cLIENTECOD): static
-    {
-        if (!$this->CLIENTE_COD->contains($cLIENTECOD)) {
-            $this->CLIENTE_COD->add($cLIENTECOD);
-            $cLIENTECOD->setREPRCOD($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCLIENTECOD(Cliente $cLIENTECOD): static
-    {
-        if ($this->CLIENTE_COD->removeElement($cLIENTECOD)) {
-            // set the owning side to null (unless already changed)
-            if ($cLIENTECOD->getREPRCOD() === $this) {
-                $cLIENTECOD->setREPRCOD(null);
-            }
-        }
+        $this->dept_no = $dept_no;
 
         return $this;
     }
