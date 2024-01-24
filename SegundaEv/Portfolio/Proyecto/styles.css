@@ -1,7 +1,7 @@
-#flexSwitchCheckDefault:checked + .form-check-label::before {
-    content: attr(data-en);
-}
-
-#flexSwitchCheckDefault + .form-check-label::before {
-    content: attr(data-es);
+footer {
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    margin-top: auto; /* Mantiene el pie de página pegado al final del contenedor */
 }
