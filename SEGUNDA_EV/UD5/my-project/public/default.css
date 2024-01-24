@@ -119,6 +119,12 @@ a:visited {
 	background: #000000;
 }
 
+<<<<<<< HEAD
+=======
+#menu .active a {
+}
+
+>>>>>>> c489c6ef7c26a4600b8b03f03897cdc5a18f39e2
 /* Splash */
 
 #splash {
