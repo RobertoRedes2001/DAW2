@@ -12,8 +12,8 @@
         <tr>
             <td><a href='/client/detail/{{ client.getId }}'>{{ client.getNombre }}</a></td>
             <td>{{ client.getCiudad }}</td>
-            <td><a href='delete/{{ client.getId }}'>[X]</a></td>
-            <td><a href='update/{{ client.getId }}'>[U]</a></td>
+            <td><a href='/client/delete/{{ client.getId }}'>[X]</a></td>
+            <td><a href='/client/update/{{ client.getId }}'>[U]</a></td>
         </tr>
     {% endfor %}
 </table>

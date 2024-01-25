@@ -5,11 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Cliente;
-use App\Repository\ClienteRepository;
+
 
 class CrudController extends AbstractController
 {
@@ -115,6 +114,26 @@ class CrudController extends AbstractController
         return $this->render("updateClientForm.html.twig", [
             "client" => $client,
         ]);
+    }
+
+    #[Route('/client/delete/{id}')]
+    public function clientDelete($id): Response 
+    {
+        // Obtener el repositorio de Clients
+        $clientRepository = $this->em->getRepository(Cliente::class);
+
+        // Buscar la cliente por su ID
+        $client = $clientRepository->find($id);
+
+        // Si la cliente existe, eliminarla y persistir los cambios
+        if ($client) {
+            $this->em->remove($client);
+            $this->em->flush();
+        }
+
+        // Redirigir de vuelta a la lista
+        header("Location: /clients/1");
+        exit();
     }
 
     #[Route('/client/updating/{id}')]
