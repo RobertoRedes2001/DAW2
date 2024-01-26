@@ -4,10 +4,11 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Cliente;
+use PhpParser\Node\Expr\Cast\String_;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class CrudController extends AbstractController
@@ -27,15 +28,12 @@ class CrudController extends AbstractController
     }
 
     #[Route('/clients/{page}')]
-    public function clientList(SessionInterface $session): Response 
+    public function clientList($page = 1): Response 
     {
         // Obtener el repositorio de Clients
         $clientsRepository = $this->em->getRepository(Cliente::class);
         // Número de client por página
-        $clientsPerPage = 10;
-
-        // Obtener el número de página actual de la sesión o establecerlo a 1 si no existe
-        $page = $session->get('current_page', 1);
+        $clientsPerPage = 5;
 
         // Calcular el desplazamiento
         $offset = ($page - 1) * $clientsPerPage;
@@ -75,24 +73,23 @@ class CrudController extends AbstractController
     }
 
     #[Route('/client/adding')]
-    public function clientAdd(): void
+    public function clientAdd(Request $request): Response
     {
         // Crear una nueva instancia de Clients
         $cliente = new Cliente;
 
-        // Configurar los campos de la cliente
+        // Configurar los campos de la cliente usando el objeto Request
         $cliente
-            ->setNombre($_POST['nombre'])
-            ->setDirec($_POST['direc'])
-            ->setCiudad($_POST['ciudad'])
-            ->setEstado($_POST['estado'])
-            ->setDirec($_POST['codPostal'])
-            ->setCodPostal( $_POST['codPostal'])
-            ->setTelefono($_POST['telefono'])
-            ->setArea($_POST['area'])
-            ->setLimiteCredito($_POST['limiteCredito'])
-            ->setReprCod($_POST['reprCod'])
-            ->setObservaciones($_POST['observaciones']);
+            ->setNombre($request->request->get('nombre'))
+            ->setDirec($request->request->get('direc'))
+            ->setCiudad($request->request->get('ciudad'))
+            ->setEstado($request->request->get('estado'))
+            ->setCodPostal($request->request->get('codPostal'))
+            ->setTelefono($request->request->get('telefono'))
+            ->setArea($request->request->get('area'))
+            ->setLimiteCredito($request->request->get('limiteCredito'))
+            ->setReprCod($request->request->get('reprCod'))
+            ->setObservaciones($request->request->get('observaciones'));
 
         // Obtener el EntityManager y persistir la cliente
         $this->em->persist($cliente);
@@ -137,23 +134,30 @@ class CrudController extends AbstractController
     }
 
     #[Route('/client/updating/{id}')]
-    public function clientUpdate($id): void 
+    public function clientUpdate(Request $request, String $id): void 
     {
         // Obtener el repositorio de Clients
-        $ClientsRepository = $this->em->getRepository(Cliente::class);
+        $clientsRepository = $this->em->getRepository(Cliente::class);
         // Buscar el cliente por su ID
-        $cliente = $ClientsRepository->find($id);
-        // Actualizar los campos de el cliente
-        $cliente->setNombre($_POST['nombre']);
-        $cliente->setDirec($_POST['direc']);
-        $cliente->setCiudad($_POST['ciudad']);
-        $cliente->setEstado($_POST['estado']);
-        $cliente->setDirec($_POST['codPostal']);
-        $cliente->setCodPostal( $_POST['area']);
-        $cliente->setTelefono($_POST['telefono']);
-        $cliente->setLimiteCredito($_POST['limiteCredito']);
-        $cliente->setReprCod($_POST['reprCod']);
-        $cliente->setObservaciones($_POST['observaciones']);
+        $cliente = $clientsRepository->find($id);
+
+        // Verificar si el cliente existe
+        if (!$cliente) {
+            throw $this->createNotFoundException('Cliente no encontrado');
+        }
+        // Actualizar los campos del cliente usando el objeto Request
+        $cliente
+            ->setNombre($request->request->get('nombre'))
+            ->setDirec($request->request->get('direc'))
+            ->setCiudad($request->request->get('ciudad'))
+            ->setEstado($request->request->get('estado'))
+            ->setCodPostal($request->request->get('codPostal'))
+            ->setArea($request->request->get('area'))
+            ->setTelefono($request->request->get('telefono'))
+            ->setLimiteCredito($request->request->get('limiteCredito'))
+            ->setReprCod($request->request->get('reprCod'))
+            ->setObservaciones($request->request->get('observaciones'));
+
         // Persistir y guardar los cambios
         $this->em->persist($cliente);
         $this->em->flush();
