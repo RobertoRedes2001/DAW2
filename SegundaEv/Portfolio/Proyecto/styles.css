@@ -8,9 +8,13 @@ footer {
     color: #62B6CB;
 }
 
+.main{
+    background-color: #BEE9E8;
+}
+
 .navbar{
     background-color: #1B4965;
-    font-size: medium;
+    font-size: larger;
 }
 
 .nav-link{
@@ -19,4 +23,11 @@ footer {
 
 .nav-link:hover{
     color: #BEE9E8;
+}
+
+.jumbotron{
+    color: #1B4965; 
+    background-image: url(https://cdn.mos.cms.futurecdn.net/SqMREeTjELyYscpKC7NHvm-1200-80.jpg); 
+    background-repeat: no-repeat; 
+    background-size: cover;
 }
