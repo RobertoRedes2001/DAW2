@@ -4,4 +4,19 @@ footer {
     position: absolute;
     width: 100%;
     margin-top: auto; /* Mantiene el pie de página pegado al final del contenedor */
+    background-color: #1B4965;
+    color: #62B6CB;
+}
+
+.navbar{
+    background-color: #1B4965;
+    font-size: medium;
+}
+
+.nav-link{
+    color: #62B6CB;
+}
+
+.nav-link:hover{
+    color: #BEE9E8;
 }
