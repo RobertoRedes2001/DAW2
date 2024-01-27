@@ -1,18 +1,30 @@
 body{
-    background-color: #BEE9E8;
+    background-image: url('../imagenes/fondo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Establecer el alto mínimo de la página al 100% de la ventana del navegador */
+    margin: 0;
 }
 
-h1{
+.row h1{
     font-family: 'Open Sans';
+    text-align: center;
+    margin: 30px;
+}
+
+p{
+    text-align: justify;
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    width: 100%;
-    bottom: 0; /* Fijar el pie de página en la parte inferior */
     background-color: #1B4965;
     color: #62B6CB;
+    margin-top: auto; /* Esto empujará el pie de página hacia abajo */
 }
 
 .navbar{
@@ -25,14 +37,20 @@ footer {
 }
 
 .nav-link:hover{
+    color: #62B6CB;
+    text-shadow: 2px 2px 4px #BEE9E8;
+}
+
+.nav-link:active{
     color: #BEE9E8;
+    text-shadow: 2px 2px 4px #62B6CB;
 }
 
 .jumbotron{
     background-image: url('../imagenes/jumbo.jpg'); 
     background-repeat: no-repeat; 
     background-size: cover;
-    height: 600px;
+    height: 400px;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -44,4 +62,39 @@ footer {
     color: #BEE9E8;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
     -webkit-text-stroke: 1px black; /* Borde en navegadores webkit */
+}
+
+.card{
+    margin: 20px;
+    background-color: #1B4965;
+    color: #62B6CB;
+}
+
+.btn{
+    background-color: #62B6CB;
+    border: #BEE9E8;
+    color: #1B4965;
+}
+
+.btn:hover{
+    background-color: #BEE9E8;
+    border: #62B6CB;
+    color: #1B4965;
+}
+
+.form-label {
+    display: inline-block;
+    width: 120px; /* Ancho fijo para los labels */
+    margin-bottom: 0.5rem; /* Espacio entre los labels y los campos */
+  }
+
+#form{
+    margin: 90px;
+    color: #1B4965;
+    background-color: #BEE9E8;
+}
+
+#monomalvado{
+    width: 300px;
+    height: 300px;
 }
