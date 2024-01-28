@@ -1,0 +1,40 @@
+Imagen digital: Imagen capturada compuesta por codificacion binaria, transformada por los medios informaticos.
+
+Tipos de Imagenes 
+- Mapas de Bits: Numero de pixeles fijo, estructurada en una matriz de puntos, pierden calidad, peso proporcional al tamaño de la imagen. Para fotografias e ilustraciones. 
+- Vectoriales: Se construyen con funciones matematicas, representan objetos geometricos, no pierden calidad, tamaño de la imagen independiente del archivo. Para dibujos, esquemas, planos.
+
+Formatos: Los archivos estan determinados por un formato.
+Formatos de Vectoriales: AI, CDR, DXF, FH, FLA, ODG, SVG, WMF
+Formatos Mapa de Bits: BMP, CPT, GIF, JPEG/JPG, PCX, PNG, PSD, PSP, TIF/TIFF
+Formatos para ambos: EPS, PIC/PCT
+
+En las web se usan imagenes de mapas de bits, principalmente: 
+- GIF: Para imagenes sencillas, de 2 a 256 colores en 24 bits, Compresion sin perdida, Transpariencia de 1 bit, Permite animacion siempre.
+- JPEG: Imagenes fotograficas que eliminan informacion no distinguible para el ojo humano, más de 256 colores, posible compresion con perdida, no permite transparencias ni animaciones.
+- PNG: Para renderizar imagenes, hasta 256 colores, 10% más de compresion que GIF sin perdida al contrario que JPG, transparencia variable, no permite animacion.
+
+El numero de bits es proporcional a los colores que se pueden representar:
+1 bit - Blanco y negro
+2 bits - 4 colores
+8 bits - 256 colores
+24 bits - 16M de colores
+
+Formula de calculo de de Bytes:
+W x H x Depth / nº bits
+
+Puntos importantes:
+- Cuanto menos pese una imagen, más rapido se descarga
+- Para que pesen menos se comprimen eliminando informacion redundante
+
+Metodos de compresion:
+- Lossless: Eliminar redundacia de datos.
+- Lossy: Se pierde informacion no perceptible para el ojo humano.
+
+Iconos: Complementos para textos de enlaces, de pequeño tamaño pero sin perder signficado. (GIF, PNG) 
+Logotipo: Complementos de una web para ayudar al usuario a regresar a la pagina principal. (GIF, PNG)
+Banner: Publicidad dentro de una web. (GIF)
+
+
+
+

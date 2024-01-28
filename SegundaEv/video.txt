@@ -1,0 +1,20 @@
+El video digital usa la representacion digital de la señal de video en vez de la analogica.
+
+Caracteristicas de los archivos de video: Duracion, Tamaño, Tamaño de los fotogramas, Relacion de aspecto (W:H), Fotogramas por segundo (Fps), Códec.
+
+Formatos contenedores
+- Mp4: Puede contener video en MPEG-4.
+- Swf, Flc y F4v: Formatos que adobe usa para el flash video (en desuso).
+- Oog y Ogv: Open source. Pensados para el streaming.
+- MKV (Matroska): Open source. Para Steaming de gran calidad.
+- Webm: Open source. Desarrollado por Google para HTML5.
+- Avi: Propiedad de Microsoft. Soporta muchos formatos, entre ellos MPEG-4.
+- Mov: Contenedor Quicktime propietario de Apple.
+
+Para reproducirse se necesita tener instalado los mismos códecs.
+Formatos más usados: mp4, ogg/ogv, webm.
+
+Insertar un video subido a la red
+- Ventajas: No ocupa espacio en nuestro servidor, al estar en servidores especializados se reproduciran de forma más flurida, el cambio o actualizacion del recurso se mostrara de forma inmediata.
+- Inconveniente: En caso de retirarse o cambiar el material, se perderia el acceso.
+

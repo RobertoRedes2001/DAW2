@@ -1,0 +1,34 @@
+Derechos de propiedad intelectual (PI): 
+- Abarca los derechos de autor y derechos conexios, divididos en derechos: morales y de caracter economico.
+- Creaciones originales expresadas en cualquier medio o soporte son consideradas Propiedad Intelectual
+- Las ideas, informacion y conocimiento de partimonio comun no son consideradas Propiedad Intelectual.
+
+Derechos Morales: Reconocimiento al autor original, respetar la integridad de la obra y no alterarla.
+Derechos de Caracter Economico: Relacionados con la explotaacion de una obra, prohibiendo esta, solo a cambio de una retribucion monetaria al autor para su uso.
+
+Derechos de autor en web:
+Los recursos graficos de creacion propia tienen derechos de autor, los cuales se dividen en dos clases:
+- Morales, Irrenunciables e Inalientes.
+- Economicos, transferibles y de duracion en el tiempo.
+
+Una licencia de software es un acuerdo entre el autor y el usuario para usar un software bajo sus terminos y condiciones.
+
+Tipos de Licencia I:
+- Copyright: Derechos de explotacion, es una licencia general de caracter restrictivo que conlleva los derechos reservados.
+- Copyleft: Licencias libres.
+- Creative Commons: Paso medio entre las anteriores, que permite configurar licencias cuya redaccion se incorpore en la obra/web.
+
+Tipos de Licencia II:
+- Reconocimiento: Se necesita reconocer al autor.
+- No Comercial: Explotacion exenta del uso comercial.
+- Sin obras derivadas: No se podran crear otras obras a partir de esta.
+- Compartir igual: Se podran crear obras a partir de esta siempre que mantenga la licencia.
+
+Estas licencias se pueden unir al Copyright:
+- by: Permite cualquier explotacion sin restriccion.
+- by-nc: Se permite la generacion de derivadas sin fines comerciales. No se puede usar la obra original con fines comerciales tampoco.
+- by-nc-sa: Lo mismo que la de arriba, pero con licencia para distribucion.
+- by-nc-nd: No se permite el uso comercial ni de la original, ni de derivadas.
+- by-sa: Se permite el uso comercial de la obra original y derivadas bajo licencia.
+- by-nd: Se permite el uso comercial de la obra, pero no la generacion de derivadas.
+

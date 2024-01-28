@@ -1,0 +1,32 @@
+La señal sonora es analogica, por lo que hay que convertirla a digital para transmitira por internet, donde la informacion esta formada por 0's y 1's.
+
+Tasa de muestreo:
+- Audio digital obtenido a partir de una señal analogica.
+- Se define en hertzios.
+- A mayor tasa de muestreo, mayor calidad.
+
+Bitrate:
+- Espacio fisico que ocupa un segundo de audio.
+- Mayor bitrate equivale a mayor calidad de audio, pero mayor peso de archivo.
+
+Tamaño de la muestra:
+- Numero de bits usados en el almacenamiento de la señal analogica.
+- 2 ^ Bits = Numero de niveles de Amplitud.
+- Más calidad a mayor resolucion.
+
+Formato: Estructura del archivo que guardia el audio.
+Códec: Tipo de compresion para comprimir el audio en un archivo.
+
+Formatos con Compresión y Perdida: 
+- ogg: Valido para audio y video, formato libre, eficiente en streaming y compresion de archivos. Interpretado por Firefox y Chrome.
+- mp3: Perdida de calidad imperceptible, elimina frecuencias no captables. 
+- RA: Utilizada en paginas de streaming, permite variar la velocidad a la conexion del usuario.
+- wma: Gran calidad por menor tamaño, incluye un sistema de gestion de derechos de autor, solo se pueden reproducir en windows. Solo soportado en Internet Explorer/Microsoft Edge.
+- acc: Rendimiento superior al mp3, multicanal, frecuencia maxima muestreo de 96Khz 
+Formatos sin Compresión: 
+- wav: Sin compresion propiedad de Microsoft y IBM, ocupa mucho espacio.
+
+No todos los navegadores tienen reproductores para todos los formatos, debe de investigarse cuales son los más utilizados por el usuario objetivo de nuestra web.
+
+
+
