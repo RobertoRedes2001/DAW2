@@ -56,12 +56,11 @@ footer {
     background-size: cover;
     height: 400px;
     align-items: center;
-    justify-content: center;
     display: flex;
 }
 
 .display-4{
-    text-align: center;
+
     font-style: italic;
     color: #BEE9E8;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
@@ -98,7 +97,13 @@ footer {
     background-color: #BEE9E8;
 }
 
-#monomalvado{
-    width: 300px;
-    height: 300px;
+section.col-lg-6 {
+    position: relative; /* Establece posición relativa */
+    overflow: hidden; /* Oculta cualquier contenido que se salga del contenedor */
+}
+
+#monomalvado {
+    max-width: 100%; /* Limita el ancho máximo de la imagen al ancho del contenedor */
+    height: 300px; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
+    display: block; /* Para evitar espacios no deseados debajo de la imagen */
 }
