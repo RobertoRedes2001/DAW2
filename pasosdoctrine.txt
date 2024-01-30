@@ -18,5 +18,6 @@ entidad debe tener mismo nombre que otra tabla.
 - Instalar formularios de registro: docker run --rm --interactive --tty --volume .:/app composer require make:registration-form
 - Instalar validation: docker run --rm --interactive --tty --volume .:/app composer require validator security
 - Instalar security bundle: docker run --rm --interactive --tty --volume .:/app composer require symfony/security-bundle
+- Instalar usuarios:
 - Crear usuario: php bin/console make:user
 - Crear formulario:
