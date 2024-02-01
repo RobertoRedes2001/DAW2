@@ -21,7 +21,7 @@ class CrudController extends AbstractController
     }
 
 
-    #[Route('/')]
+    #[Route('/',name: 'main_page')]
     public function index(): Response 
     {
         return $this->render('index.html', []);

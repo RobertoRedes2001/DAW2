@@ -1,13 +1,6 @@
-version: '3'
+version: '2'
 
-services: 
-  apache:
-    build: .
-    ports: 
-      - 80:80
-    volumes:
-      - .:/var/www/html
-  
+services:
   mariadb:
     image: mariadb:latest
     ports:
@@ -16,19 +9,20 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-    volumes:
-      - mariadb_data:/var/lib/mysql
-      - ./db:/docker-entrypoint-initdb.d       
-
-  phpmyadmin:
-    image: phpmyadmin:5
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}    
+  myapp:
+    image: docker.io/bitnami/symfony:6.3
     ports:
-      - 8080:80
+      - '8005:8000'
     environment:
-      - PMA_HOST=mariadb
-    depends_on: 
-      - mariadb 
-
-volumes:
-  mariadb_data:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - SYMFONY_DATABASE_HOST=mariadb
+      - SYMFONY_DATABASE_PORT_NUMBER=3306
+      - SYMFONY_DATABASE_USER=${MYSQL_USER}
+      - SYMFONY_DATABASE_NAME=${MYSQL_DATABASE}
+      - SYMFONY_PROJECT_SKELETON=symfony/skeleton
+    volumes:
+      - './my-project:/app'
+    depends_on:
+      - mariadb

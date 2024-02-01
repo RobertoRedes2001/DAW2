@@ -18,6 +18,20 @@
 			<li class="active"><a href="/">Home</a></li>
 			<li><a href="/clients/1">Clients List</a></li>
 			<li><a href="/client/insert">Add Client</a></li>
+			{% if app.user %}
+			<li>
+				<a href="{{ path('app_logout') }}">Cerrar sesion</a>
+				<br>
+				<strong>{{ app.user.userIdentifier}}</stong>
+			</li>
+		{% else %}
+			<li>
+				<a href="/login/">Login</a>
+			</li>
+			<li>
+				<a href="/register/">Register</a>
+			</li>
+			{% endif %}
 		</ul>
 	</div>
 </div>
