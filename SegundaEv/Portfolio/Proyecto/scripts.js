@@ -16,6 +16,7 @@ link.href = '../Curriculum_RMA.pdf';
 link.download = 'Curriculum_RMA.pdf';
 link.className = 'btn';
 link.textContent = 'Mi Curriculum';
+link.target = '_blank'
 
 // Agregar el enlace al cuerpo del documento (o cualquier otro elemento)
 //document.body.appendChild(link);
