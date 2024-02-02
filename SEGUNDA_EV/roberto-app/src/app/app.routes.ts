@@ -4,6 +4,6 @@ import { ViewTwoComponent } from './views/view-two/view-two.component';
 
 export const routes: Routes = [
     { path: 'view1', component: ViewOneComponent },
-    { path: '', pathMatch: 'full', redirectTo: 'github1' },
+    { path: '', pathMatch: 'full', redirectTo: 'view1' },
     { path: 'view2', component: ViewTwoComponent },
 ];

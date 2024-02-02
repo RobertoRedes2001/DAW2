@@ -1,15 +1,16 @@
 <div class="navigation">
     <ul>
-      <a class="nav-link">Vista 1</a>
-      <a class="nav-link logo">Vista 2</a>
+        <a class="{{classOne}}" (click)="onChangeViewOne()" routerLink="/view1" RouterLinkActive="active">Vista 1</a>
+        <a class="{{classTwo}}" (click)="onChangeViewTwo()" routerLink="/view2" RouterLinkActive="active">Vista 2</a>
     </ul>
 </div>
 
-<div class="banner">
+<div class="banner" [ngStyle]="{ 'background-image': 'url(' + banner[pos].image + ')' }">
     <div class="banner-text">
-        <h2>Vista 2</h2>
+        <h2>{{banner[pos].name}}</h2>
     </div>
 </div>
 
 <div class="content">
+    
 </div>
