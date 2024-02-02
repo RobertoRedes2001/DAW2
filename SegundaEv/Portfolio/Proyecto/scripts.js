@@ -34,3 +34,26 @@ let card3 = document.getElementById("card3");
 card3.getElementsByTagName("p")[1].addEventListener("click", function() {
     onClick(card3, tecnologiasCompleta);
 });
+
+// Obtenemos los elementos del DOM
+const languageDropdown = document.getElementById('languageDropdown');
+const headingText = document.getElementById('headingText');
+
+// Añadimos un evento de clic al menú desplegable
+languageDropdown.addEventListener('click', function(e) {
+  // Verificamos qué elemento se ha hecho clic
+  const selectedLanguage = e.target.innerText;
+  
+  // Dependiendo de la selección, cambiamos el texto del encabezado
+  switch(selectedLanguage) {
+    case 'ESPAÑOL':
+      headingText.innerText = 'Programador Web';
+      break;
+    case 'ENGLISH':
+      headingText.innerText = 'Web Programer';
+      break;
+    default:
+      // Si se hace clic en otro lugar del menú desplegable, no hacemos nada
+      break;
+  }
+});
