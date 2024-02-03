@@ -21,7 +21,7 @@ REPR_COD (FK_emp) - smallint - NULL
 LIMITE_CREDITO - decimal(9,2) - NULL
 OBSERVACIONES - text - NULL
 
-DEPT tabla (
+DEPT tabla
 DEPT_NO - int - NOT NULL,
 DNOMBRE - varchar(14) - NOT NULL
 LOC- varchar(14) - NULL

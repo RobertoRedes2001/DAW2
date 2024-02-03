@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block content %}
+		<h1>Clients list!</h1>
+        <table border='1'>
+        <tr>
+            <th>NOMBRE</th>
+            <th>CIUDAD</th>
+            <th>BORRAR</th>
+            <th>ACTUALIZAR</th>
+        </tr>
+    {% for client in resultados %}
+        <tr>
+            <td><a href='/client/detail/{{ client.getId }}'>{{ client.getNombre }}</a></td>
+            <td>{{ client.getCiudad }}</td>
+            <td><a href='/client/delete/{{ client.getId }}'>[X]</a></td>
+            <td><a href='/client/update/{{ client.getId }}'>[U]</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+<!-- Mostrar enlaces de paginación -->
+<div>
+    {% for page in 1..totalPages %}
+        <a href='/clients/{{ page }}'>{{ page }}</a>
+    {% endfor %}
+</div>
+{% endblock content %}
+	

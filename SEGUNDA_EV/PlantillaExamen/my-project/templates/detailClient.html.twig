@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+{% block content %}
+		<h1>{{client.getNombre}} Detail!</h1>
+        <table border='1'>
+        <tr>
+            <td>{{client.getId}}</td>
+            <td>{{client.getNombre}}</td>
+            <td>{{client.getCiudad }}</td>
+        </tr>
+        <tr>
+            <td>{{client.getEstado}}</td>
+            <td>{{client.getDirec}}</td>
+            <td>{{client.getCodPostal}}</td>
+        </tr>
+        <tr>
+            <td>{{client.getTelefono}}</td>
+            <td>{{client.getArea}}</td>
+            <td>{{client.getLimiteCredito}}</td>
+        </tr>
+		<tr>
+			<td>
+				{% if client.getReprCod.getId == 7369 %}
+					SÁNCHEZ
+				{% elseif client.getReprCod.getId == 7499 %}
+					ARROYO
+				{% elseif client.getReprCod.getId == 7521 %}
+					SALA
+				{% elseif client.getReprCod.getId == 7566 %}
+					JIMÉNEZ
+				{% elseif client.getReprCod.getId == 7654 %}
+					MARTÍN
+				{% elseif client.getReprCod.getId == 7698 %}
+					NEGRO
+				{% elseif client.getReprCod.getId == 7782 %}
+					CEREZO
+				{% elseif client.getReprCod.getId == 7788 %}
+					GIL
+				{% elseif client.getReprCod.getId == 7839 %}
+					REY
+				{% elseif client.getReprCod.getId == 7844 %}
+					TOVAR
+				{% elseif client.getReprCod.getId == 7876 %}
+					ALONSO
+				{% elseif client.getReprCod.getId == 7900 %}
+					JIMENO
+				{% elseif client.getReprCod.getId == 7902 %}
+					FERNÁNDEZ
+				{% elseif client.getReprCod.getId == 7934 %}
+					MUÑOZ
+				{% else %}
+					{{ client.getReprCod.getId }}
+				{% endif %}
+			</td>
+            <td colspan=3>{{client.getObservaciones}}</td>
+        </tr>
+        </table>
+	</div>
+</div>
+{% endblock content %}
