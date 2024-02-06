@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block content %}
+		<h1>Pagos list!</h1>
+        <table border='1'>
+        <tr>
+            <th>EMPLEADO</th>
+            <th>CANTIDAD</th>
+            <th>FECHA DE PAGO</th>
+            <th>ACTUALIZAR</th>
+        </tr>
+    {% for pago in resultados %}
+        <tr>
+            <td>{{ pago.getEmpleado.getApellidos }}</td>
+            <td>{{ pago.getPago }}</td>
+            <td>{{ pago.getFechaPago|date('Y-m-d') }}</td>
+            <td><a href='/pagos/edit/{{ pago.getId }}'>[U]</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}
+	

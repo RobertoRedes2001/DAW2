@@ -1,0 +1,24 @@
+{# templates/pagos/edit.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Editar Pago</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.fechaPago, {
+            'widget': 'single_text',
+            'html5': true,
+            'attr': {
+                'class': 'form-control', 
+                'placeholder': 'YYYY-MM-DD' 
+            }
+        }) }}
+
+        {{ form_row(form.pago) }}
+        {{ form_row(form.id) }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    {{ form_end(form) }}
+{% endblock %}
+
+

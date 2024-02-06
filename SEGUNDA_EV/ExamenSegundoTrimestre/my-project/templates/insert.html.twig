@@ -1,0 +1,26 @@
+{# templates/pagos/insert.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Insertar Nuevo Pago</h1>
+
+    {{ form_start(form) }}
+        <div>
+            {{ form_label(form.pago) }}
+            {{ form_widget(form.pago) }}
+        </div>
+
+        <div>
+            {{ form_label(form.fecha_pago) }}
+            {{ form_widget(form.fecha_pago) }}
+        </div>
+
+        <div>
+            {{ form_label(form.empleado) }}
+            {{ form_widget(form.empleado) }}
+        </div>
+
+        <button type="submit">Guardar</button>
+    {{ form_end(form) }}
+{% endblock %}

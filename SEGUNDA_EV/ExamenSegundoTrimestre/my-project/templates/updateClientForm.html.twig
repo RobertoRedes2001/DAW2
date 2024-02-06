@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+{% block content %}
+		<div id="form_container">
+			<form method="post" action="/client/updating/{{client.getId}}">
+				<div>
+					<h2>Update Client</h2>
+				</div>
+				<label for="Nombre">Name</label>
+				<div>
+					<input name="nombre" type="text" maxlength="45" size="45" value="{{ client.getNombre }}"/>
+				</div>
+
+				<label for="direc">Address</label>
+				<div>
+					<input name="direc" type="text" maxlength="40" size="40" value="{{ client.getDirec }}"/>
+				</div>
+
+				<label for="ciudad">City</label>
+				<div>
+					<input name="ciudad" type="text" maxlength="30" size="30" value="{{ client.getCiudad }}"/>
+				</div>
+
+				<label for="estado">State</label>
+				<div>
+					<input name="estado" type="text" maxlength="2" size="2" value="{{ client.getEstado }}"/>
+				</div>
+
+				<label for="codPostal">ZIP Code</label>
+				<div>
+					<input name="codPostal" type="text" maxlength="9" size="9" value="{{ client.getCodPostal }}"/>
+				</div>
+
+				<label for="area">Area</label>
+				<div>
+					<input name="area" type="number" maxlength="5" size="5" value="{{ client.getArea }}"/>
+				</div>
+
+				<label for="telefono">Telephone</label>
+				<div>
+					<input name="telefono" type="text" maxlength="9" size="9" value="{{ client.getTelefono }}"/>
+				</div>
+
+				<label for="reprCod">Contact</label>
+				<div>
+					<select name="reprCod">
+						<option value="7369" {% if client.getReprCod().getId() == 7369 %}selected{% endif %}>SÁNCHEZ</option>
+						<option value="7499" {% if client.getReprCod().getId() == 7499 %}selected{% endif %}>ARROYO</option>
+						<option value="7521" {% if client.getReprCod().getId() == 7521 %}selected{% endif %}>SALA</option>
+						<option value="7566" {% if client.getReprCod().getId() == 7566 %}selected{% endif %}>JIMÉNEZ</option>
+						<option value="7654" {% if client.getReprCod().getId() == 7654 %}selected{% endif %}>MARTÍN</option>
+						<option value="7698" {% if client.getReprCod().getId() == 7698 %}selected{% endif %}>NEGRO</option>
+						<option value="7782" {% if client.getReprCod().getId() == 7782 %}selected{% endif %}>CEREZO</option>
+						<option value="7788" {% if client.getReprCod().getId() == 7788 %}selected{% endif %}>GIL</option>
+						<option value="7839" {% if client.getReprCod().getId() == 7839 %}selected{% endif %}>REY</option>
+						<option value="7844" {% if client.getReprCod().getId() == 7844 %}selected{% endif %}>TOVAR</option>
+						<option value="7876" {% if client.getReprCod().getId() == 7876 %}selected{% endif %}>ALONSO</option>
+						<option value="7900" {% if client.getReprCod().getId() == 7900 %}selected{% endif %}>JIMENO</option>
+						<option value="7902" {% if client.getReprCod().getId() == 7902 %}selected{% endif %}>FERNÁNDEZ</option>
+						<option value="7934" {% if client.getReprCod().getId() == 7934 %}selected{% endif %}>MUÑOZ</option>
+					</select>
+				</div>
+				<label for="limiteCredito">Credit Limit</label>
+				<div>
+					<input name="limiteCredito" type="number" max="9999999.99" min="0" step=".01" value="{{ client.getLimiteCredito }}"/>
+				</div>
+				<label for="observaciones">Comments</label>
+                <div>
+                    <textarea name="observaciones" cols="50" rows="5">{{client.getObservaciones}}</textarea>
+                </div> 
+				<input type="submit" name="submit" value="Update"/>
+		</form>
+	</div>
+</div>
+{% endblock content %}		
