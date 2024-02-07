@@ -1,0 +1,18 @@
+<main class="content">
+    @if(visible){
+        <section>
+            <div class="grid">
+                @for (item of fish; track item.title) {
+                <app-post [title]="item.title" [photo]="item.photo" (data)="onClickChange($event)"></app-post>
+                }
+            </div>
+        </section>
+    }@else{
+        <div class="grid">
+            <app-article [title]="title" [photo]="photo" [description]="description" (data)="onClick($event)"></app-article>
+        </div>
+    }
+
+    <app-modal (closeModal)="onCloseModal($event)" [className]="className" [modalName]="modalName" [photoName] = "photoName"></app-modal>
+
+</main>

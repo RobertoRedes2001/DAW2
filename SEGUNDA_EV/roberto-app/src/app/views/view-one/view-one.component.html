@@ -1,16 +1,25 @@
-<!-- Para viewOne -->
-<div class="photo">
-    <div class="image-container2">
-      <img src="https://i.blogs.es/2cc78a/ordenstarwars/840_560.jpg">
-      <img src="https://www.lavanguardia.com/files/image_948_465/uploads/2020/05/04/5fa922920d3b5.png">
-    </div>
-    <span class="caption">Grupo Uno</span>
-  </div>
+<app-content 
+    [firstPhoto]="firstContent.img1" 
+    [secondPhoto]="firstContent.img2" 
+    [subtext]="firstContent.text"
+    [firstPhotoStyle]="firstContent.styleOne"
+    [secondPhotoStyle]="firstContent.styleTwo"
+    [displayClass]="firstContent.displayClass"
+    [view]="view"
+    (changeOne)="changeStyleOne(firstContent,$event)"
+    (changeTwo)="changeStyleTwo(firstContent,$event)"
+>
+</app-content>
 
-  <div class="photo">
-    <div class="image-container2">
-      <img src="https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png">
-      <img src="https://i.blogs.es/1da08b/1366_2000-9-/840_560.jpeg">
-    </div>
-    <span class="caption">Grupo Dos</span>
-  </div>
+<app-content 
+    [firstPhoto]="secondContent.img1" 
+    [secondPhoto]="secondContent.img2" 
+    [subtext]="secondContent.text"
+    [firstPhotoStyle]="secondContent.styleOne"
+    [secondPhotoStyle]="secondContent.styleTwo"
+    [displayClass]="secondContent.displayClass"
+    [view]="view"
+    (changeOne)="changeStyleOne(secondContent,$event)"
+    (changeTwo)="changeStyleTwo(secondContent,$event)"
+>
+</app-content>

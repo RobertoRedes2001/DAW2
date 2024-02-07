@@ -1,0 +1,6 @@
+<div [ngClass]="className" >
+    <div class="modal-content" [ngStyle]="{ 'background-image': 'url(' + photoName + ')' }">
+        <span class="close-button" (click)="onCloseModal()">×</span>
+        <h1>{{modalName}}</h1>
+    </div>
+</div>

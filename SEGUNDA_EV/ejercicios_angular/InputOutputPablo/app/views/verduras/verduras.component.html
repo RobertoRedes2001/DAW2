@@ -1,0 +1,14 @@
+   <main class="content">
+        <section>
+            <div class="grid">
+                @for (item of vegetables; track item.title) {
+                    <app-article [title]="item.title" [description]="item.description" [photo]="item.photo" (data)="onClick($event)"></app-article>
+                    }
+            </div>
+        </section>
+    </main>
+
+    <app-modal (closeModal)="onCloseModal($event)" [className]="className" [modalName]="modalName" [photoName] = 'photoName'></app-modal>
+
+
+
