@@ -1,41 +1,91 @@
 import { Component } from '@angular/core';
-import { ContentComponent } from '../../components/content/content.component';
-import { RickymortyService } from '../../services/rickymorty.service';
-import { Result } from '../../interfaces/rickymorty.interfaces';
+import { BallinService } from '../../services/ballin.service';
+import { Datum,Position,Conference } from '../../interfaces/ballin.interfaces';
+import { CardComponent } from '../../components/card/card.component';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-view-two',
   standalone: true,
-  imports: [ContentComponent],
+  imports: [CardComponent,ModalComponent],
   templateUrl: './view-two.component.html',
   styleUrl: './view-two.component.css'
 })
 export class ViewTwoComponent {
-  public constructor(public service : RickymortyService ){}
-  public rickormorties : Result[] = [];
-  public view : string = "viewTwo";
-  public chargeRequested : boolean = false;
-  public enriqueMortadelo = {
-    img1 : 'https://www.nosolorol.com/img/nbp/1/7/9/5/1795-large.jpg',
-    img2 : 'https://i.blogs.es/8c50c2/rick-morty/840_560.jpeg',
-    text : 'Rick and Morty',
-    styleOne : 'inline-block',
-    styleTwo : 'inline-block',
-    displayClass : 'image-container2',
+  public constructor(public service : BallinService ){}
+  public requestedData : Datum[] = [];
+  public modal = 'modal';
+  public page : number = 1;
+  public photo : string = 'https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png';
+  public maxPages : number = 53;
+  public datum: Datum = {
+    id: 0,
+    first_name: '',
+    height_feet: null,
+    height_inches: null,
+    last_name: '',
+    position: Position.Empty,
+    team: {
+        id: 0,
+        abbreviation: '',
+        city: '',
+        conference: Conference.Empty,
+        division: '',
+        full_name: '',
+        name: ''
+    },
+    weight_pounds: null
+};
+
+  public stats : string [] = [];
+
+  public viewModal = false;
+
+  public onModal(c : Datum, modal : {modal:string,viewModal:boolean}){
+    this.modal = modal.modal;
+    this.viewModal = modal.viewModal;
+    this.datum = c;
   }
 
-  public loadRick(request:string){
-    this.chargeRequested = true;
-    this.service.getResponse(request).subscribe((response)=>{
-      this.rickormorties = response.results;
-    })
+  onCloseModal(close:string){
+    this.modal = close;
+    this.viewModal = false;
   }
 
-  public loadMorty(request:string){
-    this.chargeRequested = true;
-    this.service.getResponse(request).subscribe((response)=>{
-      this.rickormorties = response.results;
-    })
+  onRequest() : void{
+    this.service.getResponse(this.page).subscribe((response) => {
+      this.requestedData = response.data;
+    });
+  }
+
+ /*  onRequestStats() : void{
+    this.service.getResponseStats(this.datum.id).subscribe((responseStats) => {
+      responseStats.data[0].
+    });
+  } */
+
+  public nextPage() : void{
+    if(this.page>=this.maxPages){
+      this.page = 1;
+      this.onRequest();
+    }else{
+      this.page++;
+      this.onRequest();
+    }
+  }
+
+  public lastPage() : void{
+    if(this.page===1){
+      this.page = this.maxPages;
+      this.onRequest();
+    }else{
+      this.page--;
+      this.onRequest();
+    }
+  }
+
+  ngOnInit(){
+    this.onRequest();
   }
 
 }

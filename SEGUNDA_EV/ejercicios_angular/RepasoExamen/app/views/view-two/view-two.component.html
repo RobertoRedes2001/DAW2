@@ -1,0 +1,21 @@
+<app-content 
+    [firstPhoto]="enriqueMortadelo.img1" 
+    [secondPhoto]="enriqueMortadelo.img2" 
+    [subtext]="enriqueMortadelo.text"
+    [firstPhotoStyle]="enriqueMortadelo.styleOne"
+    [secondPhotoStyle]="enriqueMortadelo.styleTwo"
+    [view]="view"
+    [displayClass]="enriqueMortadelo.displayClass"
+    (apiRequest)="loadRick($event)"
+>
+</app-content>
+
+@if(chargeRequested){
+    @for(profile of rickormorties; track profile){
+        <app-content 
+            [firstPhoto]="profile.image" 
+            [subtext]="profile.name"
+        >
+        </app-content>
+    }
+}

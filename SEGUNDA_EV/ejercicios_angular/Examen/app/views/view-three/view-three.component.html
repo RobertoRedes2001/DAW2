@@ -1,0 +1,31 @@
+<div style="margin-top: 30px;">
+    <div class="frutas">
+        <h4 (click)="selectVegetables()"  style="margin-right: 40px;">Verduras</h4>
+        <h4 (click)="selectFruits()">Frutas</h4>
+    </div>
+    <div class="container-view-three">
+        <div class="photos-view-three">
+            <div>
+                <img (click)="onSelect(choosed === 'Frutas' ? fruits[0] : vegetables[0])" src="{{choosed === 'Frutas' ? fruits[0].photo : vegetables[0].photo}}"
+                    style="width: 19%;">
+                <img (click)="onSelect(choosed === 'Frutas' ? fruits[1] : vegetables[1])" src="{{choosed === 'Frutas' ? fruits[1].photo : vegetables[1].photo }}"
+                    style="width: 19%;">
+                <img (click)="onSelect(choosed === 'Frutas' ? fruits[2] : vegetables[2])" src="{{choosed === 'Frutas'? fruits[2].photo : vegetables[2].photo}}"
+                    style="width: 19%;">
+                <img (click)="onSelect(choosed === 'Frutas' ? fruits[3] : vegetables[3])" src="{{choosed === 'Frutas' ? fruits[3].photo : vegetables[3].photo}}"
+                    style="width: 19%;">
+                <img (click)="onSelect(choosed === 'Frutas' ? fruits[4] : vegetables[4])" src="{{choosed === 'Frutas' ? fruits[4].photo : vegetables[4].photo }}"
+                    style="width: 19%;">
+                <img (click)="onModal()" src="{{selected.photo}}"
+                    style="width: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modal
+[name]="selected.name"
+[picture]="selected.photo"
+[modal]="modal"
+(closeModal)="onCloseModal($event)"
+></app-modal>

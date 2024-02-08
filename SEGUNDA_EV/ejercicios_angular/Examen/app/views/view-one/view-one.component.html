@@ -1,0 +1,51 @@
+<div id="page">
+
+    <section>
+        <form method="post" (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
+            <div class="answer-bank">
+                <div class="answer">
+                    <input type="text" name="name" id="name" value="{{currentSearch}}" formControlName="name" placeholder="nombre"/>
+                </div>
+                <div class="answer">
+                    <input type="submit" value="Enviar" class="primary"/>
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+    <section>
+        <div class="content">
+            <div class="grid">
+            @if(requested){
+                @for(char of requestedData; track char){
+                    <app-card
+                    [name]="char.name"
+                    [status]="char.status"
+                    [photo]="char.image"
+                    [aditionalInfo]="char.episode"
+                    (modal)="onModal(char,$event)"
+                    >
+                    </app-card>
+                }
+            }
+            </div>
+
+            <div id='render-more'>
+              <button (click)="lastPage()">ANTERIORES</button>
+              <button (click)="nextPage()">SIGUIENTES</button>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<app-modal
+[name]="character.name"
+[picture]="character.image"
+[aditionalInfo]="character.episode"
+[modal]="modal"
+(closeModal)="onCloseModal($event)"
+></app-modal>

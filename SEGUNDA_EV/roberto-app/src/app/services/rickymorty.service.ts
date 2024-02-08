@@ -8,7 +8,7 @@ import { RickyMorty } from '../interfaces/rickymorty.interfaces';
 })
 export class RickymortyService {
   constructor(public http : HttpClient) { }
-  public getResponse(name : string):Observable<RickyMorty>{
-    return this.http.get<RickyMorty>('https://rickandmortyapi.com/api/character/?name='+name)
+  public getResponse(name : string,page:number):Observable<RickyMorty>{
+    return this.http.get<RickyMorty>('https://rickandmortyapi.com/api/character/?name='+name+'&page='+page)
   }
 }

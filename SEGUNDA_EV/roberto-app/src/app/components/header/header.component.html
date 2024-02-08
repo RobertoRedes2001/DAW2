@@ -1,16 +1,5 @@
-<div class="navigation">
-    <ul>
-        <a class="{{classOne}}" (click)="onChangeViewOne()" routerLink="/view1" RouterLinkActive="active">Vista 1</a>
-        <a class="{{classTwo}}" (click)="onChangeViewTwo()" routerLink="/view2" RouterLinkActive="active">Vista 2</a>
-    </ul>
-</div>
-
-<div class="banner" [ngStyle]="{ 'background-image': 'url(' + banner[pos].image + ')' }">
-    <div class="banner-text">
-        <h2>{{banner[pos].name}}</h2>
-    </div>
-</div>
-
-<div class="content">
-    
+<div class="header">
+    <a class="question-link" routerLink="/view1" RouterLinkActive="active">Ejercicio 1</a>
+    <a class="question-link" routerLink="/view2" RouterLinkActive="active">Ejercicio 2</a>
+    <a class="question-link" routerLink="/view3" RouterLinkActive="active">Ejercicio 3</a>
 </div>

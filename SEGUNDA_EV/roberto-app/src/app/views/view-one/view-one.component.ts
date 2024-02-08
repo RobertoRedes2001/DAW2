@@ -1,61 +1,109 @@
 import { Component } from '@angular/core';
-import { ContentComponent } from '../../components/content/content.component';
+import { CardComponent } from '../../components/card/card.component';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators  } from '@angular/forms';
+import { RickymortyService } from '../../services/rickymorty.service';
+import { Result } from '../../interfaces/rickymorty.interfaces';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-view-one',
   standalone: true,
-  imports: [ContentComponent],
+  imports: [CardComponent,ReactiveFormsModule,ModalComponent],
   templateUrl: './view-one.component.html',
   styleUrl: './view-one.component.css',
 })
 export class ViewOneComponent {
-  public view : string = 'viewOne';
-  public firstContent = {
-    img1 : 'https://i.blogs.es/2cc78a/ordenstarwars/840_560.jpg',
-    img2 : 'https://www.lavanguardia.com/files/image_948_465/uploads/2020/05/04/5fa922920d3b5.png',
-    text : 'Grupo 1',
-    styleOne : 'inline-block',
-    styleTwo : 'inline-block',
-    displayClass : 'image-container2',
-  }
-
-  public secondContent = {
-    img1 : 'https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png',
-    img2 : 'https://i.blogs.es/1da08b/1366_2000-9-/840_560.jpeg',
-    text : 'Grupo 2',
-    styleOne : 'inline-block',
-    styleTwo : 'inline-block',
-    displayClass : 'image-container2',
-  }
-
-  public changeStyleOne(
-    input: {
-      img1: string;
-      img2: string;
-      text: string;
-      styleOne: string;
-      styleTwo: string;
-      displayClass: string;
+  public constructor(public service : RickymortyService ){}
+  public requestedData : Result[] = [];
+  public requested : boolean = false;
+  public modal = 'modal';
+  public page : number = 1;
+  public maxPages : number = 0;
+  public character : Result =  {
+    id: 0,
+    name: '',
+    status: '',
+    species: '',
+    type: '',
+    gender: '',
+    origin: {
+        name: '',
+        url: ''
     },
-    photo: { class: string; style: string }
-  ) {
-    input.displayClass = photo.class;
-    input.styleTwo = photo.style;
+    location: {
+        name: '',
+        url: ''
+    },
+    image: '',
+    episode: [],
+    url: '',
+    created: new Date()
+  };
+  //public episodes : string[] = [];
+  public viewModal = false;
+  reactiveForm = new FormGroup({
+    name: new FormControl('', { nonNullable: true })
+  });
+  public currentSearch = '';
+
+  public onModal(c : Result, modal : {modal:string,viewModal:boolean}){
+    this.modal = modal.modal;
+    this.viewModal = modal.viewModal;
+    this.character = c;
   }
 
-  public changeStyleTwo(
-    input: {
-      img1: string;
-      img2: string;
-      text: string;
-      styleOne: string;
-      styleTwo: string;
-      displayClass: string;
-    },
-    photo: { class: string; style: string }
-  ) {
-    input.displayClass = photo.class;
-    input.styleOne = photo.style;
+  onCloseModal(close:string){
+    this.modal = close;
+    this.viewModal = false;
   }
+
+  public onSubmit(): void {
+    this.requested = true;
+    
+    if(this.currentSearch != this.reactiveForm.getRawValue().name){
+      this.currentSearch = this.reactiveForm.getRawValue().name;
+      this.page = 1;
+      this.onRequest();
+    }
+   
+    this.reactiveForm.reset();
+  }
+
+  onRequest() : void{
+    this.service.getResponse(this.currentSearch,this.page).subscribe((response) => {
+      this.requestedData = response.results;
+      this.maxPages = response.info.pages;
+     /*  this.requestedData.forEach(result => {
+        this.getEpisodeNames(result); // Llama a la función para cada resultado
+      }); */
+    });
+  }
+
+  public nextPage() : void{
+    if(this.page>this.maxPages){
+      this.page = 1;
+      this.onRequest();
+    }else{
+      this.page++;
+      this.onRequest();
+    }
+  }
+
+  public lastPage() : void{
+    if(this.page===1){
+      this.page = this.maxPages;
+      this.onRequest();
+    }else{
+      this.page--;
+      this.onRequest();
+    }
+  }
+ /*  private getEpisodeNames(result: Result): void {
+    result.episode.forEach(episode => {
+      
+      this.episodes.push(episode.name);
+    });
+  } */
+
 
 }

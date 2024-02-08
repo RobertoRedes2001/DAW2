@@ -1,0 +1,30 @@
+<div id="page">
+    <section>
+        <div class="content">
+            <div class="grid">
+                @for(ballin of requestedData; track ballin){
+                    <app-card
+                    [name]="ballin.first_name+' '+ballin.last_name"
+                    [status]="ballin.id.toString()"
+                    [photo]="photo"
+                    (modal)="onModal(ballin,$event)"
+                    >
+                    </app-card>
+                }
+            </div>
+
+            <div id='render-more'>
+              <button (click)="lastPage()">ANTERIORES</button>
+              <button (click)="nextPage()">SIGUIENTES</button>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<app-modal
+[name]="datum.first_name+' '+datum.last_name"
+[picture]="photo"
+[modal]="modal"
+(closeModal)="onCloseModal($event)"
+></app-modal>

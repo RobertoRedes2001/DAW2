@@ -1,0 +1,25 @@
+<app-content 
+    [firstPhoto]="firstContent.img1" 
+    [secondPhoto]="firstContent.img2" 
+    [subtext]="firstContent.text"
+    [firstPhotoStyle]="firstContent.styleOne"
+    [secondPhotoStyle]="firstContent.styleTwo"
+    [displayClass]="firstContent.displayClass"
+    [view]="view"
+    (changeOne)="changeStyleOne(firstContent,$event)"
+    (changeTwo)="changeStyleTwo(firstContent,$event)"
+>
+</app-content>
+
+<app-content 
+    [firstPhoto]="secondContent.img1" 
+    [secondPhoto]="secondContent.img2" 
+    [subtext]="secondContent.text"
+    [firstPhotoStyle]="secondContent.styleOne"
+    [secondPhotoStyle]="secondContent.styleTwo"
+    [displayClass]="secondContent.displayClass"
+    [view]="view"
+    (changeOne)="changeStyleOne(secondContent,$event)"
+    (changeTwo)="changeStyleTwo(secondContent,$event)"
+>
+</app-content>

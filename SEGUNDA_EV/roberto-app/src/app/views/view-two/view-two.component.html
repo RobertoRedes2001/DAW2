@@ -1,21 +1,30 @@
-<app-content 
-    [firstPhoto]="enriqueMortadelo.img1" 
-    [secondPhoto]="enriqueMortadelo.img2" 
-    [subtext]="enriqueMortadelo.text"
-    [firstPhotoStyle]="enriqueMortadelo.styleOne"
-    [secondPhotoStyle]="enriqueMortadelo.styleTwo"
-    [view]="view"
-    [displayClass]="enriqueMortadelo.displayClass"
-    (apiRequest)="loadRick($event)"
->
-</app-content>
+<div id="page">
+    <section>
+        <div class="content">
+            <div class="grid">
+                @for(ballin of requestedData; track ballin){
+                    <app-card
+                    [name]="ballin.first_name+' '+ballin.last_name"
+                    [status]="ballin.id.toString()"
+                    [photo]="photo"
+                    (modal)="onModal(ballin,$event)"
+                    >
+                    </app-card>
+                }
+            </div>
 
-@if(chargeRequested){
-    @for(profile of rickormorties; track profile){
-        <app-content 
-            [firstPhoto]="profile.image" 
-            [subtext]="profile.name"
-        >
-        </app-content>
-    }
-}
+            <div id='render-more'>
+              <button (click)="lastPage()">ANTERIORES</button>
+              <button (click)="nextPage()">SIGUIENTES</button>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<app-modal
+[name]="datum.first_name+' '+datum.last_name"
+[picture]="photo"
+[modal]="modal"
+(closeModal)="onCloseModal($event)"
+></app-modal>
